@@ -273,11 +273,11 @@ namespace wsEjemplo
 
                         var idcarga = insert.carga(odt);
                         var idar = insert.ar(odt, idcarga, idservicio, idfalla, idproveedor, idsegmento, idproducto);
-
+                        /*
                         if (!odt.AfilAmex.Equals("") && !odt.IdAmex.Equals(""))
                         {
                             insert.terminalAmex(idar, odt.IdAmex, odt.AfilAmex);
-                        }
+                        }*/
 
                         updates.carga(idcarga);
                         procedures.ingresarServicio(idcarga);

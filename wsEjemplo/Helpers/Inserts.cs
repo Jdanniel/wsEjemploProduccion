@@ -36,19 +36,21 @@ namespace wsEjemplo.Helpers
             //newODT.ID_PROYECTO = odt.Proyecto;
             newODT.BITACORA = odt.Descripcion;
             newODT.CAJA = odt.IdCaja;
-            newODT.CODIGO_INTERVENCION = odt.TelSucursal;
+            newODT.CODIGO_INTERVENCION = odt.Sucursal;
             newODT.COLONIA = odt.Colonia;
             newODT.CORREO_EJECUTIVO = odt.EmailEjecutivo;
             newODT.CP = odt.Cp;
             newODT.DESC_EQUIPO = odt.ModeloTPV;
             newODT.DESC_NEGOCIO = odt.Comercio;
             newODT.DIRECCION = odt.Domicilio;
-            newODT.DIRECCION_ALTERNA_COMERCIO = odt.ReferenciaUbicacion;
+            newODT.OTORGANTE_VOBO_TERCEROS = odt.ReferenciaUbicacion;
             newODT.ESTADO = odt.Estado;
+            newODT.FALLA_ENCONTRADA = odt.Rfc;
             newODT.FEC_ALTA = DateTime.Now;
             newODT.FEC_CONVENIO = DateTime.Now;
             newODT.FEC_INICIO = Convert.ToDateTime(odt.FechaEnvio);
             newODT.FOLIO_TELECARGA = odt.FolioTelecarga == "" ? 0 : Convert.ToInt32(odt.FolioTelecarga);
+            newODT.EQUIPO = odt.FolioTelecarga;
             newODT.ID_CARGA = idcarga;
             newODT.ID_CLIENTE = 4;
             newODT.ID_FALLA = idfalla;
@@ -91,10 +93,11 @@ namespace wsEjemplo.Helpers
             {
                 newODT.ID_PROYECTO = 0;
             }
+            /*
             if (!odt.AfilAmex.Equals("") && !odt.IdAmex.Equals(""))
             {
                 newODT.TERMINAL_AMEX = 1;
-            }
+            }*/
 
             contex_.BD_AR.InsertOnSubmit(newODT);
             contex_.SubmitChanges();
