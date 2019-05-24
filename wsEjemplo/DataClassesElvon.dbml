@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ELAVON-TEST" Class="DataClassesElvonDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.5.50;Initial Catalog=ELAVON-TEST;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ELAVON_TESTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BD_AR" Member="BD_AR">
+    <Type Name="BD_AR">
+      <Column Name="ID_AR" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_CARGA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NO_AR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONCEPTO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DESC_CORTA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SINTOMA" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="BITACORA" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="NO_AFILIACION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TELEFONO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DESC_NEGOCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DIRECCION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="COLONIA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="POBLACION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ESTADO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="NOTAS_REMEDY" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EQUIPO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DESC_EQUIPO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SEGMENTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NO_SERIE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NO_INVENTARIO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FEC_INICIO" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FEC_CONVENIO" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="TIPO_SERVICIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TIPO_FALLA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_SEGMENTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_SERVICIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_FALLA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HORAS_GARANTIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRECIO_EXITO" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PRECIO" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_NEGOCIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ESTADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_REGION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ZONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TIPO_PLAZA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PLAZA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TECNICO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_TECNICO_FORANEO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_DUPLICADA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_INGRESO_MANUAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ACTUALIZACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_INSTALACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SUSTITUCION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_RETIRO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FEC_ATENCION" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FEC_GARANTIA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FEC_CIERRE" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="IS_GARANTIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HORAS_ATENCION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA_HORAS_ATENCION" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="MINS_DOWNTIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_USUARIO_CIERRE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CAUSA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_SOLUCION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FOLIO_TAS" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="OTORGANTE_TAS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="NO_EQUIPO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FEC_LLEGADA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FEC_LLEGADA_TERCEROS" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FOLIO_SERVICIO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FEC_INI_INGENIERO" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FEC_FIN_INGENIERO" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="OTORGANTE_VOBO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="OTORGANTE_VOBO_TERCEROS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="INTENSIDAD_SENIAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IS_SIM_REMPLAZADA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FALLA_ENCONTRADA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="OTORGANTE_VOBO_CLIENTE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MOTIVO_COBRO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="IS_SOPORTE_CLIENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_BOLETIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTORGANTE_SOPORTE_CLIENTE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DESCRIPCION_TRABAJO" Type="System.String" DbType="VarChar(3000)" CanBeNull="true" />
+      <Column Name="ATIENDE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="AUTORIZADOR_RECHAZO" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ID_CAUSA_RECHAZO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CAUSA_RECHAZO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CAUSA_CANCELACION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="NO_SERIE_FALLA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NO_INVENTARIO_FALLA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_MODELO_FALLA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_EXITO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ATTACH1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ATTACH2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_REPORTE_CIERRE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PROYECTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_MODELO_REQ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PRODUCTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TIPO_SERVICIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TIPO_PRECIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_MONEDA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TIPO_COBRO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_COBRABLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_UNIDAD_ATENDIDA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_REGLA_STATUS_AR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA_REGLA_STATUS_AR" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ID_STATUS_AR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_STATUS_AR" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CADENA_CIERRE_ESCRITA" Type="System.String" DbType="VarChar(3000)" CanBeNull="true" />
+      <Column Name="CODIGO_INTERVENCION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_TIPO_FALLA_ENCONTRADA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_RETIPIFICADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MOTIVO_RETIPIFICADO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IS_FOLLOW_DISPATCH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_DISPATCHER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIGITO_VERIFICADOR" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NO_REINCIDENCIAS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PROGRAMADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NO_DIAS_LIBERACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_RESPONSABLE_CANCELACION_PROGRAMADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INSUMOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RESPONSABLE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CAJA" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ID_ESPECIF_TIPO_FALLA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VOLTAJE_NEUTRO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VOLTAJE_TIERRA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VOLTAJE_TIERRA_NEUTRO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FOLIO_VALIDACION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FOLIO_TIR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_ESPECIFICA_CAUSA_RECHAZO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DURACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TRASLADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_STATUS_VALIDACION_PREFACTURACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_DESCRIPCION_TRABAJO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_STATUS_REASON_CODES" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="due_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CADENA_CIERRE" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NO_SIM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CLAVE_RECHAZO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IS_INTERFAZ_BANCOMER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CONCEPTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_EQUIPO_CLIENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NOT_VIATICOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_LOCAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_CARGA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FEC_ATENCION_ORIGINAL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HORAS_GARANTIA_WINCOR" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="HORAS_ATENCION_WINCOR" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="IS_PDF" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CONECTIVIDAD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_APLICATIVO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INTENTO_CONTACTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CALIFICA_CONTACTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_INTENTO_1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FEC_INTENTO_2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FEC_INTENTO_3" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FEC_INTENTO_4" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_CALIFICA_INTENTO_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CALIFICA_INTENTO_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CALIFICA_INTENTO_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CALIFICA_INTENTO_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FOLIO_TELECARGA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TIPO_EQUIPO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CORREO_EJECUTIVO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="TELEFONO_COMERCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PERSONA_ATENDERA_COMERCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PROVEEDOR_ATENDERA_COMERCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="HORA_ATENCION_INI" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HORA_ATENCION_FIN" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="TERMINAL_AMEX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AGREGAR_DIAS_ATENCION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIRECCION_ALTERNA_COMERCIO" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ID_PROVEEDOR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_AR_ORIGINAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="C_STATUS_AR_BD_AR" Member="C_STATUS_AR" ThisKey="ID_STATUS_AR" OtherKey="ID_STATUS_AR" Type="C_STATUS_AR" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BD_CARGAS" Member="BD_CARGAS">
+    <Type Name="BD_CARGAS">
+      <Column Name="ID_CARGA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FECHA" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ID_ATTACH_ARCHIVO1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_STATUS_CARGA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="BD_CARGAS_BD_NEGOCIOS" Member="BD_NEGOCIOS" ThisKey="ID_CARGA" OtherKey="ID_CARGA_ALTA" Type="BD_NEGOCIOS" />
+      <Association Name="BD_CARGAS_BD_NEGOCIOS1" Member="BD_NEGOCIOS1" ThisKey="ID_CARGA" OtherKey="ID_CARGA_STATUS" Type="BD_NEGOCIOS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BD_AR_TERMINAL_ASOCIADA_AMEX" Member="BD_AR_TERMINAL_ASOCIADA_AMEX">
+    <Type Name="BD_AR_TERMINAL_ASOCIADA_AMEX">
+      <Column Name="ID_AR_TERMINAL_ASOCIADA_AMEX" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_AR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TERMINAL_AMEX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AFILIACION_TERMINAL_AMEX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BD_BITACORA_AR" Member="BD_BITACORA_AR">
+    <Type Name="BD_BITACORA_AR">
+      <Column Name="ID_BITACORA_AR" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_AR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_STATUS_AR_INI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_STATUS_AR_FIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COMENTARIO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IS_PDA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CAMBIO_VALIDO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_SERVICIOS" Member="C_SERVICIOS">
+    <Type Name="C_SERVICIOS">
+      <Column Name="ID_SERVICIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_TIPO_SERVICIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_MONEDA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TIPO_PRECIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DESC_SERVICIO" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CODIGO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MIN_PROMEDIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_INSUMOS_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CAUSA_SOLUCION_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CAUSA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SOLUCION_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_TAS_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_OTORGANTE_TAS_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_NO_EQUIPO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_NO_SERIE_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_NO_INVENTARIO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ID_MODELO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FEC_LLEGADA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FEC_LLEGADA_TERCEROS_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FOLIO_SERVICIO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FEC_INI_INGENIERO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FEC_FIN_INGENIERO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_OTORGANTE_VOBO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_OTORGANTE_VOBO_TERCEROS_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_INTENSIDAD_SENIAL_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_SIM_REMPLAZADA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FOLIO_SERVICIO_RECHAZO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_OTORGANTE_VOBO_RECHAZO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FALLA_ENCONTRADA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_OTORGANTE_VOBO_CLIENTE_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_MOTIVO_COBRO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_SOPORTE_CLIENTE_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_OTORGANTE_SOPORTE_CLIENTE_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_BOLETIN_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CADENA_CIERRE_ESCRITA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_DOWNTIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CODIGO_INTERVENCION_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LENGTH_CODIGO_INTERVENCION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ID_TIPO_FALLA_ENCONTRADA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IDENTIFICA_AGENDADOS_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_DESCRIPCION_TRABAJO_RECHAZO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CIERRE_PDA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_INSTALACION_LLAVES_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_STATUS_INSTALACION_LLAVES_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_NOMBRE_PERSONA_LLAVES_A_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_NOMBRE_PERSONA_LLAVES_B_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_TIPO_PW_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_TIPO_TECLADO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_VERSION_TECLADO_EPP_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PROCESADOR_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_VELOCIDAD_PROCESADOR_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_MEMORIA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CAPACIDAD_DISCO_DURO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_MONITOR_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_LECTOR_TARJETA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_OTORGANTE_VOBO_ING_PARTNER_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FEC_LLEGADA_ING_PARTNER_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_REPORTE_SERVICIO_PARTNER_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_VALIDACION_ALARMAS_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_INSTALACION_PLACA_FRONTAL_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_INSTALACION_PLACA_LATERAL_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_BLINDAJE_TUERCA_SEGURIDAD_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_2_TAQUETES_ADICIONALES_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_SUSTITUCION_4_TUERCAS_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_IS_FOTOGRAFIAS_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_MULTIPLE_TASK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PREFACTURACION_IS_COBRABLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PREFACTURACION_IS_RETIPIFICADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PREFACTURACION_AGENDADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="IS_TIPO_LLAVE_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_DV_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ALERT_REINCIDENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_REPORT_REINCIDENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_APLICACION_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_VERSION_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CAJA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REQUISITOS_SERVICIO" Type="System.String" DbType="VarChar(400)" CanBeNull="true" />
+      <Column Name="IS_LECTURA_VOLTAJE_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FOLIO_VALIDACION_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FOLIO_TIR_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ESPECIFICA_TIPO_FALLA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ID_CAUSA_RECHAZO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ESPECIFICA_CAUSA_RECHAZO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MIN_TABLERO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_DESC_TRABAJO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_DESC_TRABAJO_CATALOGO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CATEGORIA_VALIDA_DISPOSITIVOS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="request_type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IS_XML_ELAVON" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isWarrantyDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isCourtSchedule" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ASIGNACION_AUTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="needNoSim" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="needClaveRechazo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdARNeedNOcheckup" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdARNeedFile" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdARReopen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FALLA_ENCONTRADA_CATALOGO_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_HORARIO_GARANTIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_MINUTOS_GARANTIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KIT_INSUMO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NEED_KIT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_EMAIL_SERVICE_CHARGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_REGLA_DUPLICADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PROYECTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NO_DIAS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_FALLAS" Member="C_FALLAS">
+    <Type Name="C_FALLAS">
+      <Column Name="ID_FALLA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DESC_FALLA" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CODIGO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IS_DOWNTIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TIPO_FALLA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_PROVEEDORES_USUARIOS" Member="C_PROVEEDORES_USUARIOS">
+    <Type Name="C_PROVEEDORES_USUARIOS">
+      <Column Name="ID_PROVEEDOR_USUARIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DESC_PROVEEDOR_USUARIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_PRODUCTOS_NEGOCIOS" Member="C_PRODUCTOS_NEGOCIOS">
+    <Type Name="C_PRODUCTOS_NEGOCIOS">
+      <Column Name="ID_PRODUCTO_NEGOCIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DESC_PRODUCTO_NEGOCIO" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_CLIENTES" Member="C_CLIENTES">
+    <Type Name="C_CLIENTES">
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_PRODUCTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DESC_CLIENTE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="POR_RECHAZO" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="IS_REPARACIONES" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ID_REQ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_LAB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_AR_UPDATES_NEGOCIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_NUMERIC_NO_AFILIACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_NUMERIC_NO_AR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_REPORTE_AR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_VISITA_COBRABLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SINGLE_MOV_INV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_UNIDAD_ATENDIDA_REQUIRED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_UPTIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POR_UPTIME" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_TIPO_CALCULO_UPTIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_WINCOR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_INTERFAZ_SANTANDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CADENA_WINCOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DOC_TIR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IS_RETIPIFICADOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PREFACTURACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ACCESS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CENTRO_COSTOS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHAR_CODIGO_INTERVENCION" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="IS_PENDIENTE_PARTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FACTURACION_AUTOMATICA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SEGMENTO_DELIMITADOR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CIERRE_MASIVO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ASIGNACION_MASIVA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_AR_UNICO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_3_X_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_TIME_NEEDED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_VALIDA_TIR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ELAVON" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ASIGNACION_AUTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FACTURACION_IGUALA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PRECIO_DOBLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ONE_UNIDAD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FEC_GARANTIA_CHANGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_RETORNO_ACCESORIOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SUSTITUCION_NO_NEEDED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PAGO_IGUALA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PAGO_EVENTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NO_POLITICA_VIATICOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_WINCOR_TIEMPO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SEND_HISTORY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_MODIFIED_AR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_EMAIL_SERVICE_CHARGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="is_mod_fec_cita" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ADD_REPLICATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FEC_INICIO_DEFAULT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BD_NEGOCIOS" Member="BD_NEGOCIOS">
+    <Type Name="BD_NEGOCIOS">
+      <Column Name="ID_NEGOCIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_REGION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ZONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_SEGMENTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DESC_NEGOCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="NO_AFILIACION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TELEFONO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DIRECCION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="COLONIA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="POBLACION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ESTADO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ID_ESTADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CP" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="ID_HORARIO_UPTIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_HORARIO_ACCESO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CARGA_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CARGA_STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LATITUD" Type="System.Decimal" DbType="Decimal(20,15)" CanBeNull="true" />
+      <Column Name="LONGITUD" Type="System.Decimal" DbType="Decimal(20,15)" CanBeNull="true" />
+      <Column Name="GRADO_ERROR" Type="System.Decimal" DbType="Decimal(20,10)" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ID_USUARIO_UPDATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_UPDATE" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PRECIO" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_TIPO_COBRO_NEGOCIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_MONEDA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RAZON_SOCIAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="NOMBRE_FISCAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="RFC_FISCAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CALLE_NUM_FISCAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CP_FISCAL" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="COLONIA_FISCAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="POBLACION_FISCAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ID_ESTADO_FISCAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="FEC_ALTA_IGUALA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FEC_BAJA_IGUALA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="APROXIMADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CORREO_EJECUTIVO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="BD_CARGAS_BD_NEGOCIOS" Member="BD_CARGAS" ThisKey="ID_CARGA_ALTA" OtherKey="ID_CARGA" Type="BD_CARGAS" IsForeignKey="true" />
+      <Association Name="BD_CARGAS_BD_NEGOCIOS1" Member="BD_CARGAS1" ThisKey="ID_CARGA_STATUS" OtherKey="ID_CARGA" Type="BD_CARGAS" IsForeignKey="true" />
+      <Association Name="SEPOMEX_ESTADOS_BD_NEGOCIOS" Member="SEPOMEX_ESTADOS" ThisKey="ID_ESTADO" OtherKey="ID_ESTADO" Type="SEPOMEX_ESTADOS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_STATUS_AR" Member="C_STATUS_AR">
+    <Type Name="C_STATUS_AR">
+      <Column Name="ID_STATUS_AR" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DESC_STATUS_AR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ORDEN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TIPO_DOWNTIME_TRIGGER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_MOV_INV_ALLOWED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SEARCH_MODULE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SEARCH_MODULE_CHECKED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CONTROL_MODULE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ABIERTA_MODULE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ABIERTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CERRADA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SOLICITUD_ALMACEN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SOLICITUD_VIATICOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SOLICITUD_AGENDADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_VISITA_AGENDADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SOPORTE_TECNICO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_ABIERTA_FREEZE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_TABLERO_ANIEJOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_BB_NUEVAS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_BB_ABIERTAS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_BB_CERRADAS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_BB_PENDIENTES" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IS_ASIGNACION_TEMPORAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CARGA_TRABAJO_TECNICO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_PENDIENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_REASIGNACION_TECNICO_HORARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CIERRE_MASIVO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="request_status" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="IS_DESVIACION_TEMPORAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_DESVIACION_NEEDED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_FEC_GARANTIA_CHANGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_DESVIACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_DESVIACION_DEFAULT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="C_STATUS_AR_BD_AR" Member="BD_AR" ThisKey="ID_STATUS_AR" OtherKey="ID_STATUS_AR" Type="BD_AR" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BD_ONBASE_INBOX" Member="BD_ONBASE_INBOX">
+    <Type Name="BD_ONBASE_INBOX">
+      <Column Name="ID_ONBASE_INBOX" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AFILAMEX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AFILIACION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ARODT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CANAL" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CARGA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CODIGOPRODUCTO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="COLONIA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="COMERCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CONECTIVIDAD" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CONTACTO1" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CONTACTO2" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CONTACTOCOMERCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CP" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DIASATENCION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DOMICILIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EJECUTIVOKA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EJECUTIVOSUCURSAL" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EMAILEJECUTIVO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EMAILEJECUTIVOKA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EMAILRESPUESTA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EMAILSERV" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ESTADO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FECHAENVIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FOLIOTELECARGA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="HORARIOATENCION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="IDAMEX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IDCAJA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MCC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MODELOTPV" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="NUMROLLOS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="OBSERVACION" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="POBLACION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PREODT" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PRODUCTO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PROVEEDOR" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PROYECTO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="RAZONSOCIAL" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="REFERENCIAUBICACION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="RFC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUBTIPOSERVICIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SUCURSAL" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="TELEFONO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TELEJECUTIVO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TELSUCURSAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TIPOSERVICIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BD_ONBASE_INBOX_CONFIRMACION" Member="BD_ONBASE_INBOX_CONFIRMACION">
+    <Type Name="BD_ONBASE_INBOX_CONFIRMACION">
+      <Column Name="ID_ONBASE_INBOX_CONFIRMACION" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AFILIACION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CANAL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="COLONIA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CONECTIVIDAD" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CONTACTO1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CONTACTO2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CONTACTOCOMERCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DIASATENCION" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="EJECUTIVOKA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="EJECUTIVOSUCURSAL" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="EMAILEJECUTIVOKA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="EMAILSERV" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ESTADO" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FOLIOTELECARGA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HORARIOATENCION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IDCAJA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MCC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MODELOTPV" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="POBLACION" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PREODT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PRODUCTO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PROVEEDOR" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PROYECTO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="REFERENCIAUBICACION" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUCURSAL" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SINTOMA" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TELEFONO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TELEJECUTIVO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TELSUCURSAL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BD_AR_LOG_WS" Member="BD_AR_LOG_WS">
+    <Type Name="BD_AR_LOG_WS">
+      <Column Name="ID_AR_LOG_WS" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NO_AR" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ESTATUS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ERROR" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SEPOMEX" Member="SEPOMEX">
+    <Type Name="SEPOMEX">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="d_asenta" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="d_mnpio" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="d_estado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="d_ciudad" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="d_CP" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ID_TIPO_LOCALIDAD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SEPOMEX_ESTADOS" Member="SEPOMEX_ESTADOS">
+    <Type Name="SEPOMEX_ESTADOS">
+      <Column Name="ID_ESTADO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ESTADO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="SEPOMEX_ESTADOS_BD_NEGOCIOS" Member="BD_NEGOCIOS" ThisKey="ID_ESTADO" OtherKey="ID_ESTADO" Type="BD_NEGOCIOS" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SP_INGRESAR_ARCHIVO1" Method="SP_INGRESAR_ARCHIVO1">
+    <Parameter Name="ID_CARGA" Parameter="iD_CARGA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_USUARIO_ALTA" Parameter="iD_USUARIO_ALTA" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_INGRESAR_ARCHIVO1Result">
+      <Column Name="VALIDACION" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_LIBERAR_CARGA" Method="SP_LIBERAR_CARGA">
+    <Parameter Name="ID_CARGA" Parameter="iD_CARGA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_USUARIO_ALTA" Parameter="iD_USUARIO_ALTA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
