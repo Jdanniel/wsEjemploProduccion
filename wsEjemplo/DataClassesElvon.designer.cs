@@ -75,6 +75,9 @@ namespace wsEjemplo
     partial void InsertSEPOMEX_ESTADOS(SEPOMEX_ESTADOS instance);
     partial void UpdateSEPOMEX_ESTADOS(SEPOMEX_ESTADOS instance);
     partial void DeleteSEPOMEX_ESTADOS(SEPOMEX_ESTADOS instance);
+    partial void InsertBD_EQUIVALENCIA_ESTADO(BD_EQUIVALENCIA_ESTADO instance);
+    partial void UpdateBD_EQUIVALENCIA_ESTADO(BD_EQUIVALENCIA_ESTADO instance);
+    partial void DeleteBD_EQUIVALENCIA_ESTADO(BD_EQUIVALENCIA_ESTADO instance);
     #endregion
 		
 		public DataClassesElvonDataContext() : 
@@ -232,6 +235,14 @@ namespace wsEjemplo
 			get
 			{
 				return this.GetTable<SEPOMEX_ESTADOS>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BD_EQUIVALENCIA_ESTADO> BD_EQUIVALENCIA_ESTADO
+		{
+			get
+			{
+				return this.GetTable<BD_EQUIVALENCIA_ESTADO>();
 			}
 		}
 		
@@ -14164,6 +14175,164 @@ namespace wsEjemplo
 		{
 			this.SendPropertyChanging();
 			entity.SEPOMEX_ESTADOS = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BD_EQUIVALENCIA_ESTADO")]
+	public partial class BD_EQUIVALENCIA_ESTADO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_EQUIVALENCIA_ESTADO;
+		
+		private string _DESC_ESTADO;
+		
+		private string _DESC_ESTADO_EQUIVALENCIA;
+		
+		private System.Nullable<System.DateTime> _FEC_ALTA;
+		
+		private System.Nullable<int> _ID_USUARIO_ALTA;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_EQUIVALENCIA_ESTADOChanging(int value);
+    partial void OnID_EQUIVALENCIA_ESTADOChanged();
+    partial void OnDESC_ESTADOChanging(string value);
+    partial void OnDESC_ESTADOChanged();
+    partial void OnDESC_ESTADO_EQUIVALENCIAChanging(string value);
+    partial void OnDESC_ESTADO_EQUIVALENCIAChanged();
+    partial void OnFEC_ALTAChanging(System.Nullable<System.DateTime> value);
+    partial void OnFEC_ALTAChanged();
+    partial void OnID_USUARIO_ALTAChanging(System.Nullable<int> value);
+    partial void OnID_USUARIO_ALTAChanged();
+    #endregion
+		
+		public BD_EQUIVALENCIA_ESTADO()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_EQUIVALENCIA_ESTADO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_EQUIVALENCIA_ESTADO
+		{
+			get
+			{
+				return this._ID_EQUIVALENCIA_ESTADO;
+			}
+			set
+			{
+				if ((this._ID_EQUIVALENCIA_ESTADO != value))
+				{
+					this.OnID_EQUIVALENCIA_ESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._ID_EQUIVALENCIA_ESTADO = value;
+					this.SendPropertyChanged("ID_EQUIVALENCIA_ESTADO");
+					this.OnID_EQUIVALENCIA_ESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_ESTADO", DbType="VarChar(255)")]
+		public string DESC_ESTADO
+		{
+			get
+			{
+				return this._DESC_ESTADO;
+			}
+			set
+			{
+				if ((this._DESC_ESTADO != value))
+				{
+					this.OnDESC_ESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._DESC_ESTADO = value;
+					this.SendPropertyChanged("DESC_ESTADO");
+					this.OnDESC_ESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_ESTADO_EQUIVALENCIA", DbType="VarChar(255)")]
+		public string DESC_ESTADO_EQUIVALENCIA
+		{
+			get
+			{
+				return this._DESC_ESTADO_EQUIVALENCIA;
+			}
+			set
+			{
+				if ((this._DESC_ESTADO_EQUIVALENCIA != value))
+				{
+					this.OnDESC_ESTADO_EQUIVALENCIAChanging(value);
+					this.SendPropertyChanging();
+					this._DESC_ESTADO_EQUIVALENCIA = value;
+					this.SendPropertyChanged("DESC_ESTADO_EQUIVALENCIA");
+					this.OnDESC_ESTADO_EQUIVALENCIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_ALTA
+		{
+			get
+			{
+				return this._FEC_ALTA;
+			}
+			set
+			{
+				if ((this._FEC_ALTA != value))
+				{
+					this.OnFEC_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._FEC_ALTA = value;
+					this.SendPropertyChanged("FEC_ALTA");
+					this.OnFEC_ALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_USUARIO_ALTA", DbType="Int")]
+		public System.Nullable<int> ID_USUARIO_ALTA
+		{
+			get
+			{
+				return this._ID_USUARIO_ALTA;
+			}
+			set
+			{
+				if ((this._ID_USUARIO_ALTA != value))
+				{
+					this.OnID_USUARIO_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._ID_USUARIO_ALTA = value;
+					this.SendPropertyChanged("ID_USUARIO_ALTA");
+					this.OnID_USUARIO_ALTAChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

@@ -126,5 +126,11 @@
         <classShapeMoniker Id="425eb4bc-594a-4b77-b40a-5479a59583fc" />
       </nodes>
     </associationConnector>
+    <classShape Id="cd4f8806-8d87-4ec0-bf08-7c360265a76a" isExpanded="false" absoluteBounds="7.125, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/DataClassesElvonDataContext/BD_EQUIVALENCIA_ESTADO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4b47e64c-ed5b-4ef2-9ad2-2f93714d4874" absoluteBounds="7.1400000000000006, 2.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

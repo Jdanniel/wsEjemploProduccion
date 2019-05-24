@@ -329,9 +329,17 @@ namespace wsEjemplo
                 }
                 if (sepomex != request.Estado)
                 {
-                    mensaje = "El CP no coincide con el estado";
-                    insert.logws(request.PreOdt, "ERROR", mensaje);
-                    return mensaje;
+                    /*
+                    var existeEstado = (from A in contex_.BD_EQUIVALENCIA_ESTADO where A.DESC_ESTADO == request.Estado select A.DESC_ESTADO_EQUIVALENCIA).FirstOrDefault();
+                    if(existeEstado == "")
+                    {*/
+                        mensaje = "El CP no coincide con el estado";
+                        insert.logws(request.PreOdt, "ERROR", mensaje);
+                        return mensaje;
+                    /*
+                    }
+                    request.Estado = existeEstado;
+                    */
                 }
 
                 var ar = (from a in contex_.BD_AR where a.NO_AR == request.PreOdt && a.ID_STATUS_AR == 32 select a).FirstOrDefault();
@@ -473,6 +481,7 @@ namespace wsEjemplo
                 ar.MOTIVO_RETIPIFICADO = request.EmailServ;
                 ar.DIRECCION_ALTERNA_COMERCIO = request.ReferenciaUbicacion;
                 ar.DESC_EQUIPO = request.ModeloTPV;
+                ar.FEC_INICIO = DateTime.Now;
                 if (request.Proyecto.ToUpper().Equals("SI") || request.Proyecto.ToUpper().Equals("SÍ"))
                 {
                     ar.ID_PROYECTO = 1;
@@ -496,7 +505,7 @@ namespace wsEjemplo
                 contex_.SubmitChanges();
                 var idar = ar.ID_AR;
                 update.arStatus(idar, 3);
-                insert.bitacoraAr(idar, 31, 3, "Solicitud de servicio Asignada");
+                insert.bitacoraAr(idar, 32, 3, "Solicitud de servicio Asignada");
 
                 mensaje = "ODT REGISTRADA:"+ar.NO_AR;
                 val = "EXITO CONFIRMACION";

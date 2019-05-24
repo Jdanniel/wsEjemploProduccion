@@ -56,7 +56,7 @@ namespace wsEjemplo.Helpers
             newODT.ID_FALLA = idfalla;
             newODT.ID_PRODUCTO = idproducto;
             newODT.ID_PROVEEDOR = idproveedor;
-            newODT.ID_SEGMENTO = idsegmento;
+            newODT.ID_SEGMENTO = 476;
             newODT.ID_SERVICIO = idservicio;
             newODT.ID_STATUS_AR = 1;
             newODT.ID_TECNICO = 67;
@@ -77,7 +77,7 @@ namespace wsEjemplo.Helpers
             newODT.OTORGANTE_SOPORTE_CLIENTE = odt.EjecutivoSucursal;
             newODT.OTORGANTE_VOBO_TERCEROS = odt.EmailServ;
             newODT.POBLACION = odt.Poblacion;
-            newODT.SEGMENTO = idsegmento;
+            newODT.SEGMENTO = 476;
             newODT.SINTOMA = odt.Observacion;
             newODT.STATUS = "PENDIENTE";
             newODT.TELEFONO = odt.Telefono;
