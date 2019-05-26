@@ -627,6 +627,20 @@
       <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.C_CONECTIVIDAD" Member="C_CONECTIVIDAD">
+    <Type Name="C_CONECTIVIDAD">
+      <Column Name="ID_CONECTIVIDAD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DESC_CONECTIVIDAD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PRODUCTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FECHA_ALTA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IS_GPRS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_CONJUNTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.SP_INGRESAR_ARCHIVO1" Method="SP_INGRESAR_ARCHIVO1">
     <Parameter Name="ID_CARGA" Parameter="iD_CARGA" Type="System.Int32" DbType="Int" />
     <Parameter Name="ID_USUARIO_ALTA" Parameter="iD_USUARIO_ALTA" Type="System.Int32" DbType="Int" />

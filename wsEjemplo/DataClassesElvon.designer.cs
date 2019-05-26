@@ -78,6 +78,9 @@ namespace wsEjemplo
     partial void InsertBD_EQUIVALENCIA_ESTADO(BD_EQUIVALENCIA_ESTADO instance);
     partial void UpdateBD_EQUIVALENCIA_ESTADO(BD_EQUIVALENCIA_ESTADO instance);
     partial void DeleteBD_EQUIVALENCIA_ESTADO(BD_EQUIVALENCIA_ESTADO instance);
+    partial void InsertC_CONECTIVIDAD(C_CONECTIVIDAD instance);
+    partial void UpdateC_CONECTIVIDAD(C_CONECTIVIDAD instance);
+    partial void DeleteC_CONECTIVIDAD(C_CONECTIVIDAD instance);
     #endregion
 		
 		public DataClassesElvonDataContext() : 
@@ -243,6 +246,14 @@ namespace wsEjemplo
 			get
 			{
 				return this.GetTable<BD_EQUIVALENCIA_ESTADO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<C_CONECTIVIDAD> C_CONECTIVIDAD
+		{
+			get
+			{
+				return this.GetTable<C_CONECTIVIDAD>();
 			}
 		}
 		
@@ -14311,6 +14322,284 @@ namespace wsEjemplo
 					this._ID_USUARIO_ALTA = value;
 					this.SendPropertyChanged("ID_USUARIO_ALTA");
 					this.OnID_USUARIO_ALTAChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.C_CONECTIVIDAD")]
+	public partial class C_CONECTIVIDAD : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_CONECTIVIDAD;
+		
+		private string _DESC_CONECTIVIDAD;
+		
+		private string _DESCRIPCION;
+		
+		private System.Nullable<int> _ID_CLIENTE;
+		
+		private System.Nullable<int> _ID_PRODUCTO;
+		
+		private string _STATUS;
+		
+		private System.Nullable<int> _ID_USUARIO_ALTA;
+		
+		private System.Nullable<System.DateTime> _FECHA_ALTA;
+		
+		private System.Nullable<int> _IS_GPRS;
+		
+		private System.Nullable<int> _IS_CONJUNTO;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_CONECTIVIDADChanging(int value);
+    partial void OnID_CONECTIVIDADChanged();
+    partial void OnDESC_CONECTIVIDADChanging(string value);
+    partial void OnDESC_CONECTIVIDADChanged();
+    partial void OnDESCRIPCIONChanging(string value);
+    partial void OnDESCRIPCIONChanged();
+    partial void OnID_CLIENTEChanging(System.Nullable<int> value);
+    partial void OnID_CLIENTEChanged();
+    partial void OnID_PRODUCTOChanging(System.Nullable<int> value);
+    partial void OnID_PRODUCTOChanged();
+    partial void OnSTATUSChanging(string value);
+    partial void OnSTATUSChanged();
+    partial void OnID_USUARIO_ALTAChanging(System.Nullable<int> value);
+    partial void OnID_USUARIO_ALTAChanged();
+    partial void OnFECHA_ALTAChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHA_ALTAChanged();
+    partial void OnIS_GPRSChanging(System.Nullable<int> value);
+    partial void OnIS_GPRSChanged();
+    partial void OnIS_CONJUNTOChanging(System.Nullable<int> value);
+    partial void OnIS_CONJUNTOChanged();
+    #endregion
+		
+		public C_CONECTIVIDAD()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CONECTIVIDAD", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_CONECTIVIDAD
+		{
+			get
+			{
+				return this._ID_CONECTIVIDAD;
+			}
+			set
+			{
+				if ((this._ID_CONECTIVIDAD != value))
+				{
+					this.OnID_CONECTIVIDADChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CONECTIVIDAD = value;
+					this.SendPropertyChanged("ID_CONECTIVIDAD");
+					this.OnID_CONECTIVIDADChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_CONECTIVIDAD", DbType="VarChar(50)")]
+		public string DESC_CONECTIVIDAD
+		{
+			get
+			{
+				return this._DESC_CONECTIVIDAD;
+			}
+			set
+			{
+				if ((this._DESC_CONECTIVIDAD != value))
+				{
+					this.OnDESC_CONECTIVIDADChanging(value);
+					this.SendPropertyChanging();
+					this._DESC_CONECTIVIDAD = value;
+					this.SendPropertyChanged("DESC_CONECTIVIDAD");
+					this.OnDESC_CONECTIVIDADChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(250)")]
+		public string DESCRIPCION
+		{
+			get
+			{
+				return this._DESCRIPCION;
+			}
+			set
+			{
+				if ((this._DESCRIPCION != value))
+				{
+					this.OnDESCRIPCIONChanging(value);
+					this.SendPropertyChanging();
+					this._DESCRIPCION = value;
+					this.SendPropertyChanged("DESCRIPCION");
+					this.OnDESCRIPCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CLIENTE", DbType="Int")]
+		public System.Nullable<int> ID_CLIENTE
+		{
+			get
+			{
+				return this._ID_CLIENTE;
+			}
+			set
+			{
+				if ((this._ID_CLIENTE != value))
+				{
+					this.OnID_CLIENTEChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CLIENTE = value;
+					this.SendPropertyChanged("ID_CLIENTE");
+					this.OnID_CLIENTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PRODUCTO", DbType="Int")]
+		public System.Nullable<int> ID_PRODUCTO
+		{
+			get
+			{
+				return this._ID_PRODUCTO;
+			}
+			set
+			{
+				if ((this._ID_PRODUCTO != value))
+				{
+					this.OnID_PRODUCTOChanging(value);
+					this.SendPropertyChanging();
+					this._ID_PRODUCTO = value;
+					this.SendPropertyChanged("ID_PRODUCTO");
+					this.OnID_PRODUCTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(50)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this.OnSTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS = value;
+					this.SendPropertyChanged("STATUS");
+					this.OnSTATUSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_USUARIO_ALTA", DbType="Int")]
+		public System.Nullable<int> ID_USUARIO_ALTA
+		{
+			get
+			{
+				return this._ID_USUARIO_ALTA;
+			}
+			set
+			{
+				if ((this._ID_USUARIO_ALTA != value))
+				{
+					this.OnID_USUARIO_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._ID_USUARIO_ALTA = value;
+					this.SendPropertyChanged("ID_USUARIO_ALTA");
+					this.OnID_USUARIO_ALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHA_ALTA
+		{
+			get
+			{
+				return this._FECHA_ALTA;
+			}
+			set
+			{
+				if ((this._FECHA_ALTA != value))
+				{
+					this.OnFECHA_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._FECHA_ALTA = value;
+					this.SendPropertyChanged("FECHA_ALTA");
+					this.OnFECHA_ALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_GPRS", DbType="Int")]
+		public System.Nullable<int> IS_GPRS
+		{
+			get
+			{
+				return this._IS_GPRS;
+			}
+			set
+			{
+				if ((this._IS_GPRS != value))
+				{
+					this.OnIS_GPRSChanging(value);
+					this.SendPropertyChanging();
+					this._IS_GPRS = value;
+					this.SendPropertyChanged("IS_GPRS");
+					this.OnIS_GPRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_CONJUNTO", DbType="Int")]
+		public System.Nullable<int> IS_CONJUNTO
+		{
+			get
+			{
+				return this._IS_CONJUNTO;
+			}
+			set
+			{
+				if ((this._IS_CONJUNTO != value))
+				{
+					this.OnIS_CONJUNTOChanging(value);
+					this.SendPropertyChanging();
+					this._IS_CONJUNTO = value;
+					this.SendPropertyChanged("IS_CONJUNTO");
+					this.OnIS_CONJUNTOChanged();
 				}
 			}
 		}

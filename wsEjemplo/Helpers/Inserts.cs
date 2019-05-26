@@ -30,7 +30,7 @@ namespace wsEjemplo.Helpers
         public int ar(addODTRequest odt, int idcarga, int idservicio, int idfalla, int idproveedor, int? idsegmento, int idproducto)
         {
             var descProveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.ID_PROVEEDOR_USUARIO == idproveedor select a.DESC_PROVEEDOR_USUARIO).FirstOrDefault();
-
+            var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == odt.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
             BD_AR newODT = new BD_AR();
             //newODT.FEC_INICIO = DateTime.Now;
             //newODT.ID_PROYECTO = odt.Proyecto;
@@ -38,12 +38,13 @@ namespace wsEjemplo.Helpers
             newODT.CAJA = odt.IdCaja;
             newODT.CODIGO_INTERVENCION = odt.Sucursal;
             newODT.COLONIA = odt.Colonia;
+            newODT.ID_CONECTIVIDAD = idconectividad;
             newODT.CORREO_EJECUTIVO = odt.EmailEjecutivo;
             newODT.CP = odt.Cp;
             newODT.DESC_EQUIPO = odt.ModeloTPV;
             newODT.DESC_NEGOCIO = odt.Comercio;
             newODT.DIRECCION = odt.Domicilio;
-            newODT.OTORGANTE_VOBO_TERCEROS = odt.ReferenciaUbicacion;
+            newODT.MOTIVO_COBRO = odt.ReferenciaUbicacion;
             newODT.ESTADO = odt.Estado;
             newODT.FALLA_ENCONTRADA = odt.Rfc;
             newODT.FEC_ALTA = DateTime.Now;

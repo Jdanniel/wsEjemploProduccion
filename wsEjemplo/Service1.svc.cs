@@ -320,6 +320,7 @@ namespace wsEjemplo
                 var idproveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.DESC_PROVEEDOR_USUARIO == request.Proveedor select a.ID_PROVEEDOR_USUARIO).FirstOrDefault();
                 var descProveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.ID_PROVEEDOR_USUARIO == idproveedor select a.DESC_PROVEEDOR_USUARIO).FirstOrDefault();
                 var sepomex = (from f in contex_.SEPOMEX join g in contex_.SEPOMEX_ESTADOS on f.d_estado equals g.ID_ESTADO where f.d_CP == request.Cp.TrimEnd() select g.ESTADO).FirstOrDefault();
+                var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == odt.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
 
                 if (sepomex == null)
                 {
@@ -477,11 +478,16 @@ namespace wsEjemplo
                 ar.CAJA = request.IdCaja;
                 ar.ID_PROVEEDOR = idproveedor;
                 ar.CODIGO_INTERVENCION = request.TelSucursal;
+                ar.OTORGANTE_TAS = request.Contacto1;
                 ar.TELEFONO_COMERCIO = request.Contacto2;
                 ar.MOTIVO_RETIPIFICADO = request.EmailServ;
-                ar.DIRECCION_ALTERNA_COMERCIO = request.ReferenciaUbicacion;
+                ar.MOTIVO_COBRO = request.ReferenciaUbicacion;
                 ar.DESC_EQUIPO = request.ModeloTPV;
                 ar.FEC_INICIO = DateTime.Now;
+                if (idconectividad != 0)
+                {
+                    ar.ID_CONECTIVIDAD = idconectividad;
+                }
                 if (request.Proyecto.ToUpper().Equals("SI") || request.Proyecto.ToUpper().Equals("SÍ"))
                 {
                     ar.ID_PROYECTO = 1;
