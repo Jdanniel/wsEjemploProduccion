@@ -320,7 +320,7 @@ namespace wsEjemplo
                 var idproveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.DESC_PROVEEDOR_USUARIO == request.Proveedor select a.ID_PROVEEDOR_USUARIO).FirstOrDefault();
                 var descProveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.ID_PROVEEDOR_USUARIO == idproveedor select a.DESC_PROVEEDOR_USUARIO).FirstOrDefault();
                 var sepomex = (from f in contex_.SEPOMEX join g in contex_.SEPOMEX_ESTADOS on f.d_estado equals g.ID_ESTADO where f.d_CP == request.Cp.TrimEnd() select g.ESTADO).FirstOrDefault();
-                var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == odt.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
+                var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == request.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
 
                 if (sepomex == null)
                 {
