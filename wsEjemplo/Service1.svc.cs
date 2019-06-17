@@ -477,6 +477,7 @@ namespace wsEjemplo
                 ar.CP = request.Cp;
                 ar.CAJA = request.IdCaja;
                 ar.ID_PROVEEDOR = idproveedor;
+                ar.ID_TECNICO = null;
                 ar.CODIGO_INTERVENCION = request.TelSucursal;
                 ar.OTORGANTE_TAS = request.Contacto1;
                 ar.TELEFONO_COMERCIO = request.Contacto2;
