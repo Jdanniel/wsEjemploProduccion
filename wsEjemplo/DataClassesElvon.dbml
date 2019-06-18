@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ELAVON-TEST" Class="DataClassesElvonDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.5.50;Initial Catalog=ELAVON-TEST;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ELAVON_TESTConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.100.56;Initial Catalog=ELAVON-TEST;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ELAVON_TESTConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BD_AR" Member="BD_AR">
     <Type Name="BD_AR">
       <Column Name="ID_AR" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -641,6 +641,15 @@
       <Column Name="IS_CONJUNTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.BD_TIPO_PLAZA_CLIENTE_CP" Member="BD_TIPO_PLAZA_CLIENTE_CP">
+    <Type Name="BD_TIPO_PLAZA_CLIENTE_CP">
+      <Column Name="ID_TIPO_PLAZA_CLIENTE_CP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_TIPO_PLAZA_CLIENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.SP_INGRESAR_ARCHIVO1" Method="SP_INGRESAR_ARCHIVO1">
     <Parameter Name="ID_CARGA" Parameter="iD_CARGA" Type="System.Int32" DbType="Int" />
     <Parameter Name="ID_USUARIO_ALTA" Parameter="iD_USUARIO_ALTA" Type="System.Int32" DbType="Int" />
@@ -650,6 +659,11 @@
   </Function>
   <Function Name="dbo.SP_LIBERAR_CARGA" Method="SP_LIBERAR_CARGA">
     <Parameter Name="ID_CARGA" Parameter="iD_CARGA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_USUARIO_ALTA" Parameter="iD_USUARIO_ALTA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_ACTUALIZAR_ODT_CONFIRMACION" Method="SP_ACTUALIZAR_ODT_CONFIRMACION">
+    <Parameter Name="ID_AR" Parameter="iD_AR" Type="System.Int32" DbType="Int" />
     <Parameter Name="ID_USUARIO_ALTA" Parameter="iD_USUARIO_ALTA" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>

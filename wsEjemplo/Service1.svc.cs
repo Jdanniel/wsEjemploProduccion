@@ -314,6 +314,7 @@ namespace wsEjemplo
             {
                 Updates update = new Updates();
                 Inserts insert = new Inserts();
+                Procedures procedures = new Procedures();
 
                 insert.onbaseinboxconfirmacion(request);
 
@@ -321,13 +322,14 @@ namespace wsEjemplo
                 var descProveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.ID_PROVEEDOR_USUARIO == idproveedor select a.DESC_PROVEEDOR_USUARIO).FirstOrDefault();
                 var sepomex = (from f in contex_.SEPOMEX join g in contex_.SEPOMEX_ESTADOS on f.d_estado equals g.ID_ESTADO where f.d_CP == request.Cp.TrimEnd() select g.ESTADO).FirstOrDefault();
                 var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == request.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
-
+                //var existCP = (from a in contex_.BD_TIPO_PLAZA_CLIENTE_CP where a.CP == request.Cp select a).FirstOrDefault();
+                /*
                 if (sepomex == null)
                 {
                     mensaje = "El codigo postal no existe en la base de sepomex";
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
-                }
+                }*/
                 if (sepomex != request.Estado)
                 {
                     /*
@@ -511,6 +513,7 @@ namespace wsEjemplo
                 ar.STATUS = "PROCESADO";
                 contex_.SubmitChanges();
                 var idar = ar.ID_AR;
+                procedures.actualizarOdt(idar);
                 update.arStatus(idar, 3);
                 insert.bitacoraAr(idar, 32, 3, "Solicitud de servicio Asignada");
 

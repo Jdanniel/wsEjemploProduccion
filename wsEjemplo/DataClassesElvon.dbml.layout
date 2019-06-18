@@ -138,5 +138,11 @@
         <elementListCompartment Id="2455410e-13cc-401e-829d-a9128a26700a" absoluteBounds="7.14, 2.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="11a6683c-c7b9-4e6e-b6b4-383a6572ef3f" isExpanded="false" absoluteBounds="4.875, 3.125, 2, 0.45">
+      <DataClassMoniker Name="/DataClassesElvonDataContext/BD_TIPO_PLAZA_CLIENTE_CP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b399367b-7b6c-4d49-9469-af13b0feffdc" absoluteBounds="4.89, 3.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

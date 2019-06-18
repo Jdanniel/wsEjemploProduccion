@@ -19,5 +19,11 @@ namespace wsEjemplo.Helpers
             contex_.SP_LIBERAR_CARGA(idcarga, 67);
             contex_.SubmitChanges();
         }
+
+        public void actualizarOdt(int idar)
+        {
+            contex_.SP_ACTUALIZAR_ODT_CONFIRMACION(idar,67);
+            contex_.SubmitChanges();
+        }
     }
 }

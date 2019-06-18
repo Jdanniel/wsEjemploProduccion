@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using wsEjemplo.DataContracts.BD_ARS;
@@ -31,6 +32,9 @@ namespace wsEjemplo.Helpers
         {
             var descProveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.ID_PROVEEDOR_USUARIO == idproveedor select a.DESC_PROVEEDOR_USUARIO).FirstOrDefault();
             var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == odt.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
+
+            DateTime FECHA_INICIO = new DateTime();
+
             string[] list = { "A. M.", "a. m.", "A.M.", "P. M.", "p. m.", "P.M." };
             var fechaenvio = odt.FechaEnvio;
             foreach (string x in list)
@@ -40,6 +44,17 @@ namespace wsEjemplo.Helpers
                     fechaenvio = fechaenvio.Replace(x, x.Replace(".", "").Replace(" ", ""));
                 }
             }
+
+            try
+            {
+                FECHA_INICIO = DateTime.ParseExact(fechaenvio, "dd/M/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+            }
+            catch(Exception e)
+            {
+                FECHA_INICIO = DateTime.ParseExact(fechaenvio, "M/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+            }
+            
+
             BD_AR newODT = new BD_AR();
             //newODT.FEC_INICIO = DateTime.Now;
             //newODT.ID_PROYECTO = odt.Proyecto;
@@ -58,7 +73,8 @@ namespace wsEjemplo.Helpers
             newODT.FALLA_ENCONTRADA = odt.Rfc;
             newODT.FEC_ALTA = DateTime.Now;
             newODT.FEC_CONVENIO = DateTime.Now;
-            newODT.FEC_INICIO = Convert.ToDateTime(fechaenvio);
+            //newODT.FEC_INICIO = Convert.ToDateTime(fechaenvio);
+            newODT.FEC_INICIO = FECHA_INICIO;
             newODT.FOLIO_TELECARGA = odt.FolioTelecarga == "" ? 0 : Convert.ToInt32(odt.FolioTelecarga);
             newODT.EQUIPO = odt.FolioTelecarga == "" ? null : odt.FolioTelecarga;
             newODT.ID_CARGA = idcarga;

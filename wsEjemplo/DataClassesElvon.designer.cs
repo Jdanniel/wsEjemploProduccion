@@ -81,6 +81,9 @@ namespace wsEjemplo
     partial void InsertC_CONECTIVIDAD(C_CONECTIVIDAD instance);
     partial void UpdateC_CONECTIVIDAD(C_CONECTIVIDAD instance);
     partial void DeleteC_CONECTIVIDAD(C_CONECTIVIDAD instance);
+    partial void InsertBD_TIPO_PLAZA_CLIENTE_CP(BD_TIPO_PLAZA_CLIENTE_CP instance);
+    partial void UpdateBD_TIPO_PLAZA_CLIENTE_CP(BD_TIPO_PLAZA_CLIENTE_CP instance);
+    partial void DeleteBD_TIPO_PLAZA_CLIENTE_CP(BD_TIPO_PLAZA_CLIENTE_CP instance);
     #endregion
 		
 		public DataClassesElvonDataContext() : 
@@ -257,6 +260,14 @@ namespace wsEjemplo
 			}
 		}
 		
+		public System.Data.Linq.Table<BD_TIPO_PLAZA_CLIENTE_CP> BD_TIPO_PLAZA_CLIENTE_CP
+		{
+			get
+			{
+				return this.GetTable<BD_TIPO_PLAZA_CLIENTE_CP>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_INGRESAR_ARCHIVO1")]
 		public ISingleResult<SP_INGRESAR_ARCHIVO1Result> SP_INGRESAR_ARCHIVO1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CARGA", DbType="Int")] System.Nullable<int> iD_CARGA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_USUARIO_ALTA", DbType="Int")] System.Nullable<int> iD_USUARIO_ALTA)
 		{
@@ -268,6 +279,13 @@ namespace wsEjemplo
 		public int SP_LIBERAR_CARGA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CARGA", DbType="Int")] System.Nullable<int> iD_CARGA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_USUARIO_ALTA", DbType="Int")] System.Nullable<int> iD_USUARIO_ALTA)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CARGA, iD_USUARIO_ALTA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_ACTUALIZAR_ODT_CONFIRMACION")]
+		public int SP_ACTUALIZAR_ODT_CONFIRMACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_AR", DbType="Int")] System.Nullable<int> iD_AR, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_USUARIO_ALTA", DbType="Int")] System.Nullable<int> iD_USUARIO_ALTA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AR, iD_USUARIO_ALTA);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -14600,6 +14618,164 @@ namespace wsEjemplo
 					this._IS_CONJUNTO = value;
 					this.SendPropertyChanged("IS_CONJUNTO");
 					this.OnIS_CONJUNTOChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BD_TIPO_PLAZA_CLIENTE_CP")]
+	public partial class BD_TIPO_PLAZA_CLIENTE_CP : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_TIPO_PLAZA_CLIENTE_CP;
+		
+		private System.Nullable<int> _ID_TIPO_PLAZA_CLIENTE;
+		
+		private string _CP;
+		
+		private System.Nullable<int> _ID_USUARIO_ALTA;
+		
+		private System.Nullable<System.DateTime> _FEC_ALTA;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_TIPO_PLAZA_CLIENTE_CPChanging(int value);
+    partial void OnID_TIPO_PLAZA_CLIENTE_CPChanged();
+    partial void OnID_TIPO_PLAZA_CLIENTEChanging(System.Nullable<int> value);
+    partial void OnID_TIPO_PLAZA_CLIENTEChanged();
+    partial void OnCPChanging(string value);
+    partial void OnCPChanged();
+    partial void OnID_USUARIO_ALTAChanging(System.Nullable<int> value);
+    partial void OnID_USUARIO_ALTAChanged();
+    partial void OnFEC_ALTAChanging(System.Nullable<System.DateTime> value);
+    partial void OnFEC_ALTAChanged();
+    #endregion
+		
+		public BD_TIPO_PLAZA_CLIENTE_CP()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_PLAZA_CLIENTE_CP", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_TIPO_PLAZA_CLIENTE_CP
+		{
+			get
+			{
+				return this._ID_TIPO_PLAZA_CLIENTE_CP;
+			}
+			set
+			{
+				if ((this._ID_TIPO_PLAZA_CLIENTE_CP != value))
+				{
+					this.OnID_TIPO_PLAZA_CLIENTE_CPChanging(value);
+					this.SendPropertyChanging();
+					this._ID_TIPO_PLAZA_CLIENTE_CP = value;
+					this.SendPropertyChanged("ID_TIPO_PLAZA_CLIENTE_CP");
+					this.OnID_TIPO_PLAZA_CLIENTE_CPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_PLAZA_CLIENTE", DbType="Int")]
+		public System.Nullable<int> ID_TIPO_PLAZA_CLIENTE
+		{
+			get
+			{
+				return this._ID_TIPO_PLAZA_CLIENTE;
+			}
+			set
+			{
+				if ((this._ID_TIPO_PLAZA_CLIENTE != value))
+				{
+					this.OnID_TIPO_PLAZA_CLIENTEChanging(value);
+					this.SendPropertyChanging();
+					this._ID_TIPO_PLAZA_CLIENTE = value;
+					this.SendPropertyChanged("ID_TIPO_PLAZA_CLIENTE");
+					this.OnID_TIPO_PLAZA_CLIENTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CP", DbType="VarChar(10)")]
+		public string CP
+		{
+			get
+			{
+				return this._CP;
+			}
+			set
+			{
+				if ((this._CP != value))
+				{
+					this.OnCPChanging(value);
+					this.SendPropertyChanging();
+					this._CP = value;
+					this.SendPropertyChanged("CP");
+					this.OnCPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_USUARIO_ALTA", DbType="Int")]
+		public System.Nullable<int> ID_USUARIO_ALTA
+		{
+			get
+			{
+				return this._ID_USUARIO_ALTA;
+			}
+			set
+			{
+				if ((this._ID_USUARIO_ALTA != value))
+				{
+					this.OnID_USUARIO_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._ID_USUARIO_ALTA = value;
+					this.SendPropertyChanged("ID_USUARIO_ALTA");
+					this.OnID_USUARIO_ALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_ALTA
+		{
+			get
+			{
+				return this._FEC_ALTA;
+			}
+			set
+			{
+				if ((this._FEC_ALTA != value))
+				{
+					this.OnFEC_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._FEC_ALTA = value;
+					this.SendPropertyChanged("FEC_ALTA");
+					this.OnFEC_ALTAChanged();
 				}
 			}
 		}
