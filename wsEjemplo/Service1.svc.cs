@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -330,19 +331,18 @@ namespace wsEjemplo
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
                 }*/
-                if (sepomex != request.Estado)
+                if (sepomex != RemoveAccentsWithNormalization(request.Estado))
                 {
-                    /*
-                    var existeEstado = (from A in contex_.BD_EQUIVALENCIA_ESTADO where A.DESC_ESTADO == request.Estado select A.DESC_ESTADO_EQUIVALENCIA).FirstOrDefault();
+                    
+                    var existeEstado = (from A in contex_.BD_EQUIVALENCIA_ESTADO where A.DESC_ESTADO == RemoveAccentsWithNormalization(request.Estado) select A.DESC_ESTADO_EQUIVALENCIA).FirstOrDefault();
                     if(existeEstado == "")
-                    {*/
+                    {
                         mensaje = "El CP no coincide con el estado";
                         insert.logws(request.PreOdt, "ERROR", mensaje);
                         return mensaje;
-                    /*
+                    
                     }
                     request.Estado = existeEstado;
-                    */
                 }
 
                 var ar = (from a in contex_.BD_AR where a.NO_AR == request.PreOdt && a.ID_STATUS_AR == 32 select a).FirstOrDefault();
@@ -560,6 +560,21 @@ namespace wsEjemplo
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
             throw new NotImplementedException();
+        }
+
+        public static string RemoveAccentsWithNormalization(string inputString)
+        {
+            string normalizedString = inputString.Normalize(NormalizationForm.FormD);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < normalizedString.Length; i++)
+            {
+                UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(normalizedString[i]);
+                if (uc != UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(normalizedString[i]);
+                }
+            }
+            return (sb.ToString().Normalize(NormalizationForm.FormC));
         }
 
     }
