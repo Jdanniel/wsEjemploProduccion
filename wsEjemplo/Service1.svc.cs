@@ -36,261 +36,271 @@ namespace wsEjemplo
             {
                 Inserts insert = new Inserts();
                 insert.onbaseinbox(odt);
-                Regex reg = new Regex("[^a-zA-Z0-9 ]");
-                string[] desc = odt.Producto.Split('-');
-                var idsegmento = (from aa in contex_.BD_NEGOCIOS where aa.NO_AFILIACION == odt.Afiliacion && aa.ID_CLIENTE == 4 select aa.ID_SEGMENTO).FirstOrDefault();
-                var idservicio = (from a in contex_.C_SERVICIOS where a.DESC_SERVICIO == reg.Replace(odt.TipoServicio.Normalize(NormalizationForm.FormD), "") && a.ID_CLIENTE == 4 select a.ID_SERVICIO).FirstOrDefault();
-                var idfalla = (from b in contex_.C_FALLAS where b.DESC_FALLA == reg.Replace(odt.SubtipoServicio.Normalize(NormalizationForm.FormD), "") && b.ID_CLIENTE == 4 select b.ID_FALLA).FirstOrDefault();
-                var idproveedor = (from c in contex_.C_PROVEEDORES_USUARIOS where c.DESC_PROVEEDOR_USUARIO == odt.Proveedor select c.ID_PROVEEDOR_USUARIO).FirstOrDefault();
-                var idarunico = (from d in contex_.BD_CARGAS join e in contex_.C_CLIENTES on d.ID_CLIENTE equals e.ID_CLIENTE where e.ID_CLIENTE == 4 select new { isarunico = e.IS_AR_UNICO == null ? 0 : e.IS_AR_UNICO }).FirstOrDefault();
-                var idproducto = (from e in contex_.C_PRODUCTOS_NEGOCIOS where e.DESC_PRODUCTO_NEGOCIO == odt.Producto select e.ID_PRODUCTO_NEGOCIO).SingleOrDefault();
+                if (odt.FolioTelecarga == "0" || odt.FolioTelecarga == "")
+                {
+                    Regex reg = new Regex("[^a-zA-Z0-9 ]");
+                    string[] desc = odt.Producto.Split('-');
+                    var idsegmento = (from aa in contex_.BD_NEGOCIOS where aa.NO_AFILIACION == odt.Afiliacion && aa.ID_CLIENTE == 4 select aa.ID_SEGMENTO).FirstOrDefault();
+                    var idservicio = (from a in contex_.C_SERVICIOS where a.DESC_SERVICIO == reg.Replace(odt.TipoServicio.Normalize(NormalizationForm.FormD), "") && a.ID_CLIENTE == 4 select a.ID_SERVICIO).FirstOrDefault();
+                    var idfalla = (from b in contex_.C_FALLAS where b.DESC_FALLA == reg.Replace(odt.SubtipoServicio.Normalize(NormalizationForm.FormD), "") && b.ID_CLIENTE == 4 select b.ID_FALLA).FirstOrDefault();
+                    var idproveedor = (from c in contex_.C_PROVEEDORES_USUARIOS where c.DESC_PROVEEDOR_USUARIO == odt.Proveedor select c.ID_PROVEEDOR_USUARIO).FirstOrDefault();
+                    var idarunico = (from d in contex_.BD_CARGAS join e in contex_.C_CLIENTES on d.ID_CLIENTE equals e.ID_CLIENTE where e.ID_CLIENTE == 4 select new { isarunico = e.IS_AR_UNICO == null ? 0 : e.IS_AR_UNICO }).FirstOrDefault();
+                    var idproducto = (from e in contex_.C_PRODUCTOS_NEGOCIOS where e.DESC_PRODUCTO_NEGOCIO == odt.Producto select e.ID_PRODUCTO_NEGOCIO).SingleOrDefault();
 
-                if (idsegmento == null)
-                {
-                    idsegmento = 0;
-                }
-
-                if (odt.ArOdt == "")
-                {
-                    mensaje = "El campo de ODT no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Descripcion == "")
-                {
-                    mensaje = "El campo descripcion no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Observacion == "")
-                {
-                    mensaje = "El campo observacion no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Comercio == "")
-                {
-                    mensaje = "El campo comercio no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Domicilio == "")
-                {
-                    mensaje = "El campo domicilio no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Colonia == "")
-                {
-                    mensaje = "El campo colonia no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Poblacion == "")
-                {
-                    mensaje = "El campo poblacion no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Estado == "")
-                {
-                    mensaje = "El campo estado no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Cp == "")
-                {
-                    mensaje = "El campo CP no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.RazonSocial == "")
-                {
-                    mensaje = "El campo Razon Social no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Rfc == "")
-                {
-                    mensaje = "El campo RFC no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Proveedor == "")
-                {
-                    mensaje = "El campo proveedor no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.FechaEnvio == "")
-                {
-                    mensaje = "El campo Fecha Envio no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                /*
-                if(odt.AfilAmex.Length < 10 || odt.AfilAmex.Length > 10)
-                {
-                    mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.IdAmex.Length < 8 || odt.IdAmex.Length > 8)
-                {
-                    mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }*/
-                if (odt.Producto == "")
-                {
-                    mensaje = "El campo Producto no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Proyecto == "")
-                {
-                    mensaje = "El campo proyecto no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Canal == "")
-                {
-                    mensaje = "El campo canal no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.EjecutivoKA == "")
-                {
-                    mensaje = "El campo EjecutivoKA no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.EmailEjecutivoKA == "")
-                {
-                    mensaje = "El campo EmailEjecutivoKA no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.EjecutivoSucursal == "")
-                {
-                    mensaje = "El campo EjecutivoSucursal no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Sucursal == "")
-                {
-                    mensaje = "El campo Sucursal no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.EmailEjecutivo == "")
-                {
-                    mensaje = "El campo EmailEjecutivo no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.TelEjecutivo == "")
-                {
-                    mensaje = "El campo TelEjecutivo no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.TelSucursal == "")
-                {
-                    mensaje = "El campo TelSucursal no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.ContactoComercio == "")
-                {
-                    mensaje = "El campo ContactoComercio no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Contacto1 == "")
-                {
-                    mensaje = "El campo Contacto1 no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (odt.Contacto2 == "")
-                {
-                    mensaje = "El campo Contacto2 no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                /*                if (odt.ModeloTPV == "")
-                                {
-                                    mensaje = "El campo ModeloTPV no puede estar vacio";
-                                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                                    return mensaje;
-                                }
-                                */
-                if (odt.Carga == "")
-                {
-                    mensaje = "El campo Carga no puede estar vacio";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (idservicio == 0)
-                {
-                    mensaje = "El servicio ingresado no existe";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (idfalla == 0)
-                {
-                    mensaje = "El subtipo de servicio ingresado no existe";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (idproveedor == 0)
-                {
-                    mensaje = "El proveedor ingresado no existe";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-                if (idproducto == 0)
-                {
-                    mensaje = "El producto ingresado no existe";
-                    insert.logws(odt.ArOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
-
-                if (idarunico.isarunico == 1)
-                {
-                    var totalar = (from f in contex_.BD_AR where f.NO_AR == odt.ArOdt select f.ID_AR).Count();
-                    if (totalar >= 1)
+                    if (idsegmento == null)
                     {
-                        mensaje = "ODT Repetido";
+                        idsegmento = 0;
+                    }
+
+                    if (odt.ArOdt == "")
+                    {
+                        mensaje = "El campo de ODT no puede estar vacio";
                         insert.logws(odt.ArOdt, "ERROR", mensaje);
                         return mensaje;
                     }
-                    else
+                    if (odt.Descripcion == "")
                     {
-                        Updates updates = new Updates();
-                        Procedures procedures = new Procedures();
+                        mensaje = "El campo descripcion no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Observacion == "")
+                    {
+                        mensaje = "El campo observacion no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Comercio == "")
+                    {
+                        mensaje = "El campo comercio no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Domicilio == "")
+                    {
+                        mensaje = "El campo domicilio no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Colonia == "")
+                    {
+                        mensaje = "El campo colonia no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Poblacion == "")
+                    {
+                        mensaje = "El campo poblacion no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Estado == "")
+                    {
+                        mensaje = "El campo estado no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Cp == "")
+                    {
+                        mensaje = "El campo CP no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.RazonSocial == "")
+                    {
+                        mensaje = "El campo Razon Social no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Rfc == "")
+                    {
+                        mensaje = "El campo RFC no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Proveedor == "")
+                    {
+                        mensaje = "El campo proveedor no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.FechaEnvio == "")
+                    {
+                        mensaje = "El campo Fecha Envio no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    /*
+                    if(odt.AfilAmex.Length < 10 || odt.AfilAmex.Length > 10)
+                    {
+                        mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.IdAmex.Length < 8 || odt.IdAmex.Length > 8)
+                    {
+                        mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }*/
+                    if (odt.Producto == "")
+                    {
+                        mensaje = "El campo Producto no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Proyecto == "")
+                    {
+                        mensaje = "El campo proyecto no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Canal == "")
+                    {
+                        mensaje = "El campo canal no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.EjecutivoKA == "")
+                    {
+                        mensaje = "El campo EjecutivoKA no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.EmailEjecutivoKA == "")
+                    {
+                        mensaje = "El campo EmailEjecutivoKA no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.EjecutivoSucursal == "")
+                    {
+                        mensaje = "El campo EjecutivoSucursal no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Sucursal == "")
+                    {
+                        mensaje = "El campo Sucursal no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.EmailEjecutivo == "")
+                    {
+                        mensaje = "El campo EmailEjecutivo no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.TelEjecutivo == "")
+                    {
+                        mensaje = "El campo TelEjecutivo no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.TelSucursal == "")
+                    {
+                        mensaje = "El campo TelSucursal no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.ContactoComercio == "")
+                    {
+                        mensaje = "El campo ContactoComercio no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Contacto1 == "")
+                    {
+                        mensaje = "El campo Contacto1 no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (odt.Contacto2 == "")
+                    {
+                        mensaje = "El campo Contacto2 no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    /*                if (odt.ModeloTPV == "")
+                                    {
+                                        mensaje = "El campo ModeloTPV no puede estar vacio";
+                                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                                        return mensaje;
+                                    }
+                                    */
+                    if (odt.Carga == "")
+                    {
+                        mensaje = "El campo Carga no puede estar vacio";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (idservicio == 0)
+                    {
+                        mensaje = "El servicio ingresado no existe";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (idfalla == 0)
+                    {
+                        mensaje = "El subtipo de servicio ingresado no existe";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (idproveedor == 0)
+                    {
+                        mensaje = "El proveedor ingresado no existe";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
+                    if (idproducto == 0)
+                    {
+                        mensaje = "El producto ingresado no existe";
+                        insert.logws(odt.ArOdt, "ERROR", mensaje);
+                        return mensaje;
+                    }
 
-
-                        var idcarga = insert.carga(odt);
-                        var idar = insert.ar(odt, idcarga, idservicio, idfalla, idproveedor, idsegmento, idproducto);
-                        /*
-                        if (!odt.AfilAmex.Equals("") && !odt.IdAmex.Equals(""))
+                    if (idarunico.isarunico == 1)
+                    {
+                        var totalar = (from f in contex_.BD_AR where f.NO_AR == odt.ArOdt select f.ID_AR).Count();
+                        if (totalar >= 1)
                         {
-                            insert.terminalAmex(idar, odt.IdAmex, odt.AfilAmex);
-                        }*/
+                            mensaje = "ODT Repetido";
+                            insert.logws(odt.ArOdt, "ERROR", mensaje);
+                            return mensaje;
+                        }
+                        else
+                        {
+                            Updates updates = new Updates();
+                            Procedures procedures = new Procedures();
 
-                        updates.carga(idcarga);
-                        procedures.ingresarServicio(idcarga);
-                        procedures.liberarCarga(idcarga);
-                        updates.arStatus(idar, 32);
-                        updates.arStatusText(idar,"Interfaz");
-                        insert.bitacoraAr(idar, 2, 32, "Solicitud de servicio esperando confirmacion.");
 
-                        mensaje = "PREODT ASIGNADA " + odt.ArOdt;
-                        val = "EXITO";
+                            var idcarga = insert.carga(odt);
+                            var idar = insert.ar(odt, idcarga, idservicio, idfalla, idproveedor, idsegmento, idproducto);
+                            /*
+                            if (!odt.AfilAmex.Equals("") && !odt.IdAmex.Equals(""))
+                            {
+                                insert.terminalAmex(idar, odt.IdAmex, odt.AfilAmex);
+                            }*/
+
+                            updates.carga(idcarga);
+                            procedures.ingresarServicio(idcarga);
+                            procedures.liberarCarga(idcarga);
+                            updates.arStatus(idar, 32);
+                            updates.arStatusText(idar, "Interfaz");
+                            insert.bitacoraAr(idar, 2, 32, "Solicitud de servicio esperando confirmacion.");
+
+                            mensaje = "PREODT ASIGNADA " + odt.ArOdt;
+                            val = "EXITO";
+                        }
                     }
                 }
+                else
+                {
+                    mensaje = "El campo FolioTelecarga no puede contener datos.";
+                    insert.logws(odt.ArOdt, "ERROR", mensaje);
+                    return mensaje;
+                }
+
             }
             catch (Exception ex)
             {
@@ -333,16 +343,17 @@ namespace wsEjemplo
                 }*/
                 if (sepomex != RemoveAccentsWithNormalization(request.Estado))
                 {
-                    
+                    /*
                     var existeEstado = (from A in contex_.BD_EQUIVALENCIA_ESTADO where A.DESC_ESTADO == RemoveAccentsWithNormalization(request.Estado) select A.DESC_ESTADO_EQUIVALENCIA).FirstOrDefault();
                     if(existeEstado == "")
                     {
+                    */
                         mensaje = "El CP no coincide con el estado";
                         insert.logws(request.PreOdt, "ERROR", mensaje);
                         return mensaje;
-                    
+                    /*
                     }
-                    request.Estado = existeEstado;
+                    request.Estado = existeEstado;*/
                 }
 
                 var ar = (from a in contex_.BD_AR where a.NO_AR == request.PreOdt && a.ID_STATUS_AR == 32 select a).FirstOrDefault();
@@ -487,6 +498,7 @@ namespace wsEjemplo
                 ar.MOTIVO_COBRO = request.ReferenciaUbicacion;
                 ar.DESC_EQUIPO = request.ModeloTPV;
                 ar.FEC_INICIO = DateTime.Now;
+                ar.FEC_ALTA = DateTime.Now;
                 if (idconectividad != 0)
                 {
                     ar.ID_CONECTIVIDAD = idconectividad;
