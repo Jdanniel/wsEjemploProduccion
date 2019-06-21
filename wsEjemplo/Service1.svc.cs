@@ -333,7 +333,7 @@ namespace wsEjemplo
                 var descProveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.ID_PROVEEDOR_USUARIO == idproveedor select a.DESC_PROVEEDOR_USUARIO).FirstOrDefault();
                 var sepomex = (from f in contex_.SEPOMEX join g in contex_.SEPOMEX_ESTADOS on f.d_estado equals g.ID_ESTADO where f.d_CP == request.Cp.TrimEnd() select g.ESTADO).FirstOrDefault();
                 var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == request.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
-                //var existCP = (from a in contex_.BD_TIPO_PLAZA_CLIENTE_CP where a.CP == request.Cp select a).FirstOrDefault();
+                var existCP = (from a in contex_.BD_TIPO_PLAZA_CLIENTE_CP where a.CP == request.Cp select a).FirstOrDefault();
                 /*
                 if (sepomex == null)
                 {
@@ -341,6 +341,13 @@ namespace wsEjemplo
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
                 }*/
+                if(existCP == null)
+                {
+                    mensaje = "NO SE ENCUENTRA ZONA POR CP";
+                    insert.logws(request.PreOdt, "ERROR", mensaje);
+                    return mensaje;
+                }
+
                 if (sepomex != RemoveAccentsWithNormalization(request.Estado))
                 {
                     /*
@@ -487,7 +494,7 @@ namespace wsEjemplo
                 ar.COLONIA = request.Colonia;
                 ar.POBLACION = request.Poblacion;
                 ar.ESTADO = request.Estado;
-                ar.CP = request.Cp;
+                ar.CP = request.Cp.Trim();
                 ar.CAJA = request.IdCaja;
                 ar.ID_PROVEEDOR = idproveedor;
                 ar.ID_TECNICO = null;
@@ -519,6 +526,7 @@ namespace wsEjemplo
                 if (request.FolioTelecarga != "")
                 {
                     ar.FOLIO_TELECARGA = Convert.ToInt32(request.FolioTelecarga);
+                    ar.EQUIPO = request.FolioTelecarga;
                 }
                 ar.OTORGANTE_SOPORTE_CLIENTE = request.EjecutivoSucursal;
                 ar.SINTOMA = request.Sintoma;
