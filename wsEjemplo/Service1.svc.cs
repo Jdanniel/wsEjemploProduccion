@@ -343,7 +343,7 @@ namespace wsEjemplo
                 }*/
                 if(existCP == null)
                 {
-                    mensaje = "NO SE ENCUENTRA ZONA POR CP";
+                    mensaje = "NO SE ENCUENTRA ZONA POR CODIGO POSTAL";
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
                 }
