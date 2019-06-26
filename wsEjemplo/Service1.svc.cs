@@ -284,10 +284,10 @@ namespace wsEjemplo
 
                             updates.carga(idcarga);
                             procedures.ingresarServicio(idcarga);
-                            procedures.liberarCarga(idcarga);
+                            //procedures.liberarCarga(idcarga);
                             updates.arStatus(idar, 32);
                             updates.arStatusText(idar, "Interfaz");
-                            insert.bitacoraAr(idar, 2, 32, "Solicitud de servicio esperando confirmacion.");
+                            insert.bitacoraAr(idar, 1, 32, "Solicitud de servicio esperando confirmacion.");
 
                             mensaje = "PREODT ASIGNADA " + odt.ArOdt;
                             val = "EXITO";
