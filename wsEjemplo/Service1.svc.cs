@@ -316,6 +316,7 @@ namespace wsEjemplo
         {
             var mensaje = "";
             var val = "";
+            var estado = "";
 
             if (request == null)
             {
@@ -350,16 +351,18 @@ namespace wsEjemplo
 
                 if (sepomex != RemoveAccentsWithNormalization(request.Estado))
                 {
-                    /*
+                    
                     var existeEstado = (from A in contex_.BD_EQUIVALENCIA_ESTADO where A.DESC_ESTADO == RemoveAccentsWithNormalization(request.Estado) select A.DESC_ESTADO_EQUIVALENCIA).FirstOrDefault();
                     if(existeEstado == "")
                     {
-                    */
+                    
                         mensaje = "El CP no coincide con el estado";
                         insert.logws(request.PreOdt, "ERROR", mensaje);
                         return mensaje;
-                    /*
+                    
                     }
+                    estado = existeEstado;
+                    /*
                     request.Estado = existeEstado;*/
                 }
 
@@ -493,7 +496,14 @@ namespace wsEjemplo
                 ar.TELEFONO = request.Telefono;
                 ar.COLONIA = request.Colonia;
                 ar.POBLACION = request.Poblacion;
-                ar.ESTADO = request.Estado;
+                if (estado != null || !estado.Equals(""))
+                {
+                    ar.ESTADO = estado;
+                }
+                else
+                {
+                    ar.ESTADO = request.Estado;
+                }
                 ar.CP = request.Cp.Trim();
                 ar.CAJA = request.IdCaja;
                 ar.ID_PROVEEDOR = idproveedor;
