@@ -49,11 +49,17 @@ namespace wsEjemplo.Helpers
             {
                 FECHA_INICIO = DateTime.ParseExact(fechaenvio, "dd/M/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                FECHA_INICIO = DateTime.ParseExact(fechaenvio, "M/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+                try
+                {
+                    FECHA_INICIO = DateTime.ParseExact(fechaenvio, "M/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+                }
+                catch (Exception es)
+                {
+                    FECHA_INICIO = DateTime.ParseExact(fechaenvio, "d/M/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+                }
             }
-            
 
             BD_AR newODT = new BD_AR();
             //newODT.FEC_INICIO = DateTime.Now;
