@@ -44,7 +44,7 @@ namespace wsEjemplo.Helpers
                     fechaenvio = fechaenvio.Replace(x, x.Replace(".", "").Replace(" ", ""));
                 }
             }
-
+            /*
             try
             {
                 FECHA_INICIO = DateTime.ParseExact(fechaenvio, "dd/M/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
@@ -59,7 +59,7 @@ namespace wsEjemplo.Helpers
                 {
                     FECHA_INICIO = DateTime.ParseExact(fechaenvio, "d/M/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
                 }
-            }
+            }*/
 
             BD_AR newODT = new BD_AR();
             //newODT.FEC_INICIO = DateTime.Now;
@@ -80,7 +80,7 @@ namespace wsEjemplo.Helpers
             newODT.FEC_ALTA = DateTime.Now;
             newODT.FEC_CONVENIO = DateTime.Now;
             //newODT.FEC_INICIO = Convert.ToDateTime(fechaenvio);
-            newODT.FEC_INICIO = FECHA_INICIO;
+            newODT.FEC_INICIO = DateTime.Now;
             newODT.FOLIO_TELECARGA = odt.FolioTelecarga == "" ? 0 : Convert.ToInt32(odt.FolioTelecarga);
             newODT.EQUIPO = odt.FolioTelecarga == "" ? null : odt.FolioTelecarga;
             newODT.ID_CARGA = idcarga;
