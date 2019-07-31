@@ -17,7 +17,7 @@ namespace wsEjemplo.Helpers
 
         public void arStatus(int idar, int idstatus)
         {
-            var ar = (from a in contex_.BD_AR where a.ID_AR == idar select a).FirstOrDefault();
+            BD_AR ar = (from a in contex_.BD_AR where a.ID_AR == idar select a).FirstOrDefault();
             ar.ID_STATUS_AR = idstatus;
             contex_.SubmitChanges();
         }
