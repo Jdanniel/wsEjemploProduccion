@@ -353,7 +353,7 @@ namespace wsEjemplo
                 {
                     
                     var existeEstado = (from A in contex_.BD_EQUIVALENCIA_ESTADO where A.DESC_ESTADO == RemoveAccentsWithNormalization(request.Estado) select A.DESC_ESTADO_EQUIVALENCIA).FirstOrDefault();
-                    if(existeEstado == "")
+                    if(sepomex != existeEstado)
                     {
                     
                         mensaje = "El CP no coincide con el estado";
