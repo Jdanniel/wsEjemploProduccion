@@ -667,4 +667,9 @@
     <Parameter Name="ID_USUARIO_ALTA" Parameter="iD_USUARIO_ALTA" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.SP_INGRESAR_PREODT" Method="SP_INGRESAR_PREODT">
+    <Parameter Name="ID_CARGA" Parameter="iD_CARGA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_USUARIO" Parameter="iD_USUARIO" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

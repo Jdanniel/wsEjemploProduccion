@@ -288,6 +288,13 @@ namespace wsEjemplo
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AR, iD_USUARIO_ALTA);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_INGRESAR_PREODT")]
+		public int SP_INGRESAR_PREODT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CARGA", DbType="Int")] System.Nullable<int> iD_CARGA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_USUARIO", DbType="Int")] System.Nullable<int> iD_USUARIO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CARGA, iD_USUARIO);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BD_AR")]
