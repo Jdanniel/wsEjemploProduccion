@@ -580,7 +580,7 @@ namespace wsEjemplo
                        {
                            estatus = b.DESC_STATUS_AR,
                            conclusion = a.DESCRIPCION_TRABAJO,
-                           fechaConcluido = String.Format("{0:dd/MM/yyyy HH:mm:ss}", a.FEC_CIERRE),
+                           fechaConcluido = String.Format("{0:MM/dd/yyyy}", a.FEC_CIERRE),
                            odt = a.NO_AR,
                            motivo = ""
                        }).ToList();
