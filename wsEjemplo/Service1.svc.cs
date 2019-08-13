@@ -349,10 +349,10 @@ namespace wsEjemplo
                     return mensaje;
                 }
 
-                if (sepomex != RemoveAccentsWithNormalization(request.Estado))
+                if (sepomex.ToUpper() != RemoveAccentsWithNormalization(request.Estado.ToString().ToUpper()))
                 {
                     
-                    var existeEstado = (from A in contex_.BD_EQUIVALENCIA_ESTADO where A.DESC_ESTADO == RemoveAccentsWithNormalization(request.Estado) select A.DESC_ESTADO_EQUIVALENCIA).FirstOrDefault();
+                    var existeEstado = (from A in contex_.BD_EQUIVALENCIA_ESTADO where A.DESC_ESTADO == RemoveAccentsWithNormalization(request.Estado.ToUpper()) select A.DESC_ESTADO_EQUIVALENCIA).FirstOrDefault();
                     if(sepomex != existeEstado)
                     {
                     
@@ -580,7 +580,7 @@ namespace wsEjemplo
                        {
                            estatus = b.DESC_STATUS_AR,
                            conclusion = a.DESCRIPCION_TRABAJO,
-                           fechaConcluido = Convert.ToString(a.FEC_CIERRE),
+                           fechaConcluido = String.Format("{0:dd/MM/yyyy HH:mm:ss}", a.FEC_CIERRE),
                            odt = a.NO_AR,
                            motivo = ""
                        }).ToList();
