@@ -32,8 +32,13 @@ namespace wsEjemplo.Helpers
         {
             var descProveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.ID_PROVEEDOR_USUARIO == idproveedor select a.DESC_PROVEEDOR_USUARIO).FirstOrDefault();
             var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == odt.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
-
-            DateTime FECHA_INICIO = new DateTime();
+            string[] tipoabArray = { "A", "b" };
+            int? idtipoEquipo = null;
+            //DateTime FECHA_INICIO = new DateTime();
+            if (tipoabArray.Any(odt.TipoAB.Contains))
+            {
+                idtipoEquipo = (from c in contex_.C_TIPO_A_B where c.DESC_TIPO_A_B == odt.TipoAB select c.ID_TIPO_A_B).FirstOrDefault();
+            }      
 
             string[] list = { "A. M.", "a. m.", "A.M.", "P. M.", "p. m.", "P.M." };
             var fechaenvio = odt.FechaEnvio;
@@ -130,7 +135,7 @@ namespace wsEjemplo.Helpers
             {
                 newODT.TERMINAL_AMEX = 1;
             }*/
-
+            newODT.ID_TIPO_EQUIPO = idtipoEquipo;
             contex_.BD_AR.InsertOnSubmit(newODT);
             contex_.SubmitChanges();
 
@@ -183,6 +188,7 @@ namespace wsEjemplo.Helpers
                 confirma.TELEFONO = odt.Telefono;
                 confirma.TELEJECUTIVO = odt.TelEjecutivo;
                 confirma.TELSUCURSAL = odt.TelSucursal;
+                confirma.TIPOAB = odt.TipoAB;
                 contex_.BD_ONBASE_INBOX_CONFIRMACION.InsertOnSubmit(confirma);
                 contex_.SubmitChanges();
 
@@ -236,6 +242,7 @@ namespace wsEjemplo.Helpers
             inbox.TELEJECUTIVO = odt.TelEjecutivo;
             inbox.TELSUCURSAL = odt.TelSucursal;
             inbox.TIPOSERVICIO = odt.TipoServicio;
+            inbox.TIPOAB = odt.TipoAB;
             contex_.BD_ONBASE_INBOX.InsertOnSubmit(inbox);
             contex_.SubmitChanges();
         }

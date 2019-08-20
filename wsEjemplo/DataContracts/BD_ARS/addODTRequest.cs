@@ -101,5 +101,7 @@ namespace wsEjemplo.DataContracts.BD_ARS
         public string FolioTelecarga { get; set; }
         [DataMember]
         public string Conectividad { get; set; }
+        [DataMember]
+        public string TipoAB { get; set; }
     }
 }

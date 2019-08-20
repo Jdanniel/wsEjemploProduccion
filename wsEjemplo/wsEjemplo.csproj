@@ -72,6 +72,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClassesElvon.cs">
+      <DependentUpon>DataClassesElvon.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DataClassesElvon.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

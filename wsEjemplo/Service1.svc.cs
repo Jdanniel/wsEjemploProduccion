@@ -335,6 +335,14 @@ namespace wsEjemplo
                 var sepomex = (from f in contex_.SEPOMEX join g in contex_.SEPOMEX_ESTADOS on f.d_estado equals g.ID_ESTADO where f.d_CP == request.Cp.TrimEnd() select g.ESTADO).FirstOrDefault();
                 var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == request.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
                 var existCP = (from a in contex_.BD_TIPO_PLAZA_CLIENTE_CP where a.CP == request.Cp select a).FirstOrDefault();
+                string[] tipoabArray = { "A", "b" };
+                int? idtipoEquipo = null;
+                //DateTime FECHA_INICIO = new DateTime();
+                if (tipoabArray.Any(request.TipoAB.Contains))
+                {
+                    idtipoEquipo = (from c in contex_.C_TIPO_A_B where c.DESC_TIPO_A_B == request.TipoAB select c.ID_TIPO_A_B).FirstOrDefault();
+                }
+
                 /*
                 if (sepomex == null)
                 {
@@ -342,7 +350,7 @@ namespace wsEjemplo
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
                 }*/
-                if(existCP == null)
+                if (existCP == null)
                 {
                     mensaje = "NO SE ENCUENTRA ZONA POR CODIGO POSTAL";
                     insert.logws(request.PreOdt, "ERROR", mensaje);
@@ -356,7 +364,7 @@ namespace wsEjemplo
                     if(sepomex != existeEstado)
                     {
                     
-                        mensaje = "El CP no coincide con el estado";
+                        mensaje = "ERROR EN DATOS DEMOGRAFICOS";
                         insert.logws(request.PreOdt, "ERROR", mensaje);
                         return mensaje;
                     
@@ -364,6 +372,10 @@ namespace wsEjemplo
                     estado = existeEstado;
                     /*
                     request.Estado = existeEstado;*/
+                }
+                else
+                {
+                    estado = null;
                 }
 
                 var ar = (from a in contex_.BD_AR where a.NO_AR == request.PreOdt && a.ID_STATUS_AR == 32 select a).FirstOrDefault();
@@ -496,7 +508,7 @@ namespace wsEjemplo
                 ar.TELEFONO = request.Telefono;
                 ar.COLONIA = request.Colonia;
                 ar.POBLACION = request.Poblacion;
-                if (estado != null || !estado.Equals(""))
+                if (estado != null)
                 {
                     ar.ESTADO = estado;
                 }
@@ -516,6 +528,10 @@ namespace wsEjemplo
                 ar.DESC_EQUIPO = request.ModeloTPV;
                 ar.FEC_INICIO = DateTime.Now;
                 ar.FEC_ALTA = DateTime.Now;
+                if(idtipoEquipo != null)
+                {
+                    ar.ID_TIPO_EQUIPO = idtipoEquipo;
+                }
                 if (idconectividad != 0)
                 {
                     ar.ID_CONECTIVIDAD = idconectividad;
