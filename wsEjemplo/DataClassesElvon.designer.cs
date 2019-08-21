@@ -22,7 +22,7 @@ namespace wsEjemplo
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ELAVON")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ELAVON-TEST")]
 	public partial class DataClassesElvonDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -305,6 +305,13 @@ namespace wsEjemplo
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CARGA, iD_USUARIO);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GET_REPLICAS_ONBASE")]
+		public ISingleResult<SP_GET_REPLICAS_ONBASEResult> SP_GET_REPLICAS_ONBASE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string fec_ini, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string fec_fin)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fec_ini, fec_fin);
+			return ((ISingleResult<SP_GET_REPLICAS_ONBASEResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -8784,7 +8791,7 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPOAB", DbType = "VarChar(5)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPOAB", CanBeNull=false)]
 		public string TIPOAB
 		{
 			get
@@ -14977,6 +14984,3074 @@ namespace wsEjemplo
 				if ((this._VALIDACION != value))
 				{
 					this._VALIDACION = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GET_REPLICAS_ONBASEResult
+	{
+		
+		private int _ID_AR;
+		
+		private int _ID_CARGA;
+		
+		private int _ID_CLIENTE;
+		
+		private string _NO_AR;
+		
+		private string _CONCEPTO;
+		
+		private string _DESC_CORTA;
+		
+		private string _SINTOMA;
+		
+		private string _BITACORA;
+		
+		private string _NO_AFILIACION;
+		
+		private string _TELEFONO;
+		
+		private string _DESC_NEGOCIO;
+		
+		private string _DIRECCION;
+		
+		private string _COLONIA;
+		
+		private string _POBLACION;
+		
+		private string _ESTADO;
+		
+		private string _CP;
+		
+		private string _NOTAS_REMEDY;
+		
+		private string _EQUIPO;
+		
+		private string _DESC_EQUIPO;
+		
+		private System.Nullable<int> _SEGMENTO;
+		
+		private string _NO_SERIE;
+		
+		private string _NO_INVENTARIO;
+		
+		private System.DateTime _FEC_INICIO;
+		
+		private System.Nullable<System.DateTime> _FEC_CONVENIO;
+		
+		private int _TIPO_SERVICIO;
+		
+		private int _TIPO_FALLA;
+		
+		private System.Nullable<int> _ID_SEGMENTO;
+		
+		private System.Nullable<int> _ID_SERVICIO;
+		
+		private System.Nullable<int> _ID_FALLA;
+		
+		private System.Nullable<int> _HORAS_GARANTIA;
+		
+		private System.Nullable<decimal> _PRECIO_EXITO;
+		
+		private System.Nullable<decimal> _PRECIO;
+		
+		private System.Nullable<int> _ID_NEGOCIO;
+		
+		private System.Nullable<int> _ID_ESTADO;
+		
+		private System.Nullable<int> _ID_REGION;
+		
+		private System.Nullable<int> _ID_ZONA;
+		
+		private System.Nullable<int> _ID_TIPO_PLAZA;
+		
+		private System.Nullable<int> _ID_PLAZA;
+		
+		private System.Nullable<int> _ID_TECNICO;
+		
+		private System.Nullable<int> _IS_TECNICO_FORANEO;
+		
+		private System.Nullable<int> _IS_DUPLICADA;
+		
+		private System.Nullable<int> _IS_INGRESO_MANUAL;
+		
+		private System.Nullable<int> _IS_ACTUALIZACION;
+		
+		private System.Nullable<int> _IS_INSTALACION;
+		
+		private System.Nullable<int> _IS_SUSTITUCION;
+		
+		private System.Nullable<int> _IS_RETIRO;
+		
+		private System.Nullable<System.DateTime> _FEC_ALTA;
+		
+		private System.Nullable<System.DateTime> _FEC_ATENCION;
+		
+		private System.Nullable<System.DateTime> _FEC_GARANTIA;
+		
+		private System.Nullable<System.DateTime> _FEC_CIERRE;
+		
+		private System.Nullable<int> _IS_GARANTIA;
+		
+		private System.Nullable<int> _HORAS_ATENCION;
+		
+		private System.Nullable<System.DateTime> _FEC_ALTA_HORAS_ATENCION;
+		
+		private System.Nullable<int> _MINS_DOWNTIME;
+		
+		private System.Nullable<int> _ID_USUARIO_CIERRE;
+		
+		private System.Nullable<int> _ID_CAUSA;
+		
+		private System.Nullable<int> _ID_SOLUCION;
+		
+		private string _FOLIO_TAS;
+		
+		private string _OTORGANTE_TAS;
+		
+		private string _NO_EQUIPO;
+		
+		private System.Nullable<System.DateTime> _FEC_LLEGADA;
+		
+		private System.Nullable<System.DateTime> _FEC_LLEGADA_TERCEROS;
+		
+		private string _FOLIO_SERVICIO;
+		
+		private System.Nullable<System.DateTime> _FEC_INI_INGENIERO;
+		
+		private System.Nullable<System.DateTime> _FEC_FIN_INGENIERO;
+		
+		private string _OTORGANTE_VOBO;
+		
+		private string _OTORGANTE_VOBO_TERCEROS;
+		
+		private string _INTENSIDAD_SENIAL;
+		
+		private System.Nullable<int> _IS_SIM_REMPLAZADA;
+		
+		private string _FALLA_ENCONTRADA;
+		
+		private string _OTORGANTE_VOBO_CLIENTE;
+		
+		private string _MOTIVO_COBRO;
+		
+		private System.Nullable<int> _IS_SOPORTE_CLIENTE;
+		
+		private System.Nullable<int> _IS_BOLETIN;
+		
+		private string _OTORGANTE_SOPORTE_CLIENTE;
+		
+		private string _DESCRIPCION_TRABAJO;
+		
+		private string _ATIENDE;
+		
+		private string _AUTORIZADOR_RECHAZO;
+		
+		private System.Nullable<int> _ID_CAUSA_RECHAZO;
+		
+		private string _CAUSA_RECHAZO;
+		
+		private string _CAUSA_CANCELACION;
+		
+		private string _NO_SERIE_FALLA;
+		
+		private string _NO_INVENTARIO_FALLA;
+		
+		private System.Nullable<int> _ID_MODELO_FALLA;
+		
+		private System.Nullable<int> _IS_EXITO;
+		
+		private System.Nullable<int> _ID_ATTACH1;
+		
+		private System.Nullable<int> _ID_ATTACH2;
+		
+		private System.Nullable<int> _ID_REPORTE_CIERRE;
+		
+		private System.Nullable<int> _ID_PROYECTO;
+		
+		private System.Nullable<int> _ID_MODELO_REQ;
+		
+		private System.Nullable<int> _ID_PRODUCTO;
+		
+		private System.Nullable<int> _ID_TIPO_SERVICIO;
+		
+		private System.Nullable<int> _ID_TIPO_PRECIO;
+		
+		private System.Nullable<int> _ID_MONEDA;
+		
+		private System.Nullable<int> _ID_TIPO_COBRO;
+		
+		private System.Nullable<int> _IS_COBRABLE;
+		
+		private System.Nullable<int> _ID_UNIDAD_ATENDIDA;
+		
+		private System.Nullable<int> _ID_REGLA_STATUS_AR;
+		
+		private System.Nullable<System.DateTime> _FEC_ALTA_REGLA_STATUS_AR;
+		
+		private System.Nullable<int> _ID_STATUS_AR;
+		
+		private System.Nullable<System.DateTime> _FEC_STATUS_AR;
+		
+		private string _CADENA_CIERRE_ESCRITA;
+		
+		private string _CODIGO_INTERVENCION;
+		
+		private System.Nullable<int> _ID_TIPO_FALLA_ENCONTRADA;
+		
+		private System.Nullable<int> _IS_RETIPIFICADO;
+		
+		private string _MOTIVO_RETIPIFICADO;
+		
+		private System.Nullable<int> _IS_FOLLOW_DISPATCH;
+		
+		private System.Nullable<int> _ID_DISPATCHER;
+		
+		private string _DIGITO_VERIFICADOR;
+		
+		private System.Nullable<int> _NO_REINCIDENCIAS;
+		
+		private System.Nullable<int> _IS_PROGRAMADO;
+		
+		private System.Nullable<int> _NO_DIAS_LIBERACION;
+		
+		private System.Nullable<int> _ID_RESPONSABLE_CANCELACION_PROGRAMADO;
+		
+		private System.Nullable<int> _INSUMOS;
+		
+		private string _RESPONSABLE;
+		
+		private string _CAJA;
+		
+		private string _STATUS;
+		
+		private System.Nullable<int> _ID_ESPECIF_TIPO_FALLA;
+		
+		private string _VOLTAJE_NEUTRO;
+		
+		private string _VOLTAJE_TIERRA;
+		
+		private string _VOLTAJE_TIERRA_NEUTRO;
+		
+		private string _FOLIO_VALIDACION;
+		
+		private string _FOLIO_TIR;
+		
+		private System.Nullable<int> _ID_ESPECIFICA_CAUSA_RECHAZO;
+		
+		private System.Nullable<int> _DURACION;
+		
+		private System.Nullable<int> _TRASLADO;
+		
+		private System.Nullable<int> _ID_STATUS_VALIDACION_PREFACTURACION;
+		
+		private System.Nullable<int> _ID_DESCRIPCION_TRABAJO;
+		
+		private System.Nullable<int> _ID_STATUS_REASON_CODES;
+		
+		private string _due_by;
+		
+		private string _CADENA_CIERRE;
+		
+		private string _NO_SIM;
+		
+		private string _CLAVE_RECHAZO;
+		
+		private System.Nullable<int> _IS_INTERFAZ_BANCOMER;
+		
+		private System.Nullable<int> _ID_CONCEPTO;
+		
+		private System.Nullable<int> _ID_EQUIPO_CLIENTE;
+		
+		private System.Nullable<int> _NOT_VIATICOS;
+		
+		private System.Nullable<int> _IS_LOCAL;
+		
+		private System.Nullable<System.DateTime> _FEC_CARGA;
+		
+		private System.Nullable<System.DateTime> _FEC_ATENCION_ORIGINAL;
+		
+		private System.Nullable<decimal> _HORAS_GARANTIA_WINCOR;
+		
+		private System.Nullable<decimal> _HORAS_ATENCION_WINCOR;
+		
+		private System.Nullable<int> _IS_PDF;
+		
+		private System.Nullable<int> _ID_CONECTIVIDAD;
+		
+		private System.Nullable<int> _ID_APLICATIVO;
+		
+		private System.Nullable<int> _INTENTO_CONTACTO;
+		
+		private System.Nullable<int> _ID_CALIFICA_CONTACTO;
+		
+		private System.Nullable<System.DateTime> _FEC_INTENTO_1;
+		
+		private System.Nullable<System.DateTime> _FEC_INTENTO_2;
+		
+		private System.Nullable<System.DateTime> _FEC_INTENTO_3;
+		
+		private System.Nullable<System.DateTime> _FEC_INTENTO_4;
+		
+		private System.Nullable<int> _ID_CALIFICA_INTENTO_1;
+		
+		private System.Nullable<int> _ID_CALIFICA_INTENTO_2;
+		
+		private System.Nullable<int> _ID_CALIFICA_INTENTO_3;
+		
+		private System.Nullable<int> _ID_CALIFICA_INTENTO_4;
+		
+		private System.Nullable<long> _FOLIO_TELECARGA;
+		
+		private System.Nullable<int> _ID_TIPO_EQUIPO;
+		
+		private string _CORREO_EJECUTIVO;
+		
+		private string _TELEFONO_COMERCIO;
+		
+		private string _PERSONA_ATENDERA_COMERCIO;
+		
+		private string _PROVEEDOR_ATENDERA_COMERCIO;
+		
+		private System.Nullable<System.TimeSpan> _HORA_ATENCION_INI;
+		
+		private System.Nullable<System.TimeSpan> _HORA_ATENCION_FIN;
+		
+		private System.Nullable<int> _TERMINAL_AMEX;
+		
+		private System.Nullable<int> _AGREGAR_DIAS_ATENCION;
+		
+		private string _DIRECCION_ALTERNA_COMERCIO;
+		
+		private System.Nullable<int> _ID_PROVEEDOR;
+		
+		private System.Nullable<int> _RP;
+		
+		private System.Nullable<int> _RS;
+		
+		private System.Nullable<int> _ID_AR_ORIGINAL;
+		
+		public SP_GET_REPLICAS_ONBASEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AR", DbType="Int NOT NULL")]
+		public int ID_AR
+		{
+			get
+			{
+				return this._ID_AR;
+			}
+			set
+			{
+				if ((this._ID_AR != value))
+				{
+					this._ID_AR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CARGA", DbType="Int NOT NULL")]
+		public int ID_CARGA
+		{
+			get
+			{
+				return this._ID_CARGA;
+			}
+			set
+			{
+				if ((this._ID_CARGA != value))
+				{
+					this._ID_CARGA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CLIENTE", DbType="Int NOT NULL")]
+		public int ID_CLIENTE
+		{
+			get
+			{
+				return this._ID_CLIENTE;
+			}
+			set
+			{
+				if ((this._ID_CLIENTE != value))
+				{
+					this._ID_CLIENTE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_AR", DbType="VarChar(50)")]
+		public string NO_AR
+		{
+			get
+			{
+				return this._NO_AR;
+			}
+			set
+			{
+				if ((this._NO_AR != value))
+				{
+					this._NO_AR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONCEPTO", DbType="VarChar(255)")]
+		public string CONCEPTO
+		{
+			get
+			{
+				return this._CONCEPTO;
+			}
+			set
+			{
+				if ((this._CONCEPTO != value))
+				{
+					this._CONCEPTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_CORTA", DbType="VarChar(255)")]
+		public string DESC_CORTA
+		{
+			get
+			{
+				return this._DESC_CORTA;
+			}
+			set
+			{
+				if ((this._DESC_CORTA != value))
+				{
+					this._DESC_CORTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SINTOMA", DbType="VarChar(4000)")]
+		public string SINTOMA
+		{
+			get
+			{
+				return this._SINTOMA;
+			}
+			set
+			{
+				if ((this._SINTOMA != value))
+				{
+					this._SINTOMA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BITACORA", DbType="VarChar(4000)")]
+		public string BITACORA
+		{
+			get
+			{
+				return this._BITACORA;
+			}
+			set
+			{
+				if ((this._BITACORA != value))
+				{
+					this._BITACORA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_AFILIACION", DbType="VarChar(50)")]
+		public string NO_AFILIACION
+		{
+			get
+			{
+				return this._NO_AFILIACION;
+			}
+			set
+			{
+				if ((this._NO_AFILIACION != value))
+				{
+					this._NO_AFILIACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEFONO", DbType="VarChar(50)")]
+		public string TELEFONO
+		{
+			get
+			{
+				return this._TELEFONO;
+			}
+			set
+			{
+				if ((this._TELEFONO != value))
+				{
+					this._TELEFONO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_NEGOCIO", DbType="VarChar(255)")]
+		public string DESC_NEGOCIO
+		{
+			get
+			{
+				return this._DESC_NEGOCIO;
+			}
+			set
+			{
+				if ((this._DESC_NEGOCIO != value))
+				{
+					this._DESC_NEGOCIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIRECCION", DbType="VarChar(255)")]
+		public string DIRECCION
+		{
+			get
+			{
+				return this._DIRECCION;
+			}
+			set
+			{
+				if ((this._DIRECCION != value))
+				{
+					this._DIRECCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COLONIA", DbType="VarChar(255)")]
+		public string COLONIA
+		{
+			get
+			{
+				return this._COLONIA;
+			}
+			set
+			{
+				if ((this._COLONIA != value))
+				{
+					this._COLONIA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POBLACION", DbType="VarChar(255)")]
+		public string POBLACION
+		{
+			get
+			{
+				return this._POBLACION;
+			}
+			set
+			{
+				if ((this._POBLACION != value))
+				{
+					this._POBLACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADO", DbType="VarChar(255)")]
+		public string ESTADO
+		{
+			get
+			{
+				return this._ESTADO;
+			}
+			set
+			{
+				if ((this._ESTADO != value))
+				{
+					this._ESTADO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CP", DbType="VarChar(5)")]
+		public string CP
+		{
+			get
+			{
+				return this._CP;
+			}
+			set
+			{
+				if ((this._CP != value))
+				{
+					this._CP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTAS_REMEDY", DbType="VarChar(255)")]
+		public string NOTAS_REMEDY
+		{
+			get
+			{
+				return this._NOTAS_REMEDY;
+			}
+			set
+			{
+				if ((this._NOTAS_REMEDY != value))
+				{
+					this._NOTAS_REMEDY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPO", DbType="VarChar(50)")]
+		public string EQUIPO
+		{
+			get
+			{
+				return this._EQUIPO;
+			}
+			set
+			{
+				if ((this._EQUIPO != value))
+				{
+					this._EQUIPO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_EQUIPO", DbType="VarChar(255)")]
+		public string DESC_EQUIPO
+		{
+			get
+			{
+				return this._DESC_EQUIPO;
+			}
+			set
+			{
+				if ((this._DESC_EQUIPO != value))
+				{
+					this._DESC_EQUIPO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEGMENTO", DbType="Int")]
+		public System.Nullable<int> SEGMENTO
+		{
+			get
+			{
+				return this._SEGMENTO;
+			}
+			set
+			{
+				if ((this._SEGMENTO != value))
+				{
+					this._SEGMENTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_SERIE", DbType="VarChar(50)")]
+		public string NO_SERIE
+		{
+			get
+			{
+				return this._NO_SERIE;
+			}
+			set
+			{
+				if ((this._NO_SERIE != value))
+				{
+					this._NO_SERIE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_INVENTARIO", DbType="VarChar(50)")]
+		public string NO_INVENTARIO
+		{
+			get
+			{
+				return this._NO_INVENTARIO;
+			}
+			set
+			{
+				if ((this._NO_INVENTARIO != value))
+				{
+					this._NO_INVENTARIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_INICIO", DbType="SmallDateTime NOT NULL")]
+		public System.DateTime FEC_INICIO
+		{
+			get
+			{
+				return this._FEC_INICIO;
+			}
+			set
+			{
+				if ((this._FEC_INICIO != value))
+				{
+					this._FEC_INICIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_CONVENIO", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_CONVENIO
+		{
+			get
+			{
+				return this._FEC_CONVENIO;
+			}
+			set
+			{
+				if ((this._FEC_CONVENIO != value))
+				{
+					this._FEC_CONVENIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPO_SERVICIO", DbType="Int NOT NULL")]
+		public int TIPO_SERVICIO
+		{
+			get
+			{
+				return this._TIPO_SERVICIO;
+			}
+			set
+			{
+				if ((this._TIPO_SERVICIO != value))
+				{
+					this._TIPO_SERVICIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPO_FALLA", DbType="Int NOT NULL")]
+		public int TIPO_FALLA
+		{
+			get
+			{
+				return this._TIPO_FALLA;
+			}
+			set
+			{
+				if ((this._TIPO_FALLA != value))
+				{
+					this._TIPO_FALLA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SEGMENTO", DbType="Int")]
+		public System.Nullable<int> ID_SEGMENTO
+		{
+			get
+			{
+				return this._ID_SEGMENTO;
+			}
+			set
+			{
+				if ((this._ID_SEGMENTO != value))
+				{
+					this._ID_SEGMENTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SERVICIO", DbType="Int")]
+		public System.Nullable<int> ID_SERVICIO
+		{
+			get
+			{
+				return this._ID_SERVICIO;
+			}
+			set
+			{
+				if ((this._ID_SERVICIO != value))
+				{
+					this._ID_SERVICIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_FALLA", DbType="Int")]
+		public System.Nullable<int> ID_FALLA
+		{
+			get
+			{
+				return this._ID_FALLA;
+			}
+			set
+			{
+				if ((this._ID_FALLA != value))
+				{
+					this._ID_FALLA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAS_GARANTIA", DbType="Int")]
+		public System.Nullable<int> HORAS_GARANTIA
+		{
+			get
+			{
+				return this._HORAS_GARANTIA;
+			}
+			set
+			{
+				if ((this._HORAS_GARANTIA != value))
+				{
+					this._HORAS_GARANTIA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRECIO_EXITO", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> PRECIO_EXITO
+		{
+			get
+			{
+				return this._PRECIO_EXITO;
+			}
+			set
+			{
+				if ((this._PRECIO_EXITO != value))
+				{
+					this._PRECIO_EXITO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRECIO", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> PRECIO
+		{
+			get
+			{
+				return this._PRECIO;
+			}
+			set
+			{
+				if ((this._PRECIO != value))
+				{
+					this._PRECIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_NEGOCIO", DbType="Int")]
+		public System.Nullable<int> ID_NEGOCIO
+		{
+			get
+			{
+				return this._ID_NEGOCIO;
+			}
+			set
+			{
+				if ((this._ID_NEGOCIO != value))
+				{
+					this._ID_NEGOCIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ESTADO", DbType="Int")]
+		public System.Nullable<int> ID_ESTADO
+		{
+			get
+			{
+				return this._ID_ESTADO;
+			}
+			set
+			{
+				if ((this._ID_ESTADO != value))
+				{
+					this._ID_ESTADO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_REGION", DbType="Int")]
+		public System.Nullable<int> ID_REGION
+		{
+			get
+			{
+				return this._ID_REGION;
+			}
+			set
+			{
+				if ((this._ID_REGION != value))
+				{
+					this._ID_REGION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ZONA", DbType="Int")]
+		public System.Nullable<int> ID_ZONA
+		{
+			get
+			{
+				return this._ID_ZONA;
+			}
+			set
+			{
+				if ((this._ID_ZONA != value))
+				{
+					this._ID_ZONA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_PLAZA", DbType="Int")]
+		public System.Nullable<int> ID_TIPO_PLAZA
+		{
+			get
+			{
+				return this._ID_TIPO_PLAZA;
+			}
+			set
+			{
+				if ((this._ID_TIPO_PLAZA != value))
+				{
+					this._ID_TIPO_PLAZA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PLAZA", DbType="Int")]
+		public System.Nullable<int> ID_PLAZA
+		{
+			get
+			{
+				return this._ID_PLAZA;
+			}
+			set
+			{
+				if ((this._ID_PLAZA != value))
+				{
+					this._ID_PLAZA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TECNICO", DbType="Int")]
+		public System.Nullable<int> ID_TECNICO
+		{
+			get
+			{
+				return this._ID_TECNICO;
+			}
+			set
+			{
+				if ((this._ID_TECNICO != value))
+				{
+					this._ID_TECNICO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_TECNICO_FORANEO", DbType="Int")]
+		public System.Nullable<int> IS_TECNICO_FORANEO
+		{
+			get
+			{
+				return this._IS_TECNICO_FORANEO;
+			}
+			set
+			{
+				if ((this._IS_TECNICO_FORANEO != value))
+				{
+					this._IS_TECNICO_FORANEO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_DUPLICADA", DbType="Int")]
+		public System.Nullable<int> IS_DUPLICADA
+		{
+			get
+			{
+				return this._IS_DUPLICADA;
+			}
+			set
+			{
+				if ((this._IS_DUPLICADA != value))
+				{
+					this._IS_DUPLICADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_INGRESO_MANUAL", DbType="Int")]
+		public System.Nullable<int> IS_INGRESO_MANUAL
+		{
+			get
+			{
+				return this._IS_INGRESO_MANUAL;
+			}
+			set
+			{
+				if ((this._IS_INGRESO_MANUAL != value))
+				{
+					this._IS_INGRESO_MANUAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_ACTUALIZACION", DbType="Int")]
+		public System.Nullable<int> IS_ACTUALIZACION
+		{
+			get
+			{
+				return this._IS_ACTUALIZACION;
+			}
+			set
+			{
+				if ((this._IS_ACTUALIZACION != value))
+				{
+					this._IS_ACTUALIZACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_INSTALACION", DbType="Int")]
+		public System.Nullable<int> IS_INSTALACION
+		{
+			get
+			{
+				return this._IS_INSTALACION;
+			}
+			set
+			{
+				if ((this._IS_INSTALACION != value))
+				{
+					this._IS_INSTALACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_SUSTITUCION", DbType="Int")]
+		public System.Nullable<int> IS_SUSTITUCION
+		{
+			get
+			{
+				return this._IS_SUSTITUCION;
+			}
+			set
+			{
+				if ((this._IS_SUSTITUCION != value))
+				{
+					this._IS_SUSTITUCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_RETIRO", DbType="Int")]
+		public System.Nullable<int> IS_RETIRO
+		{
+			get
+			{
+				return this._IS_RETIRO;
+			}
+			set
+			{
+				if ((this._IS_RETIRO != value))
+				{
+					this._IS_RETIRO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_ALTA
+		{
+			get
+			{
+				return this._FEC_ALTA;
+			}
+			set
+			{
+				if ((this._FEC_ALTA != value))
+				{
+					this._FEC_ALTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ATENCION", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_ATENCION
+		{
+			get
+			{
+				return this._FEC_ATENCION;
+			}
+			set
+			{
+				if ((this._FEC_ATENCION != value))
+				{
+					this._FEC_ATENCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_GARANTIA", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_GARANTIA
+		{
+			get
+			{
+				return this._FEC_GARANTIA;
+			}
+			set
+			{
+				if ((this._FEC_GARANTIA != value))
+				{
+					this._FEC_GARANTIA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_CIERRE", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_CIERRE
+		{
+			get
+			{
+				return this._FEC_CIERRE;
+			}
+			set
+			{
+				if ((this._FEC_CIERRE != value))
+				{
+					this._FEC_CIERRE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_GARANTIA", DbType="Int")]
+		public System.Nullable<int> IS_GARANTIA
+		{
+			get
+			{
+				return this._IS_GARANTIA;
+			}
+			set
+			{
+				if ((this._IS_GARANTIA != value))
+				{
+					this._IS_GARANTIA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAS_ATENCION", DbType="Int")]
+		public System.Nullable<int> HORAS_ATENCION
+		{
+			get
+			{
+				return this._HORAS_ATENCION;
+			}
+			set
+			{
+				if ((this._HORAS_ATENCION != value))
+				{
+					this._HORAS_ATENCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA_HORAS_ATENCION", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_ALTA_HORAS_ATENCION
+		{
+			get
+			{
+				return this._FEC_ALTA_HORAS_ATENCION;
+			}
+			set
+			{
+				if ((this._FEC_ALTA_HORAS_ATENCION != value))
+				{
+					this._FEC_ALTA_HORAS_ATENCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MINS_DOWNTIME", DbType="Int")]
+		public System.Nullable<int> MINS_DOWNTIME
+		{
+			get
+			{
+				return this._MINS_DOWNTIME;
+			}
+			set
+			{
+				if ((this._MINS_DOWNTIME != value))
+				{
+					this._MINS_DOWNTIME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_USUARIO_CIERRE", DbType="Int")]
+		public System.Nullable<int> ID_USUARIO_CIERRE
+		{
+			get
+			{
+				return this._ID_USUARIO_CIERRE;
+			}
+			set
+			{
+				if ((this._ID_USUARIO_CIERRE != value))
+				{
+					this._ID_USUARIO_CIERRE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CAUSA", DbType="Int")]
+		public System.Nullable<int> ID_CAUSA
+		{
+			get
+			{
+				return this._ID_CAUSA;
+			}
+			set
+			{
+				if ((this._ID_CAUSA != value))
+				{
+					this._ID_CAUSA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SOLUCION", DbType="Int")]
+		public System.Nullable<int> ID_SOLUCION
+		{
+			get
+			{
+				return this._ID_SOLUCION;
+			}
+			set
+			{
+				if ((this._ID_SOLUCION != value))
+				{
+					this._ID_SOLUCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TAS", DbType="VarChar(20)")]
+		public string FOLIO_TAS
+		{
+			get
+			{
+				return this._FOLIO_TAS;
+			}
+			set
+			{
+				if ((this._FOLIO_TAS != value))
+				{
+					this._FOLIO_TAS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTORGANTE_TAS", DbType="VarChar(255)")]
+		public string OTORGANTE_TAS
+		{
+			get
+			{
+				return this._OTORGANTE_TAS;
+			}
+			set
+			{
+				if ((this._OTORGANTE_TAS != value))
+				{
+					this._OTORGANTE_TAS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_EQUIPO", DbType="VarChar(50)")]
+		public string NO_EQUIPO
+		{
+			get
+			{
+				return this._NO_EQUIPO;
+			}
+			set
+			{
+				if ((this._NO_EQUIPO != value))
+				{
+					this._NO_EQUIPO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_LLEGADA", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_LLEGADA
+		{
+			get
+			{
+				return this._FEC_LLEGADA;
+			}
+			set
+			{
+				if ((this._FEC_LLEGADA != value))
+				{
+					this._FEC_LLEGADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_LLEGADA_TERCEROS", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_LLEGADA_TERCEROS
+		{
+			get
+			{
+				return this._FEC_LLEGADA_TERCEROS;
+			}
+			set
+			{
+				if ((this._FEC_LLEGADA_TERCEROS != value))
+				{
+					this._FEC_LLEGADA_TERCEROS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_SERVICIO", DbType="VarChar(50)")]
+		public string FOLIO_SERVICIO
+		{
+			get
+			{
+				return this._FOLIO_SERVICIO;
+			}
+			set
+			{
+				if ((this._FOLIO_SERVICIO != value))
+				{
+					this._FOLIO_SERVICIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_INI_INGENIERO", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_INI_INGENIERO
+		{
+			get
+			{
+				return this._FEC_INI_INGENIERO;
+			}
+			set
+			{
+				if ((this._FEC_INI_INGENIERO != value))
+				{
+					this._FEC_INI_INGENIERO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_FIN_INGENIERO", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_FIN_INGENIERO
+		{
+			get
+			{
+				return this._FEC_FIN_INGENIERO;
+			}
+			set
+			{
+				if ((this._FEC_FIN_INGENIERO != value))
+				{
+					this._FEC_FIN_INGENIERO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTORGANTE_VOBO", DbType="VarChar(255)")]
+		public string OTORGANTE_VOBO
+		{
+			get
+			{
+				return this._OTORGANTE_VOBO;
+			}
+			set
+			{
+				if ((this._OTORGANTE_VOBO != value))
+				{
+					this._OTORGANTE_VOBO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTORGANTE_VOBO_TERCEROS", DbType="VarChar(255)")]
+		public string OTORGANTE_VOBO_TERCEROS
+		{
+			get
+			{
+				return this._OTORGANTE_VOBO_TERCEROS;
+			}
+			set
+			{
+				if ((this._OTORGANTE_VOBO_TERCEROS != value))
+				{
+					this._OTORGANTE_VOBO_TERCEROS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INTENSIDAD_SENIAL", DbType="VarChar(50)")]
+		public string INTENSIDAD_SENIAL
+		{
+			get
+			{
+				return this._INTENSIDAD_SENIAL;
+			}
+			set
+			{
+				if ((this._INTENSIDAD_SENIAL != value))
+				{
+					this._INTENSIDAD_SENIAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_SIM_REMPLAZADA", DbType="Int")]
+		public System.Nullable<int> IS_SIM_REMPLAZADA
+		{
+			get
+			{
+				return this._IS_SIM_REMPLAZADA;
+			}
+			set
+			{
+				if ((this._IS_SIM_REMPLAZADA != value))
+				{
+					this._IS_SIM_REMPLAZADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FALLA_ENCONTRADA", DbType="VarChar(255)")]
+		public string FALLA_ENCONTRADA
+		{
+			get
+			{
+				return this._FALLA_ENCONTRADA;
+			}
+			set
+			{
+				if ((this._FALLA_ENCONTRADA != value))
+				{
+					this._FALLA_ENCONTRADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTORGANTE_VOBO_CLIENTE", DbType="VarChar(255)")]
+		public string OTORGANTE_VOBO_CLIENTE
+		{
+			get
+			{
+				return this._OTORGANTE_VOBO_CLIENTE;
+			}
+			set
+			{
+				if ((this._OTORGANTE_VOBO_CLIENTE != value))
+				{
+					this._OTORGANTE_VOBO_CLIENTE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOTIVO_COBRO", DbType="VarChar(255)")]
+		public string MOTIVO_COBRO
+		{
+			get
+			{
+				return this._MOTIVO_COBRO;
+			}
+			set
+			{
+				if ((this._MOTIVO_COBRO != value))
+				{
+					this._MOTIVO_COBRO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_SOPORTE_CLIENTE", DbType="Int")]
+		public System.Nullable<int> IS_SOPORTE_CLIENTE
+		{
+			get
+			{
+				return this._IS_SOPORTE_CLIENTE;
+			}
+			set
+			{
+				if ((this._IS_SOPORTE_CLIENTE != value))
+				{
+					this._IS_SOPORTE_CLIENTE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_BOLETIN", DbType="Int")]
+		public System.Nullable<int> IS_BOLETIN
+		{
+			get
+			{
+				return this._IS_BOLETIN;
+			}
+			set
+			{
+				if ((this._IS_BOLETIN != value))
+				{
+					this._IS_BOLETIN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTORGANTE_SOPORTE_CLIENTE", DbType="VarChar(255)")]
+		public string OTORGANTE_SOPORTE_CLIENTE
+		{
+			get
+			{
+				return this._OTORGANTE_SOPORTE_CLIENTE;
+			}
+			set
+			{
+				if ((this._OTORGANTE_SOPORTE_CLIENTE != value))
+				{
+					this._OTORGANTE_SOPORTE_CLIENTE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION_TRABAJO", DbType="VarChar(3000)")]
+		public string DESCRIPCION_TRABAJO
+		{
+			get
+			{
+				return this._DESCRIPCION_TRABAJO;
+			}
+			set
+			{
+				if ((this._DESCRIPCION_TRABAJO != value))
+				{
+					this._DESCRIPCION_TRABAJO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATIENDE", DbType="VarChar(255)")]
+		public string ATIENDE
+		{
+			get
+			{
+				return this._ATIENDE;
+			}
+			set
+			{
+				if ((this._ATIENDE != value))
+				{
+					this._ATIENDE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTORIZADOR_RECHAZO", DbType="VarChar(150)")]
+		public string AUTORIZADOR_RECHAZO
+		{
+			get
+			{
+				return this._AUTORIZADOR_RECHAZO;
+			}
+			set
+			{
+				if ((this._AUTORIZADOR_RECHAZO != value))
+				{
+					this._AUTORIZADOR_RECHAZO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CAUSA_RECHAZO", DbType="Int")]
+		public System.Nullable<int> ID_CAUSA_RECHAZO
+		{
+			get
+			{
+				return this._ID_CAUSA_RECHAZO;
+			}
+			set
+			{
+				if ((this._ID_CAUSA_RECHAZO != value))
+				{
+					this._ID_CAUSA_RECHAZO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAUSA_RECHAZO", DbType="VarChar(255)")]
+		public string CAUSA_RECHAZO
+		{
+			get
+			{
+				return this._CAUSA_RECHAZO;
+			}
+			set
+			{
+				if ((this._CAUSA_RECHAZO != value))
+				{
+					this._CAUSA_RECHAZO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAUSA_CANCELACION", DbType="VarChar(255)")]
+		public string CAUSA_CANCELACION
+		{
+			get
+			{
+				return this._CAUSA_CANCELACION;
+			}
+			set
+			{
+				if ((this._CAUSA_CANCELACION != value))
+				{
+					this._CAUSA_CANCELACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_SERIE_FALLA", DbType="VarChar(50)")]
+		public string NO_SERIE_FALLA
+		{
+			get
+			{
+				return this._NO_SERIE_FALLA;
+			}
+			set
+			{
+				if ((this._NO_SERIE_FALLA != value))
+				{
+					this._NO_SERIE_FALLA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_INVENTARIO_FALLA", DbType="VarChar(50)")]
+		public string NO_INVENTARIO_FALLA
+		{
+			get
+			{
+				return this._NO_INVENTARIO_FALLA;
+			}
+			set
+			{
+				if ((this._NO_INVENTARIO_FALLA != value))
+				{
+					this._NO_INVENTARIO_FALLA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_MODELO_FALLA", DbType="Int")]
+		public System.Nullable<int> ID_MODELO_FALLA
+		{
+			get
+			{
+				return this._ID_MODELO_FALLA;
+			}
+			set
+			{
+				if ((this._ID_MODELO_FALLA != value))
+				{
+					this._ID_MODELO_FALLA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_EXITO", DbType="Int")]
+		public System.Nullable<int> IS_EXITO
+		{
+			get
+			{
+				return this._IS_EXITO;
+			}
+			set
+			{
+				if ((this._IS_EXITO != value))
+				{
+					this._IS_EXITO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ATTACH1", DbType="Int")]
+		public System.Nullable<int> ID_ATTACH1
+		{
+			get
+			{
+				return this._ID_ATTACH1;
+			}
+			set
+			{
+				if ((this._ID_ATTACH1 != value))
+				{
+					this._ID_ATTACH1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ATTACH2", DbType="Int")]
+		public System.Nullable<int> ID_ATTACH2
+		{
+			get
+			{
+				return this._ID_ATTACH2;
+			}
+			set
+			{
+				if ((this._ID_ATTACH2 != value))
+				{
+					this._ID_ATTACH2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_REPORTE_CIERRE", DbType="Int")]
+		public System.Nullable<int> ID_REPORTE_CIERRE
+		{
+			get
+			{
+				return this._ID_REPORTE_CIERRE;
+			}
+			set
+			{
+				if ((this._ID_REPORTE_CIERRE != value))
+				{
+					this._ID_REPORTE_CIERRE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PROYECTO", DbType="Int")]
+		public System.Nullable<int> ID_PROYECTO
+		{
+			get
+			{
+				return this._ID_PROYECTO;
+			}
+			set
+			{
+				if ((this._ID_PROYECTO != value))
+				{
+					this._ID_PROYECTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_MODELO_REQ", DbType="Int")]
+		public System.Nullable<int> ID_MODELO_REQ
+		{
+			get
+			{
+				return this._ID_MODELO_REQ;
+			}
+			set
+			{
+				if ((this._ID_MODELO_REQ != value))
+				{
+					this._ID_MODELO_REQ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PRODUCTO", DbType="Int")]
+		public System.Nullable<int> ID_PRODUCTO
+		{
+			get
+			{
+				return this._ID_PRODUCTO;
+			}
+			set
+			{
+				if ((this._ID_PRODUCTO != value))
+				{
+					this._ID_PRODUCTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_SERVICIO", DbType="Int")]
+		public System.Nullable<int> ID_TIPO_SERVICIO
+		{
+			get
+			{
+				return this._ID_TIPO_SERVICIO;
+			}
+			set
+			{
+				if ((this._ID_TIPO_SERVICIO != value))
+				{
+					this._ID_TIPO_SERVICIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_PRECIO", DbType="Int")]
+		public System.Nullable<int> ID_TIPO_PRECIO
+		{
+			get
+			{
+				return this._ID_TIPO_PRECIO;
+			}
+			set
+			{
+				if ((this._ID_TIPO_PRECIO != value))
+				{
+					this._ID_TIPO_PRECIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_MONEDA", DbType="Int")]
+		public System.Nullable<int> ID_MONEDA
+		{
+			get
+			{
+				return this._ID_MONEDA;
+			}
+			set
+			{
+				if ((this._ID_MONEDA != value))
+				{
+					this._ID_MONEDA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_COBRO", DbType="Int")]
+		public System.Nullable<int> ID_TIPO_COBRO
+		{
+			get
+			{
+				return this._ID_TIPO_COBRO;
+			}
+			set
+			{
+				if ((this._ID_TIPO_COBRO != value))
+				{
+					this._ID_TIPO_COBRO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_COBRABLE", DbType="Int")]
+		public System.Nullable<int> IS_COBRABLE
+		{
+			get
+			{
+				return this._IS_COBRABLE;
+			}
+			set
+			{
+				if ((this._IS_COBRABLE != value))
+				{
+					this._IS_COBRABLE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_UNIDAD_ATENDIDA", DbType="Int")]
+		public System.Nullable<int> ID_UNIDAD_ATENDIDA
+		{
+			get
+			{
+				return this._ID_UNIDAD_ATENDIDA;
+			}
+			set
+			{
+				if ((this._ID_UNIDAD_ATENDIDA != value))
+				{
+					this._ID_UNIDAD_ATENDIDA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_REGLA_STATUS_AR", DbType="Int")]
+		public System.Nullable<int> ID_REGLA_STATUS_AR
+		{
+			get
+			{
+				return this._ID_REGLA_STATUS_AR;
+			}
+			set
+			{
+				if ((this._ID_REGLA_STATUS_AR != value))
+				{
+					this._ID_REGLA_STATUS_AR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA_REGLA_STATUS_AR", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_ALTA_REGLA_STATUS_AR
+		{
+			get
+			{
+				return this._FEC_ALTA_REGLA_STATUS_AR;
+			}
+			set
+			{
+				if ((this._FEC_ALTA_REGLA_STATUS_AR != value))
+				{
+					this._FEC_ALTA_REGLA_STATUS_AR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_STATUS_AR", DbType="Int")]
+		public System.Nullable<int> ID_STATUS_AR
+		{
+			get
+			{
+				return this._ID_STATUS_AR;
+			}
+			set
+			{
+				if ((this._ID_STATUS_AR != value))
+				{
+					this._ID_STATUS_AR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_STATUS_AR", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_STATUS_AR
+		{
+			get
+			{
+				return this._FEC_STATUS_AR;
+			}
+			set
+			{
+				if ((this._FEC_STATUS_AR != value))
+				{
+					this._FEC_STATUS_AR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CADENA_CIERRE_ESCRITA", DbType="VarChar(3000)")]
+		public string CADENA_CIERRE_ESCRITA
+		{
+			get
+			{
+				return this._CADENA_CIERRE_ESCRITA;
+			}
+			set
+			{
+				if ((this._CADENA_CIERRE_ESCRITA != value))
+				{
+					this._CADENA_CIERRE_ESCRITA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_INTERVENCION", DbType="VarChar(50)")]
+		public string CODIGO_INTERVENCION
+		{
+			get
+			{
+				return this._CODIGO_INTERVENCION;
+			}
+			set
+			{
+				if ((this._CODIGO_INTERVENCION != value))
+				{
+					this._CODIGO_INTERVENCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_FALLA_ENCONTRADA", DbType="Int")]
+		public System.Nullable<int> ID_TIPO_FALLA_ENCONTRADA
+		{
+			get
+			{
+				return this._ID_TIPO_FALLA_ENCONTRADA;
+			}
+			set
+			{
+				if ((this._ID_TIPO_FALLA_ENCONTRADA != value))
+				{
+					this._ID_TIPO_FALLA_ENCONTRADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_RETIPIFICADO", DbType="Int")]
+		public System.Nullable<int> IS_RETIPIFICADO
+		{
+			get
+			{
+				return this._IS_RETIPIFICADO;
+			}
+			set
+			{
+				if ((this._IS_RETIPIFICADO != value))
+				{
+					this._IS_RETIPIFICADO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOTIVO_RETIPIFICADO", DbType="VarChar(100)")]
+		public string MOTIVO_RETIPIFICADO
+		{
+			get
+			{
+				return this._MOTIVO_RETIPIFICADO;
+			}
+			set
+			{
+				if ((this._MOTIVO_RETIPIFICADO != value))
+				{
+					this._MOTIVO_RETIPIFICADO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_FOLLOW_DISPATCH", DbType="Int")]
+		public System.Nullable<int> IS_FOLLOW_DISPATCH
+		{
+			get
+			{
+				return this._IS_FOLLOW_DISPATCH;
+			}
+			set
+			{
+				if ((this._IS_FOLLOW_DISPATCH != value))
+				{
+					this._IS_FOLLOW_DISPATCH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_DISPATCHER", DbType="Int")]
+		public System.Nullable<int> ID_DISPATCHER
+		{
+			get
+			{
+				return this._ID_DISPATCHER;
+			}
+			set
+			{
+				if ((this._ID_DISPATCHER != value))
+				{
+					this._ID_DISPATCHER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIGITO_VERIFICADOR", DbType="VarChar(10)")]
+		public string DIGITO_VERIFICADOR
+		{
+			get
+			{
+				return this._DIGITO_VERIFICADOR;
+			}
+			set
+			{
+				if ((this._DIGITO_VERIFICADOR != value))
+				{
+					this._DIGITO_VERIFICADOR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_REINCIDENCIAS", DbType="Int")]
+		public System.Nullable<int> NO_REINCIDENCIAS
+		{
+			get
+			{
+				return this._NO_REINCIDENCIAS;
+			}
+			set
+			{
+				if ((this._NO_REINCIDENCIAS != value))
+				{
+					this._NO_REINCIDENCIAS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_PROGRAMADO", DbType="Int")]
+		public System.Nullable<int> IS_PROGRAMADO
+		{
+			get
+			{
+				return this._IS_PROGRAMADO;
+			}
+			set
+			{
+				if ((this._IS_PROGRAMADO != value))
+				{
+					this._IS_PROGRAMADO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_DIAS_LIBERACION", DbType="Int")]
+		public System.Nullable<int> NO_DIAS_LIBERACION
+		{
+			get
+			{
+				return this._NO_DIAS_LIBERACION;
+			}
+			set
+			{
+				if ((this._NO_DIAS_LIBERACION != value))
+				{
+					this._NO_DIAS_LIBERACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_RESPONSABLE_CANCELACION_PROGRAMADO", DbType="Int")]
+		public System.Nullable<int> ID_RESPONSABLE_CANCELACION_PROGRAMADO
+		{
+			get
+			{
+				return this._ID_RESPONSABLE_CANCELACION_PROGRAMADO;
+			}
+			set
+			{
+				if ((this._ID_RESPONSABLE_CANCELACION_PROGRAMADO != value))
+				{
+					this._ID_RESPONSABLE_CANCELACION_PROGRAMADO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSUMOS", DbType="Int")]
+		public System.Nullable<int> INSUMOS
+		{
+			get
+			{
+				return this._INSUMOS;
+			}
+			set
+			{
+				if ((this._INSUMOS != value))
+				{
+					this._INSUMOS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RESPONSABLE", DbType="VarChar(50)")]
+		public string RESPONSABLE
+		{
+			get
+			{
+				return this._RESPONSABLE;
+			}
+			set
+			{
+				if ((this._RESPONSABLE != value))
+				{
+					this._RESPONSABLE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAJA", DbType="VarChar(3)")]
+		public string CAJA
+		{
+			get
+			{
+				return this._CAJA;
+			}
+			set
+			{
+				if ((this._CAJA != value))
+				{
+					this._CAJA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(10)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this._STATUS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ESPECIF_TIPO_FALLA", DbType="Int")]
+		public System.Nullable<int> ID_ESPECIF_TIPO_FALLA
+		{
+			get
+			{
+				return this._ID_ESPECIF_TIPO_FALLA;
+			}
+			set
+			{
+				if ((this._ID_ESPECIF_TIPO_FALLA != value))
+				{
+					this._ID_ESPECIF_TIPO_FALLA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLTAJE_NEUTRO", DbType="VarChar(50)")]
+		public string VOLTAJE_NEUTRO
+		{
+			get
+			{
+				return this._VOLTAJE_NEUTRO;
+			}
+			set
+			{
+				if ((this._VOLTAJE_NEUTRO != value))
+				{
+					this._VOLTAJE_NEUTRO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLTAJE_TIERRA", DbType="VarChar(50)")]
+		public string VOLTAJE_TIERRA
+		{
+			get
+			{
+				return this._VOLTAJE_TIERRA;
+			}
+			set
+			{
+				if ((this._VOLTAJE_TIERRA != value))
+				{
+					this._VOLTAJE_TIERRA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLTAJE_TIERRA_NEUTRO", DbType="VarChar(50)")]
+		public string VOLTAJE_TIERRA_NEUTRO
+		{
+			get
+			{
+				return this._VOLTAJE_TIERRA_NEUTRO;
+			}
+			set
+			{
+				if ((this._VOLTAJE_TIERRA_NEUTRO != value))
+				{
+					this._VOLTAJE_TIERRA_NEUTRO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_VALIDACION", DbType="VarChar(50)")]
+		public string FOLIO_VALIDACION
+		{
+			get
+			{
+				return this._FOLIO_VALIDACION;
+			}
+			set
+			{
+				if ((this._FOLIO_VALIDACION != value))
+				{
+					this._FOLIO_VALIDACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TIR", DbType="VarChar(50)")]
+		public string FOLIO_TIR
+		{
+			get
+			{
+				return this._FOLIO_TIR;
+			}
+			set
+			{
+				if ((this._FOLIO_TIR != value))
+				{
+					this._FOLIO_TIR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ESPECIFICA_CAUSA_RECHAZO", DbType="Int")]
+		public System.Nullable<int> ID_ESPECIFICA_CAUSA_RECHAZO
+		{
+			get
+			{
+				return this._ID_ESPECIFICA_CAUSA_RECHAZO;
+			}
+			set
+			{
+				if ((this._ID_ESPECIFICA_CAUSA_RECHAZO != value))
+				{
+					this._ID_ESPECIFICA_CAUSA_RECHAZO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DURACION", DbType="Int")]
+		public System.Nullable<int> DURACION
+		{
+			get
+			{
+				return this._DURACION;
+			}
+			set
+			{
+				if ((this._DURACION != value))
+				{
+					this._DURACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRASLADO", DbType="Int")]
+		public System.Nullable<int> TRASLADO
+		{
+			get
+			{
+				return this._TRASLADO;
+			}
+			set
+			{
+				if ((this._TRASLADO != value))
+				{
+					this._TRASLADO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_STATUS_VALIDACION_PREFACTURACION", DbType="Int")]
+		public System.Nullable<int> ID_STATUS_VALIDACION_PREFACTURACION
+		{
+			get
+			{
+				return this._ID_STATUS_VALIDACION_PREFACTURACION;
+			}
+			set
+			{
+				if ((this._ID_STATUS_VALIDACION_PREFACTURACION != value))
+				{
+					this._ID_STATUS_VALIDACION_PREFACTURACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_DESCRIPCION_TRABAJO", DbType="Int")]
+		public System.Nullable<int> ID_DESCRIPCION_TRABAJO
+		{
+			get
+			{
+				return this._ID_DESCRIPCION_TRABAJO;
+			}
+			set
+			{
+				if ((this._ID_DESCRIPCION_TRABAJO != value))
+				{
+					this._ID_DESCRIPCION_TRABAJO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_STATUS_REASON_CODES", DbType="Int")]
+		public System.Nullable<int> ID_STATUS_REASON_CODES
+		{
+			get
+			{
+				return this._ID_STATUS_REASON_CODES;
+			}
+			set
+			{
+				if ((this._ID_STATUS_REASON_CODES != value))
+				{
+					this._ID_STATUS_REASON_CODES = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_due_by", DbType="VarChar(50)")]
+		public string due_by
+		{
+			get
+			{
+				return this._due_by;
+			}
+			set
+			{
+				if ((this._due_by != value))
+				{
+					this._due_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CADENA_CIERRE", DbType="VarChar(MAX)")]
+		public string CADENA_CIERRE
+		{
+			get
+			{
+				return this._CADENA_CIERRE;
+			}
+			set
+			{
+				if ((this._CADENA_CIERRE != value))
+				{
+					this._CADENA_CIERRE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_SIM", DbType="VarChar(50)")]
+		public string NO_SIM
+		{
+			get
+			{
+				return this._NO_SIM;
+			}
+			set
+			{
+				if ((this._NO_SIM != value))
+				{
+					this._NO_SIM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLAVE_RECHAZO", DbType="VarChar(50)")]
+		public string CLAVE_RECHAZO
+		{
+			get
+			{
+				return this._CLAVE_RECHAZO;
+			}
+			set
+			{
+				if ((this._CLAVE_RECHAZO != value))
+				{
+					this._CLAVE_RECHAZO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_INTERFAZ_BANCOMER", DbType="Int")]
+		public System.Nullable<int> IS_INTERFAZ_BANCOMER
+		{
+			get
+			{
+				return this._IS_INTERFAZ_BANCOMER;
+			}
+			set
+			{
+				if ((this._IS_INTERFAZ_BANCOMER != value))
+				{
+					this._IS_INTERFAZ_BANCOMER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CONCEPTO", DbType="Int")]
+		public System.Nullable<int> ID_CONCEPTO
+		{
+			get
+			{
+				return this._ID_CONCEPTO;
+			}
+			set
+			{
+				if ((this._ID_CONCEPTO != value))
+				{
+					this._ID_CONCEPTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_EQUIPO_CLIENTE", DbType="Int")]
+		public System.Nullable<int> ID_EQUIPO_CLIENTE
+		{
+			get
+			{
+				return this._ID_EQUIPO_CLIENTE;
+			}
+			set
+			{
+				if ((this._ID_EQUIPO_CLIENTE != value))
+				{
+					this._ID_EQUIPO_CLIENTE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOT_VIATICOS", DbType="Int")]
+		public System.Nullable<int> NOT_VIATICOS
+		{
+			get
+			{
+				return this._NOT_VIATICOS;
+			}
+			set
+			{
+				if ((this._NOT_VIATICOS != value))
+				{
+					this._NOT_VIATICOS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_LOCAL", DbType="Int")]
+		public System.Nullable<int> IS_LOCAL
+		{
+			get
+			{
+				return this._IS_LOCAL;
+			}
+			set
+			{
+				if ((this._IS_LOCAL != value))
+				{
+					this._IS_LOCAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_CARGA", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_CARGA
+		{
+			get
+			{
+				return this._FEC_CARGA;
+			}
+			set
+			{
+				if ((this._FEC_CARGA != value))
+				{
+					this._FEC_CARGA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ATENCION_ORIGINAL", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_ATENCION_ORIGINAL
+		{
+			get
+			{
+				return this._FEC_ATENCION_ORIGINAL;
+			}
+			set
+			{
+				if ((this._FEC_ATENCION_ORIGINAL != value))
+				{
+					this._FEC_ATENCION_ORIGINAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAS_GARANTIA_WINCOR", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> HORAS_GARANTIA_WINCOR
+		{
+			get
+			{
+				return this._HORAS_GARANTIA_WINCOR;
+			}
+			set
+			{
+				if ((this._HORAS_GARANTIA_WINCOR != value))
+				{
+					this._HORAS_GARANTIA_WINCOR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAS_ATENCION_WINCOR", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> HORAS_ATENCION_WINCOR
+		{
+			get
+			{
+				return this._HORAS_ATENCION_WINCOR;
+			}
+			set
+			{
+				if ((this._HORAS_ATENCION_WINCOR != value))
+				{
+					this._HORAS_ATENCION_WINCOR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_PDF", DbType="Int")]
+		public System.Nullable<int> IS_PDF
+		{
+			get
+			{
+				return this._IS_PDF;
+			}
+			set
+			{
+				if ((this._IS_PDF != value))
+				{
+					this._IS_PDF = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CONECTIVIDAD", DbType="Int")]
+		public System.Nullable<int> ID_CONECTIVIDAD
+		{
+			get
+			{
+				return this._ID_CONECTIVIDAD;
+			}
+			set
+			{
+				if ((this._ID_CONECTIVIDAD != value))
+				{
+					this._ID_CONECTIVIDAD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_APLICATIVO", DbType="Int")]
+		public System.Nullable<int> ID_APLICATIVO
+		{
+			get
+			{
+				return this._ID_APLICATIVO;
+			}
+			set
+			{
+				if ((this._ID_APLICATIVO != value))
+				{
+					this._ID_APLICATIVO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INTENTO_CONTACTO", DbType="Int")]
+		public System.Nullable<int> INTENTO_CONTACTO
+		{
+			get
+			{
+				return this._INTENTO_CONTACTO;
+			}
+			set
+			{
+				if ((this._INTENTO_CONTACTO != value))
+				{
+					this._INTENTO_CONTACTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CALIFICA_CONTACTO", DbType="Int")]
+		public System.Nullable<int> ID_CALIFICA_CONTACTO
+		{
+			get
+			{
+				return this._ID_CALIFICA_CONTACTO;
+			}
+			set
+			{
+				if ((this._ID_CALIFICA_CONTACTO != value))
+				{
+					this._ID_CALIFICA_CONTACTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_INTENTO_1", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_INTENTO_1
+		{
+			get
+			{
+				return this._FEC_INTENTO_1;
+			}
+			set
+			{
+				if ((this._FEC_INTENTO_1 != value))
+				{
+					this._FEC_INTENTO_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_INTENTO_2", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_INTENTO_2
+		{
+			get
+			{
+				return this._FEC_INTENTO_2;
+			}
+			set
+			{
+				if ((this._FEC_INTENTO_2 != value))
+				{
+					this._FEC_INTENTO_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_INTENTO_3", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_INTENTO_3
+		{
+			get
+			{
+				return this._FEC_INTENTO_3;
+			}
+			set
+			{
+				if ((this._FEC_INTENTO_3 != value))
+				{
+					this._FEC_INTENTO_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_INTENTO_4", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_INTENTO_4
+		{
+			get
+			{
+				return this._FEC_INTENTO_4;
+			}
+			set
+			{
+				if ((this._FEC_INTENTO_4 != value))
+				{
+					this._FEC_INTENTO_4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CALIFICA_INTENTO_1", DbType="Int")]
+		public System.Nullable<int> ID_CALIFICA_INTENTO_1
+		{
+			get
+			{
+				return this._ID_CALIFICA_INTENTO_1;
+			}
+			set
+			{
+				if ((this._ID_CALIFICA_INTENTO_1 != value))
+				{
+					this._ID_CALIFICA_INTENTO_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CALIFICA_INTENTO_2", DbType="Int")]
+		public System.Nullable<int> ID_CALIFICA_INTENTO_2
+		{
+			get
+			{
+				return this._ID_CALIFICA_INTENTO_2;
+			}
+			set
+			{
+				if ((this._ID_CALIFICA_INTENTO_2 != value))
+				{
+					this._ID_CALIFICA_INTENTO_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CALIFICA_INTENTO_3", DbType="Int")]
+		public System.Nullable<int> ID_CALIFICA_INTENTO_3
+		{
+			get
+			{
+				return this._ID_CALIFICA_INTENTO_3;
+			}
+			set
+			{
+				if ((this._ID_CALIFICA_INTENTO_3 != value))
+				{
+					this._ID_CALIFICA_INTENTO_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CALIFICA_INTENTO_4", DbType="Int")]
+		public System.Nullable<int> ID_CALIFICA_INTENTO_4
+		{
+			get
+			{
+				return this._ID_CALIFICA_INTENTO_4;
+			}
+			set
+			{
+				if ((this._ID_CALIFICA_INTENTO_4 != value))
+				{
+					this._ID_CALIFICA_INTENTO_4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType="BigInt")]
+		public System.Nullable<long> FOLIO_TELECARGA
+		{
+			get
+			{
+				return this._FOLIO_TELECARGA;
+			}
+			set
+			{
+				if ((this._FOLIO_TELECARGA != value))
+				{
+					this._FOLIO_TELECARGA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_EQUIPO", DbType="Int")]
+		public System.Nullable<int> ID_TIPO_EQUIPO
+		{
+			get
+			{
+				return this._ID_TIPO_EQUIPO;
+			}
+			set
+			{
+				if ((this._ID_TIPO_EQUIPO != value))
+				{
+					this._ID_TIPO_EQUIPO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORREO_EJECUTIVO", DbType="VarChar(255)")]
+		public string CORREO_EJECUTIVO
+		{
+			get
+			{
+				return this._CORREO_EJECUTIVO;
+			}
+			set
+			{
+				if ((this._CORREO_EJECUTIVO != value))
+				{
+					this._CORREO_EJECUTIVO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEFONO_COMERCIO", DbType="VarChar(255)")]
+		public string TELEFONO_COMERCIO
+		{
+			get
+			{
+				return this._TELEFONO_COMERCIO;
+			}
+			set
+			{
+				if ((this._TELEFONO_COMERCIO != value))
+				{
+					this._TELEFONO_COMERCIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERSONA_ATENDERA_COMERCIO", DbType="VarChar(255)")]
+		public string PERSONA_ATENDERA_COMERCIO
+		{
+			get
+			{
+				return this._PERSONA_ATENDERA_COMERCIO;
+			}
+			set
+			{
+				if ((this._PERSONA_ATENDERA_COMERCIO != value))
+				{
+					this._PERSONA_ATENDERA_COMERCIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROVEEDOR_ATENDERA_COMERCIO", DbType="VarChar(255)")]
+		public string PROVEEDOR_ATENDERA_COMERCIO
+		{
+			get
+			{
+				return this._PROVEEDOR_ATENDERA_COMERCIO;
+			}
+			set
+			{
+				if ((this._PROVEEDOR_ATENDERA_COMERCIO != value))
+				{
+					this._PROVEEDOR_ATENDERA_COMERCIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORA_ATENCION_INI", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HORA_ATENCION_INI
+		{
+			get
+			{
+				return this._HORA_ATENCION_INI;
+			}
+			set
+			{
+				if ((this._HORA_ATENCION_INI != value))
+				{
+					this._HORA_ATENCION_INI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORA_ATENCION_FIN", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HORA_ATENCION_FIN
+		{
+			get
+			{
+				return this._HORA_ATENCION_FIN;
+			}
+			set
+			{
+				if ((this._HORA_ATENCION_FIN != value))
+				{
+					this._HORA_ATENCION_FIN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TERMINAL_AMEX", DbType="Int")]
+		public System.Nullable<int> TERMINAL_AMEX
+		{
+			get
+			{
+				return this._TERMINAL_AMEX;
+			}
+			set
+			{
+				if ((this._TERMINAL_AMEX != value))
+				{
+					this._TERMINAL_AMEX = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AGREGAR_DIAS_ATENCION", DbType="Int")]
+		public System.Nullable<int> AGREGAR_DIAS_ATENCION
+		{
+			get
+			{
+				return this._AGREGAR_DIAS_ATENCION;
+			}
+			set
+			{
+				if ((this._AGREGAR_DIAS_ATENCION != value))
+				{
+					this._AGREGAR_DIAS_ATENCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIRECCION_ALTERNA_COMERCIO", DbType="VarChar(MAX)")]
+		public string DIRECCION_ALTERNA_COMERCIO
+		{
+			get
+			{
+				return this._DIRECCION_ALTERNA_COMERCIO;
+			}
+			set
+			{
+				if ((this._DIRECCION_ALTERNA_COMERCIO != value))
+				{
+					this._DIRECCION_ALTERNA_COMERCIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PROVEEDOR", DbType="Int")]
+		public System.Nullable<int> ID_PROVEEDOR
+		{
+			get
+			{
+				return this._ID_PROVEEDOR;
+			}
+			set
+			{
+				if ((this._ID_PROVEEDOR != value))
+				{
+					this._ID_PROVEEDOR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RP", DbType="Int")]
+		public System.Nullable<int> RP
+		{
+			get
+			{
+				return this._RP;
+			}
+			set
+			{
+				if ((this._RP != value))
+				{
+					this._RP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RS", DbType="Int")]
+		public System.Nullable<int> RS
+		{
+			get
+			{
+				return this._RS;
+			}
+			set
+			{
+				if ((this._RS != value))
+				{
+					this._RS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AR_ORIGINAL", DbType="Int")]
+		public System.Nullable<int> ID_AR_ORIGINAL
+		{
+			get
+			{
+				return this._ID_AR_ORIGINAL;
+			}
+			set
+			{
+				if ((this._ID_AR_ORIGINAL != value))
+				{
+					this._ID_AR_ORIGINAL = value;
 				}
 			}
 		}

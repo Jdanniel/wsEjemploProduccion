@@ -584,6 +584,12 @@ namespace wsEjemplo
                     select a).ToList();
         }
         */
+
+        public List<SP_GET_REPLICAS_ONBASEResult> ODTReplica(getOdtReplicaRequest odt)
+        {
+            return contex_.SP_GET_REPLICAS_ONBASE(odt.FecIni, odt.FecFin).ToList(); 
+        }
+
         public List<Respuesta> getODT(string odt)
         {
             var ars = (from a
