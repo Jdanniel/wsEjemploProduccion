@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.5" name="DataClassesElvon">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClassesElvon">
   <DataContextMoniker Name="/DataClassesElvonDataContext" />
   <nestedChildShapes>
     <classShape Id="4d06d8ec-fe17-4bd8-9e19-2ea38fd5cb3b" isExpanded="false" absoluteBounds="4.875, 0.5, 2, 0.45">
@@ -82,7 +82,7 @@
         <elementListCompartment Id="ca428b60-5138-4594-815c-417603163ac9" absoluteBounds="4.89, 2.835, 1.9700000000000002, 9.4798583984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="acced317-e9d3-476f-b4ba-def1bc6f3a1f" absoluteBounds="0.5, 3.125, 2, 7.1553369140625005">
+    <classShape Id="acced317-e9d3-476f-b4ba-def1bc6f3a1f" isExpanded="false" absoluteBounds="0.5, 3.125, 2, 0.45">
       <DataClassMoniker Name="/DataClassesElvonDataContext/BD_ONBASE_INBOX_CONFIRMACION" />
       <nestedChildShapes>
         <elementListCompartment Id="2a978f27-54c3-48de-b0ed-b805d303e35a" absoluteBounds="0.51499999999999968, 3.585, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />

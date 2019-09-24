@@ -27,7 +27,6 @@ namespace wsEjemplo.Helpers
             contex_.SubmitChanges();
             return carga.ID_CARGA;
         }
-
         public int ar(addODTRequest odt, int idcarga, int idservicio, int idfalla, int idproveedor, int? idsegmento, int idproducto)
         {
             var descProveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.ID_PROVEEDOR_USUARIO == idproveedor select a.DESC_PROVEEDOR_USUARIO).FirstOrDefault();
@@ -141,7 +140,6 @@ namespace wsEjemplo.Helpers
 
             return newODT.ID_AR;
         }
-
         public void terminalAmex(int idar, string idterminal, string afiliacionamex)
         {
             BD_AR_TERMINAL_ASOCIADA_AMEX terminal = new BD_AR_TERMINAL_ASOCIADA_AMEX();
@@ -153,7 +151,6 @@ namespace wsEjemplo.Helpers
             contex_.BD_AR_TERMINAL_ASOCIADA_AMEX.InsertOnSubmit(terminal);
             contex_.SubmitChanges();
         }
-
         public void onbaseinboxconfirmacion(confirmarODTRequest odt)
         {
                 BD_ONBASE_INBOX_CONFIRMACION confirma = new BD_ONBASE_INBOX_CONFIRMACION();
@@ -246,7 +243,6 @@ namespace wsEjemplo.Helpers
             contex_.BD_ONBASE_INBOX.InsertOnSubmit(inbox);
             contex_.SubmitChanges();
         }
-
         public void bitacoraAr(int idar, int idstatusini, int idstatusfin, string comentario)
         {
             BD_BITACORA_AR bitacora = new BD_BITACORA_AR();
@@ -259,7 +255,6 @@ namespace wsEjemplo.Helpers
             contex_.BD_BITACORA_AR.InsertOnSubmit(bitacora);
             contex_.SubmitChanges();
         }
-
         public void logws(string noar, string status, string error)
         {
             BD_AR_LOG_WS ws = new BD_AR_LOG_WS();

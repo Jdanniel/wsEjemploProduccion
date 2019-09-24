@@ -13,4 +13,10 @@ namespace wsEjemplo.Helpers
         public string odt { get; set; }
         public string fechaConcluido { get; set; }
     }
+
+    public class RespuestaReplicas
+    {
+        public string idar { get; set; }
+        public string noar { get; set; }
+    }
 }

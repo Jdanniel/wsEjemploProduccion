@@ -592,6 +592,7 @@ namespace wsEjemplo
 
         public List<Respuesta> getODT(string odt)
         {
+            var idstatusar = new int?[] {6, 7, 8};
             var ars = (from a
                             in contex_.BD_AR
                        join b in contex_.C_STATUS_AR
@@ -602,10 +603,12 @@ namespace wsEjemplo
                        {
                            estatus = b.DESC_STATUS_AR,
                            conclusion = a.DESCRIPCION_TRABAJO,
-                           fechaConcluido =  Convert.ToDateTime(a.FEC_CIERRE).ToShortDateString(),
+                           fechaConcluido = Convert.ToDateTime((from cc in contex_.BD_BITACORA_AR where a.ID_AR == cc.ID_AR && idstatusar.Contains(cc.ID_STATUS_AR_FIN) orderby cc.FEC_ALTA descending select cc.FEC_ALTA).SingleOrDefault()).ToString("MM/dd/yyyy", CultureInfo.InvariantCulture),
                            odt = a.NO_AR,
                            motivo = ""
                        }).ToList();
+
+
             return ars;
         }
 
