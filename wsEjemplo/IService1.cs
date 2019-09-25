@@ -17,26 +17,25 @@ namespace wsEjemplo
 /*
         [OperationContract]
         string GetData(int value);
-*/
+
         [OperationContract]
         string addServicio(addODTRequest odt);
         
         [OperationContract]
         string confirmarOdt(confirmarODTRequest request);
-        
+*/ 
         [OperationContract]
         List<Respuesta> getODT(string odt);
-
+/*
         [OperationContract]
         List<SP_GET_REPLICAS_ONBASEResult> ODTReplica(getOdtReplicaRequest odt);
 
-        /*
         [OperationContract]
         List<BD_AR> getODTafiliacion(string noafiliacion);
-        */
+
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
-
+*/
             // TODO: agregue aquí sus operaciones de servicio
     }
 
