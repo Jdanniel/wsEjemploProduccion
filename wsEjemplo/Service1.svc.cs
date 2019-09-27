@@ -592,7 +592,10 @@ namespace wsEjemplo
 
         public List<Respuesta> getODT(string odt)
         {
-            var idstatusar = new int?[] {6, 7, 8,3,31};
+            var idstatusar = new int?[] {6, 7, 8};
+            var status = new int?[] {3, 31}; 
+            var comentarios = new string[] { "Se crea código de rechazo" };
+
             var ars = (from a
                             in contex_.BD_AR
                        join b in contex_.C_STATUS_AR
@@ -603,7 +606,16 @@ namespace wsEjemplo
                        {
                            estatus = b.DESC_STATUS_AR,
                            conclusion = a.DESCRIPCION_TRABAJO,
-                           fechaConcluido = Convert.ToDateTime((from cc in contex_.BD_BITACORA_AR where a.ID_AR == cc.ID_AR && idstatusar.Contains(cc.ID_STATUS_AR_FIN) orderby cc.FEC_ALTA descending select cc.FEC_ALTA).FirstOrDefault()).ToString("MM/dd/yyyy", CultureInfo.InvariantCulture),
+                           fechaConcluido = (status.Contains(a.ID_STATUS_AR) 
+                           ? null
+                           : Convert.ToDateTime((from cc in contex_.BD_BITACORA_AR
+                                                 where a.ID_AR == cc.ID_AR 
+                                                 && cc.ID_STATUS_AR_INI == 3
+                                                 && idstatusar.Contains(cc.ID_STATUS_AR_FIN)
+                                                 && !comentarios.Contains(cc.COMENTARIO)
+                                                 orderby cc.FEC_ALTA descending
+                                                 select cc.FEC_ALTA).FirstOrDefault())
+                           .ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)),
                            odt = a.NO_AR,
                            motivo = ""
                        }).ToList();
