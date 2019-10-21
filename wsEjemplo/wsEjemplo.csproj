@@ -84,6 +84,7 @@
     <Compile Include="DataContracts\BD_ARS\addODTRequest.cs" />
     <Compile Include="DataContracts\BD_ARS\confirmarODTRequest.cs" />
     <Compile Include="DataContracts\BD_ARS\getOdtReplicaRequest.cs" />
+    <Compile Include="DataContracts\BD_ARS\RespuestaReplicas.cs" />
     <Compile Include="Helpers\Inserts.cs" />
     <Compile Include="Helpers\Procedures.cs" />
     <Compile Include="Helpers\Respuesta.cs" />
