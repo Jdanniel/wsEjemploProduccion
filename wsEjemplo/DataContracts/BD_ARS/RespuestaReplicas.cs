@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
-namespace wsEjemplo.Helpers
+namespace wsEjemplo.DataContracts.BD_ARS
 {
-    public class Respuesta
+    [DataContract]
+    public class RespuestaReplicasContract
     {
-        public string estatus { get; set; }
-        public string conclusion { get; set; }
-        public string motivo { get; set; }
-        public string odt { get; set; }
-        public string fechaConcluido { get; set; }
-    }
-
-    public class RespuestaReplicas
-    {
+        [DataMember]
         public string CONCLUSION { get; set; }
+        [DataMember]
         public string ODT { get; set; }
+        [DataMember]
         public string FECHACONCLUIDO { get; set; }
+        [DataMember]
         public string MOTIVO { get; set; }
+        [DataMember]
         public string ESTATUS { get; set; }
+        [DataMember]
+        public string FECHAALTA { get; set; }
     }
 }

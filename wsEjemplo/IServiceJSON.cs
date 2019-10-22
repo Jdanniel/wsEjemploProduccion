@@ -18,7 +18,7 @@ namespace wsEjemplo
                   RequestFormat = WebMessageFormat.Json,
                   ResponseFormat = WebMessageFormat.Json,
                   BodyStyle = WebMessageBodyStyle.Bare,
-                  UriTemplate = "/Replicas.json")]
-        List<SP_GET_REPLICAS_ONBASEResult> ODTReplica(getOdtReplicaRequest odt);
+                  UriTemplate = "Replicas")]
+        string ODTReplica(getOdtReplicaRequest odt);
     }
 }
