@@ -345,13 +345,14 @@ namespace wsEjemplo
                     idtipoEquipo = (from c in contex_.C_TIPO_A_B where c.DESC_TIPO_A_B == request.TipoAB select c.ID_TIPO_A_B).FirstOrDefault();
                 }
 
-                /*
-                if (sepomex == null)
+                
+                if (sepomex == null || sepomex == "")
                 {
                     mensaje = "El codigo postal no existe en la base de sepomex";
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
-                }*/
+                }
+
                 if (existCP == null)
                 {
                     mensaje = "NO SE ENCUENTRA ZONA POR CODIGO POSTAL";
