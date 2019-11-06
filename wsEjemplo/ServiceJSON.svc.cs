@@ -37,7 +37,7 @@ namespace wsEjemplo
             {
                 DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<RespuestaReplicasContract>));
                 ser.WriteObject(ms, replicas);
-                json = System.Text.Encoding.UTF8.GetString(ms.GetBuffer(), 0, Convert.ToInt16(ms.Length));
+                json = System.Text.Encoding.UTF8.GetString(ms.GetBuffer(), 0, Convert.ToInt32(ms.Length));
             }
             return json.Replace(@"\","");
         }
