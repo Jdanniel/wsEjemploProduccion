@@ -605,6 +605,7 @@ namespace wsEjemplo
                        on a.ID_STATUS_AR
                        equals b.ID_STATUS_AR
                        where a.NO_AR == odt
+                       && a.STATUS == "PROCESADO"
                        select new Respuesta
                        {
                            estatus = b.DESC_STATUS_AR,
