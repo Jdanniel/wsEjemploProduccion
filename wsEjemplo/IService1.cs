@@ -29,7 +29,7 @@ namespace wsEjemplo
 /*
         [OperationContract]
         List<SP_GET_REPLICAS_ONBASEResult> ODTReplica(getOdtReplicaRequest odt);
-/*
+
         [OperationContract]
         List<BD_AR> getODTafiliacion(string noafiliacion);
 
