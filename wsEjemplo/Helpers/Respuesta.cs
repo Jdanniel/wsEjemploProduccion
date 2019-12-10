@@ -12,6 +12,7 @@ namespace wsEjemplo.Helpers
         public string motivo { get; set; }
         public string odt { get; set; }
         public string fechaConcluido { get; set; }
+        public string fechaAlta { get; set; }
     }
 
     public class RespuestaReplicas

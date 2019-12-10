@@ -619,6 +619,7 @@ namespace wsEjemplo
                                                  orderby cc.FEC_ALTA descending
                                                  select cc.FEC_ALTA).FirstOrDefault())
                            .ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)),
+                           fechaAlta = Convert.ToDateTime(a.FEC_ALTA).ToString("MM/dd/yyyy", CultureInfo.InvariantCulture),
                            odt = a.NO_AR,
                            motivo = ""
                        }).ToList();

@@ -90,7 +90,7 @@ namespace wsEjemplo
     #endregion
 		
 		public DataClassesElvonDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ELAVON_TESTConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ELAVON_TESTConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
