@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ELAVON-TEST" Class="DataClassesElvonDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.100.56;Initial Catalog=ELAVON-TEST;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ELAVON_TESTConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.100.56;Initial Catalog=ELAVON;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ELAVON_TESTConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BD_CARGAS" Member="BD_CARGAS">
     <Type Name="BD_CARGAS">
       <Column Name="ID_CARGA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
