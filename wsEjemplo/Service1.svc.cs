@@ -132,7 +132,7 @@ namespace wsEjemplo
                         insert.logws(odt.ArOdt, "ERROR", mensaje);
                         return mensaje;
                     }
-                    /*
+                    //se descomentan lineas para uso de idamex y afiliacion 
                     if(odt.AfilAmex.Length < 10 || odt.AfilAmex.Length > 10)
                     {
                         mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
@@ -144,7 +144,8 @@ namespace wsEjemplo
                         mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
                         insert.logws(odt.ArOdt, "ERROR", mensaje);
                         return mensaje;
-                    }*/
+                    }
+                    //
                     if (odt.Producto == "")
                     {
                         mensaje = "El campo Producto no puede estar vacio";
@@ -278,11 +279,12 @@ namespace wsEjemplo
 
                             var idcarga = insert.carga(odt);
                             var idar = insert.ar(odt, idcarga, idservicio, idfalla, idproveedor, idsegmento, idproducto);
-                            /*
+                            //se descomenta por uso de campos 
                             if (!odt.AfilAmex.Equals("") && !odt.IdAmex.Equals(""))
                             {
                                 insert.terminalAmex(idar, odt.IdAmex, odt.AfilAmex);
-                            }*/
+                            }
+                            //
                             if (odt.AfilAmex.Length < 10 || odt.AfilAmex.Length > 10)
                             {
                                 mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";

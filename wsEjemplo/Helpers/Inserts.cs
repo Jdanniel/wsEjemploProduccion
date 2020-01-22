@@ -129,11 +129,12 @@ namespace wsEjemplo.Helpers
             {
                 newODT.ID_PROYECTO = 0;
             }
-            /*
+            //se descomenta por uso 
             if (!odt.AfilAmex.Equals("") && !odt.IdAmex.Equals(""))
             {
                 newODT.TERMINAL_AMEX = 1;
-            }*/
+            }
+            //
             newODT.ID_TIPO_EQUIPO = idtipoEquipo;
             contex_.BD_AR.InsertOnSubmit(newODT);
             contex_.SubmitChanges();
