@@ -522,13 +522,13 @@ namespace wsEjemplo
 
                 if (request.AfilAmex.Length < 17 || request.AfilAmex.Length > 17)
                 {
-                    mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
+                    mensaje = "El campo Afiliacion Amex debe contener 17 numeros con opcion de completar con 7 caracteres de texto";
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
                 }
                 if (request.IdAmex.Length < 17 || request.IdAmex.Length > 17)
                 {
-                    mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
+                    mensaje = "El campo Afiliacion Amex debe contener 17 numeros con opcion de completar con 7 caracteres de texto";
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
                 }
