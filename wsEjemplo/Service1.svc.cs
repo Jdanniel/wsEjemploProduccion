@@ -133,7 +133,7 @@ namespace wsEjemplo
                         return mensaje;
                     }
                     //se descomentan lineas para uso de idamex y afiliacion 
-                    if(odt.AfilAmex.Length < 10 || odt.AfilAmex.Length > 10)
+                   /* if(odt.AfilAmex.Length < 10 || odt.AfilAmex.Length > 10)
                     {
                         mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
                         insert.logws(odt.ArOdt, "ERROR", mensaje);
@@ -145,6 +145,7 @@ namespace wsEjemplo
                         insert.logws(odt.ArOdt, "ERROR", mensaje);
                         return mensaje;
                     }
+                    */
                     //
                     if (odt.Producto == "")
                     {
@@ -280,10 +281,10 @@ namespace wsEjemplo
                             var idcarga = insert.carga(odt);
                             var idar = insert.ar(odt, idcarga, idservicio, idfalla, idproveedor, idsegmento, idproducto);
                             //se descomenta por uso de campos 
-                            if (!odt.AfilAmex.Equals("") && !odt.IdAmex.Equals(""))
+                           /* if (!odt.AfilAmex.Equals("") && !odt.IdAmex.Equals(""))
                             {
                                 insert.terminalAmex(idar, odt.IdAmex, odt.AfilAmex);
-                            }
+                            }*/
                             //
                             if (odt.AfilAmex.Length < 10 || odt.AfilAmex.Length > 10)
                             {
@@ -517,6 +518,24 @@ namespace wsEjemplo
                     return mensaje = "El proveedor ingresado no existe";
                 }
 
+                //nuevas validaciones para campos nuevos de afiliacionAmex y idAmex
+
+                if (request.AfilAmex.Length < 17 || request.AfilAmex.Length > 17)
+                {
+                    mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
+                    insert.logws(request.PreOdt, "ERROR", mensaje);
+                    return mensaje;
+                }
+                if (request.IdAmex.Length < 17 || request.IdAmex.Length > 17)
+                {
+                    mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
+                    insert.logws(request.PreOdt, "ERROR", mensaje);
+                    return mensaje;
+                }
+
+                //
+
+
                 ar.NO_AR = request.PreOdt;
                 ar.NO_AFILIACION = request.Afiliacion;
                 ar.COLONIA = request.Colonia;
@@ -571,11 +590,16 @@ namespace wsEjemplo
                     ar.FOLIO_TELECARGA = Convert.ToInt32(request.FolioTelecarga);
                     ar.EQUIPO = request.FolioTelecarga;
                 }
+                //ingresar variables nuevas 
+                var AfilAmexV = request.AfilAmex;
+                var IdAmex = request.IdAmex;
+                //
                 ar.OTORGANTE_SOPORTE_CLIENTE = request.EjecutivoSucursal;
                 ar.SINTOMA = request.Sintoma;
                 ar.STATUS = "PROCESADO";
                 contex_.SubmitChanges();
                 var idar = ar.ID_AR;
+                insert.terminalAmex(idar, IdAmex, AfilAmexV);
                 procedures.actualizarOdt(idar);
                 update.arStatus(idar, 3);
                 insert.bitacoraAr(idar, 32, 3, "Solicitud de servicio Asignada");

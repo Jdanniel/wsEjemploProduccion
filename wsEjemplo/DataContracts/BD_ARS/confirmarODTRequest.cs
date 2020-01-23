@@ -73,5 +73,9 @@ namespace wsEjemplo.DataContracts.BD_ARS
         public string Sintoma { get; set; }
         [DataMember]
         public string TipoAB { get; set; }
+        [DataMember]
+        public string AfilAmex { get; set; }
+        [DataMember]
+        public string IdAmex { get; set; }
     }
 }
