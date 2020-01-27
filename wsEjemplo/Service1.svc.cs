@@ -520,13 +520,13 @@ namespace wsEjemplo
 
                 //nuevas validaciones para campos nuevos de afiliacionAmex y idAmex
 
-                if (request.AfilAmex.Length < 17 || request.AfilAmex.Length > 17)
+                if (request.AfilAmex.Length > 17 )
                 {
                     mensaje = "El campo Afiliacion Amex debe contener 17 numeros con opcion de completar con 7 caracteres de texto";
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
                 }
-                if (request.IdAmex.Length < 17 || request.IdAmex.Length > 17)
+                if (request.IdAmex.Length > 17 )
                 {
                     mensaje = "El campo Id Amex debe contener 17 numeros con opcion de completar con 7 caracteres de texto";
                     insert.logws(request.PreOdt, "ERROR", mensaje);
