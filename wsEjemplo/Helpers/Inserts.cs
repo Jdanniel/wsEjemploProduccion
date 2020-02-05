@@ -31,12 +31,12 @@ namespace wsEjemplo.Helpers
         {
             var descProveedor = (from a in contex_.C_PROVEEDORES_USUARIOS where a.ID_PROVEEDOR_USUARIO == idproveedor select a.DESC_PROVEEDOR_USUARIO).FirstOrDefault();
             var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == odt.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
-            string[] tipoabArray = { "A", "b" };
+            string[] tipoabArray = { "A", "b", "a", "B" };
             int? idtipoEquipo = null;
             //DateTime FECHA_INICIO = new DateTime();
             if (tipoabArray.Any(odt.TipoAB.Contains))
             {
-                idtipoEquipo = (from c in contex_.C_TIPO_A_B where c.DESC_TIPO_A_B == odt.TipoAB select c.ID_TIPO_A_B).FirstOrDefault();
+                idtipoEquipo = (from c in contex_.C_TIPO_A_B where c.DESC_TIPO_A_B == odt.TipoAB.ToUpper() || c.DESC_TIPO_A_B == odt.TipoAB.ToLower() select c.ID_TIPO_A_B).FirstOrDefault();
             }      
 
             string[] list = { "A. M.", "a. m.", "A.M.", "P. M.", "p. m.", "P.M." };

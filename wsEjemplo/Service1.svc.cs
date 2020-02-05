@@ -353,15 +353,15 @@ namespace wsEjemplo
                 var sepomex = (from f in contex_.SEPOMEX join g in contex_.SEPOMEX_ESTADOS on f.d_estado equals g.ID_ESTADO where f.d_CP == request.Cp.TrimEnd() select g.ESTADO).FirstOrDefault();
                 var idconectividad = (from b in contex_.C_CONECTIVIDAD where b.DESC_CONECTIVIDAD == request.Conectividad select b.ID_CONECTIVIDAD).FirstOrDefault();
                 var existCP = (from a in contex_.BD_TIPO_PLAZA_CLIENTE_CP where a.CP == request.Cp select a).FirstOrDefault();
-                string[] tipoabArray = { "A", "b" };
+                string[] tipoabArray = { "A", "b", "a", "B" };
                 int? idtipoEquipo = null;
                 //DateTime FECHA_INICIO = new DateTime();
                 if (tipoabArray.Any(request.TipoAB.Contains))
                 {
-                    idtipoEquipo = (from c in contex_.C_TIPO_A_B where c.DESC_TIPO_A_B == request.TipoAB select c.ID_TIPO_A_B).FirstOrDefault();
+                    idtipoEquipo = (from c in contex_.C_TIPO_A_B where c.DESC_TIPO_A_B == request.TipoAB.ToUpper() || c.DESC_TIPO_A_B == request.TipoAB.ToLower() select c.ID_TIPO_A_B).FirstOrDefault();
                 }
 
-                
+
                 if (sepomex == null || sepomex == "")
                 {
                     mensaje = "El codigo postal no existe en la base de sepomex";
