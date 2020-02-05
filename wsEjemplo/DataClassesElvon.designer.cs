@@ -22,7 +22,7 @@ namespace wsEjemplo
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ELAVON-TEST")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ELAVON")]
 	public partial class DataClassesElvonDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -81,16 +81,16 @@ namespace wsEjemplo
     partial void InsertBD_TIPO_PLAZA_CLIENTE_CP(BD_TIPO_PLAZA_CLIENTE_CP instance);
     partial void UpdateBD_TIPO_PLAZA_CLIENTE_CP(BD_TIPO_PLAZA_CLIENTE_CP instance);
     partial void DeleteBD_TIPO_PLAZA_CLIENTE_CP(BD_TIPO_PLAZA_CLIENTE_CP instance);
-    partial void InsertBD_AR(BD_AR instance);
-    partial void UpdateBD_AR(BD_AR instance);
-    partial void DeleteBD_AR(BD_AR instance);
     partial void InsertC_TIPO_A_B(C_TIPO_A_B instance);
     partial void UpdateC_TIPO_A_B(C_TIPO_A_B instance);
     partial void DeleteC_TIPO_A_B(C_TIPO_A_B instance);
+    partial void InsertBD_AR(BD_AR instance);
+    partial void UpdateBD_AR(BD_AR instance);
+    partial void DeleteBD_AR(BD_AR instance);
     #endregion
 		
 		public DataClassesElvonDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ELAVON_TESTConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ELAVONConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -263,19 +263,19 @@ namespace wsEjemplo
 			}
 		}
 		
-		public System.Data.Linq.Table<BD_AR> BD_AR
-		{
-			get
-			{
-				return this.GetTable<BD_AR>();
-			}
-		}
-		
 		public System.Data.Linq.Table<C_TIPO_A_B> C_TIPO_A_B
 		{
 			get
 			{
 				return this.GetTable<C_TIPO_A_B>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BD_AR> BD_AR
+		{
+			get
+			{
+				return this.GetTable<BD_AR>();
 			}
 		}
 		
@@ -10687,6 +10687,164 @@ namespace wsEjemplo
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.C_TIPO_A_B")]
+	public partial class C_TIPO_A_B : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_TIPO_A_B;
+		
+		private string _DESC_TIPO_A_B;
+		
+		private string _STATUS;
+		
+		private System.Nullable<int> _ID_USUARIO_ALTA;
+		
+		private System.Nullable<System.DateTime> _FEC_ALTA;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_TIPO_A_BChanging(int value);
+    partial void OnID_TIPO_A_BChanged();
+    partial void OnDESC_TIPO_A_BChanging(string value);
+    partial void OnDESC_TIPO_A_BChanged();
+    partial void OnSTATUSChanging(string value);
+    partial void OnSTATUSChanged();
+    partial void OnID_USUARIO_ALTAChanging(System.Nullable<int> value);
+    partial void OnID_USUARIO_ALTAChanged();
+    partial void OnFEC_ALTAChanging(System.Nullable<System.DateTime> value);
+    partial void OnFEC_ALTAChanged();
+    #endregion
+		
+		public C_TIPO_A_B()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_A_B", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_TIPO_A_B
+		{
+			get
+			{
+				return this._ID_TIPO_A_B;
+			}
+			set
+			{
+				if ((this._ID_TIPO_A_B != value))
+				{
+					this.OnID_TIPO_A_BChanging(value);
+					this.SendPropertyChanging();
+					this._ID_TIPO_A_B = value;
+					this.SendPropertyChanged("ID_TIPO_A_B");
+					this.OnID_TIPO_A_BChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_TIPO_A_B", DbType="VarChar(MAX)")]
+		public string DESC_TIPO_A_B
+		{
+			get
+			{
+				return this._DESC_TIPO_A_B;
+			}
+			set
+			{
+				if ((this._DESC_TIPO_A_B != value))
+				{
+					this.OnDESC_TIPO_A_BChanging(value);
+					this.SendPropertyChanging();
+					this._DESC_TIPO_A_B = value;
+					this.SendPropertyChanged("DESC_TIPO_A_B");
+					this.OnDESC_TIPO_A_BChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(MAX)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this.OnSTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS = value;
+					this.SendPropertyChanged("STATUS");
+					this.OnSTATUSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_USUARIO_ALTA", DbType="Int")]
+		public System.Nullable<int> ID_USUARIO_ALTA
+		{
+			get
+			{
+				return this._ID_USUARIO_ALTA;
+			}
+			set
+			{
+				if ((this._ID_USUARIO_ALTA != value))
+				{
+					this.OnID_USUARIO_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._ID_USUARIO_ALTA = value;
+					this.SendPropertyChanged("ID_USUARIO_ALTA");
+					this.OnID_USUARIO_ALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_ALTA
+		{
+			get
+			{
+				return this._FEC_ALTA;
+			}
+			set
+			{
+				if ((this._FEC_ALTA != value))
+				{
+					this.OnFEC_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._FEC_ALTA = value;
+					this.SendPropertyChanged("FEC_ALTA");
+					this.OnFEC_ALTAChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BD_AR")]
 	public partial class BD_AR : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -11003,7 +11161,7 @@ namespace wsEjemplo
 		
 		private System.Nullable<int> _ID_CALIFICA_INTENTO_4;
 		
-		private System.Nullable<long> _FOLIO_TELECARGA;
+		private System.Nullable<int> _FOLIO_TELECARGA;
 		
 		private System.Nullable<int> _ID_TIPO_EQUIPO;
 		
@@ -11032,6 +11190,8 @@ namespace wsEjemplo
 		private System.Nullable<int> _RS;
 		
 		private System.Nullable<int> _ID_AR_ORIGINAL;
+		
+		private string _MI_COMERCIO;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -11347,7 +11507,7 @@ namespace wsEjemplo
     partial void OnID_CALIFICA_INTENTO_3Changed();
     partial void OnID_CALIFICA_INTENTO_4Changing(System.Nullable<int> value);
     partial void OnID_CALIFICA_INTENTO_4Changed();
-    partial void OnFOLIO_TELECARGAChanging(System.Nullable<long> value);
+    partial void OnFOLIO_TELECARGAChanging(System.Nullable<int> value);
     partial void OnFOLIO_TELECARGAChanged();
     partial void OnID_TIPO_EQUIPOChanging(System.Nullable<int> value);
     partial void OnID_TIPO_EQUIPOChanged();
@@ -11377,6 +11537,8 @@ namespace wsEjemplo
     partial void OnRSChanged();
     partial void OnID_AR_ORIGINALChanging(System.Nullable<int> value);
     partial void OnID_AR_ORIGINALChanged();
+    partial void OnMI_COMERCIOChanging(string value);
+    partial void OnMI_COMERCIOChanged();
     #endregion
 		
 		public BD_AR()
@@ -14484,8 +14646,8 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType="BigInt")]
-		public System.Nullable<long> FOLIO_TELECARGA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType="Int")]
+		public System.Nullable<int> FOLIO_TELECARGA
 		{
 			get
 			{
@@ -14784,160 +14946,22 @@ namespace wsEjemplo
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.C_TIPO_A_B")]
-	public partial class C_TIPO_A_B : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_TIPO_A_B;
-		
-		private string _DESC_TIPO_A_B;
-		
-		private string _STATUS;
-		
-		private System.Nullable<int> _ID_USUARIO_ALTA;
-		
-		private System.Nullable<System.DateTime> _FEC_ALTA;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_TIPO_A_BChanging(int value);
-    partial void OnID_TIPO_A_BChanged();
-    partial void OnDESC_TIPO_A_BChanging(string value);
-    partial void OnDESC_TIPO_A_BChanged();
-    partial void OnSTATUSChanging(string value);
-    partial void OnSTATUSChanged();
-    partial void OnID_USUARIO_ALTAChanging(System.Nullable<int> value);
-    partial void OnID_USUARIO_ALTAChanged();
-    partial void OnFEC_ALTAChanging(System.Nullable<System.DateTime> value);
-    partial void OnFEC_ALTAChanged();
-    #endregion
-		
-		public C_TIPO_A_B()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_A_B", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_TIPO_A_B
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MI_COMERCIO", DbType="NChar(100)")]
+		public string MI_COMERCIO
 		{
 			get
 			{
-				return this._ID_TIPO_A_B;
+				return this._MI_COMERCIO;
 			}
 			set
 			{
-				if ((this._ID_TIPO_A_B != value))
+				if ((this._MI_COMERCIO != value))
 				{
-					this.OnID_TIPO_A_BChanging(value);
+					this.OnMI_COMERCIOChanging(value);
 					this.SendPropertyChanging();
-					this._ID_TIPO_A_B = value;
-					this.SendPropertyChanged("ID_TIPO_A_B");
-					this.OnID_TIPO_A_BChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_TIPO_A_B", DbType="VarChar(MAX)")]
-		public string DESC_TIPO_A_B
-		{
-			get
-			{
-				return this._DESC_TIPO_A_B;
-			}
-			set
-			{
-				if ((this._DESC_TIPO_A_B != value))
-				{
-					this.OnDESC_TIPO_A_BChanging(value);
-					this.SendPropertyChanging();
-					this._DESC_TIPO_A_B = value;
-					this.SendPropertyChanged("DESC_TIPO_A_B");
-					this.OnDESC_TIPO_A_BChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(MAX)")]
-		public string STATUS
-		{
-			get
-			{
-				return this._STATUS;
-			}
-			set
-			{
-				if ((this._STATUS != value))
-				{
-					this.OnSTATUSChanging(value);
-					this.SendPropertyChanging();
-					this._STATUS = value;
-					this.SendPropertyChanged("STATUS");
-					this.OnSTATUSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_USUARIO_ALTA", DbType="Int")]
-		public System.Nullable<int> ID_USUARIO_ALTA
-		{
-			get
-			{
-				return this._ID_USUARIO_ALTA;
-			}
-			set
-			{
-				if ((this._ID_USUARIO_ALTA != value))
-				{
-					this.OnID_USUARIO_ALTAChanging(value);
-					this.SendPropertyChanging();
-					this._ID_USUARIO_ALTA = value;
-					this.SendPropertyChanged("ID_USUARIO_ALTA");
-					this.OnID_USUARIO_ALTAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FEC_ALTA
-		{
-			get
-			{
-				return this._FEC_ALTA;
-			}
-			set
-			{
-				if ((this._FEC_ALTA != value))
-				{
-					this.OnFEC_ALTAChanging(value);
-					this.SendPropertyChanging();
-					this._FEC_ALTA = value;
-					this.SendPropertyChanged("FEC_ALTA");
-					this.OnFEC_ALTAChanged();
+					this._MI_COMERCIO = value;
+					this.SendPropertyChanged("MI_COMERCIO");
+					this.OnMI_COMERCIOChanged();
 				}
 			}
 		}

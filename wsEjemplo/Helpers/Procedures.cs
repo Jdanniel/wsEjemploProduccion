@@ -10,7 +10,8 @@ namespace wsEjemplo.Helpers
         protected DataClassesElvonDataContext contex_ = new DataClassesElvonDataContext();
         public void ingresarServicio(int idcarga)
         {
-            contex_.SP_INGRESAR_PREODT(idcarga, 67);
+            contex_.SP_INGRESAR_ARCHIVO1(idcarga, 67);
+            //contex_.SP_INGRESAR_PREODT(idcarga, 67);
             contex_.SubmitChanges();
         }
 
