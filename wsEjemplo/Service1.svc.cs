@@ -397,7 +397,18 @@ namespace wsEjemplo
                     estado = null;
                 }
 
+                var status = new int?[] { 3, 6, 7, 8 };
+
+                var arstatus = (from a in contex_.BD_AR where a.NO_AR == request.PreOdt && status.Contains(a.ID_STATUS_AR) select a).FirstOrDefault();
+
                 var ar = (from a in contex_.BD_AR where a.NO_AR == request.PreOdt && a.ID_STATUS_AR == 32 select a).FirstOrDefault();
+
+                if(ar == null && arstatus != null)
+                {
+                    mensaje = "La Odt ya existe en el sistema";
+                    insert.logws(request.PreOdt, "ERROR", mensaje);
+                    return mensaje;
+                }
 
                 if (ar == null)
                 {
