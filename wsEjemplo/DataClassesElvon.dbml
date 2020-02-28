@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ELAVON" Class="DataClassesElvonDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.100.56;Initial Catalog=ELAVON;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ELAVONConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ELAVON-TEST" Class="DataClassesElvonDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.100.56;Initial Catalog=ELAVON-TEST;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ELAVON_TESTConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BD_CARGAS" Member="BD_CARGAS">
     <Type Name="BD_CARGAS">
       <Column Name="ID_CARGA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -485,6 +485,35 @@
       <Column Name="FEC_ALTA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.C_CAUSAS_RECHAZO" Member="C_CAUSAS_RECHAZO">
+    <Type Name="C_CAUSAS_RECHAZO">
+      <Column Name="ID_CAUSA_RECHAZO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DESC_CAUSA_RECHAZO" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ID_USUARIO_ALTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="status_reason_code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_TRECHAZO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_CAUSA_CANCELACION" Member="C_CAUSA_CANCELACION">
+    <Type Name="C_CAUSA_CANCELACION">
+      <Column Name="ID_CAUSA_CANCELACION" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DESC_CAUSA_CANCELACION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TIPO_CANCELADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BD_AR_CAUSAS_CANCELACION" Member="BD_AR_CAUSAS_CANCELACION">
+    <Type Name="BD_AR_CAUSAS_CANCELACION">
+      <Column Name="ID_AR_CAUSA_CANCELACION" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_AR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CAUSA_CANCELACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.BD_AR" Member="BD_AR">
     <Type Name="BD_AR">
       <Column Name="ID_AR" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -642,7 +671,7 @@
       <Column Name="ID_CALIFICA_INTENTO_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_CALIFICA_INTENTO_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_CALIFICA_INTENTO_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FOLIO_TELECARGA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FOLIO_TELECARGA" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="ID_TIPO_EQUIPO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CORREO_EJECUTIVO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="TELEFONO_COMERCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -692,6 +721,17 @@
       <Column Name="ODT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="FECHAALTA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="MOTIVO" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GET_ODT_ONBASE" Method="SP_GET_ODT_ONBASE">
+    <Parameter Name="NOAR" Parameter="nOAR" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_GET_ODT_ONBASEResult">
+      <Column Name="odt" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="estatus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="conclusion" Type="System.String" DbType="VarChar(3000)" CanBeNull="true" />
+      <Column Name="fechaAlta" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="fechaConcluido" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="motivo" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

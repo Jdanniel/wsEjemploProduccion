@@ -225,6 +225,17 @@ namespace wsEjemplo
                         insert.logws(odt.ArOdt, "ERROR", mensaje);
                         return mensaje;
                     }
+                    /*Se agrega campo 27/02/2020*/
+                    if (odt.TipoServicio == "BOARDING DIGITAL" && odt.SubtipoServicio == "CONTRATO RECUPERACIÓN DE FIRMA")
+                    {
+                        if (odt.Canal == "")
+                        {
+                            mensaje = "El campo Canal no puede estar vacio";
+                            insert.logws(odt.ArOdt, "ERROR", mensaje);
+                            return mensaje;
+                        }
+                    }
+                    /*Fin*/
                     /*                if (odt.ModeloTPV == "")
                                     {
                                         mensaje = "El campo ModeloTPV no puede estar vacio";
@@ -643,7 +654,12 @@ namespace wsEjemplo
             return contex_.SP_GET_REPLICAS_ONBASE(odt.FecIni, odt.FecFin).ToList(); 
         }
 
-        public List<Respuesta> getODT(string odt)
+        public List<SP_GET_ODT_ONBASEResult> getODT(string odt)
+        {
+            return contex_.SP_GET_ODT_ONBASE(odt).ToList();
+        }
+
+        /*public List<Respuesta> getODT(string odt)
         {
             var idstatusar = new int?[] {6, 7, 8};
             var status = new int?[] {3, 31}; 
@@ -660,24 +676,24 @@ namespace wsEjemplo
                        {
                            estatus = b.DESC_STATUS_AR,
                            conclusion = a.DESCRIPCION_TRABAJO,
-                           fechaConcluido = (status.Contains(a.ID_STATUS_AR) 
-                           ? null
-                           : Convert.ToDateTime((from cc in contex_.BD_BITACORA_AR
-                                                 where a.ID_AR == cc.ID_AR 
-                                                 && cc.ID_STATUS_AR_INI == 3
-                                                 && idstatusar.Contains(cc.ID_STATUS_AR_FIN)
-                                                 && !comentarios.Contains(cc.COMENTARIO)
-                                                 orderby cc.FEC_ALTA descending
-                                                 select cc.FEC_ALTA).FirstOrDefault())
-                           .ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)),
+                           fechaConcluido = "",
                            fechaAlta = Convert.ToDateTime(a.FEC_ALTA).ToString("MM/dd/yyyy", CultureInfo.InvariantCulture),
                            odt = a.NO_AR,
-                           motivo = ""
+                           motivo = a.ID_STATUS_AR == 7 ? (from cc in contex_.C_CAUSAS_RECHAZO 
+                                                           where a.ID_CAUSA_RECHAZO == cc.ID_TRECHAZO 
+                                                           && cc.ID_CLIENTE == 4 
+                                                           && cc.STATUS == "ACTIVO"
+                                                           select cc.DESC_CAUSA_RECHAZO.TrimEnd()).FirstOrDefault() 
+                                                        : (a.ID_STATUS_AR == 8 ? (from cc in contex_.BD_AR_CAUSAS_CANCELACION
+                                                                                  join bb in contex_.C_CAUSA_CANCELACION
+                                                                                  on cc.ID_CAUSA_CANCELACION equals bb.ID_CAUSA_CANCELACION
+                                                                                  where cc.ID_AR == a.ID_AR
+                                                                                  select bb.DESC_CAUSA_CANCELACION.TrimEnd()).FirstOrDefault() : "")
                        }).ToList();
 
 
             return ars;
-        }
+        }*/
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {

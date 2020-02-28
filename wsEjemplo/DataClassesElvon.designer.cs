@@ -22,7 +22,7 @@ namespace wsEjemplo
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ELAVON")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ELAVON-TEST")]
 	public partial class DataClassesElvonDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -84,6 +84,15 @@ namespace wsEjemplo
     partial void InsertC_TIPO_A_B(C_TIPO_A_B instance);
     partial void UpdateC_TIPO_A_B(C_TIPO_A_B instance);
     partial void DeleteC_TIPO_A_B(C_TIPO_A_B instance);
+    partial void InsertC_CAUSAS_RECHAZO(C_CAUSAS_RECHAZO instance);
+    partial void UpdateC_CAUSAS_RECHAZO(C_CAUSAS_RECHAZO instance);
+    partial void DeleteC_CAUSAS_RECHAZO(C_CAUSAS_RECHAZO instance);
+    partial void InsertC_CAUSA_CANCELACION(C_CAUSA_CANCELACION instance);
+    partial void UpdateC_CAUSA_CANCELACION(C_CAUSA_CANCELACION instance);
+    partial void DeleteC_CAUSA_CANCELACION(C_CAUSA_CANCELACION instance);
+    partial void InsertBD_AR_CAUSAS_CANCELACION(BD_AR_CAUSAS_CANCELACION instance);
+    partial void UpdateBD_AR_CAUSAS_CANCELACION(BD_AR_CAUSAS_CANCELACION instance);
+    partial void DeleteBD_AR_CAUSAS_CANCELACION(BD_AR_CAUSAS_CANCELACION instance);
     partial void InsertBD_AR(BD_AR instance);
     partial void UpdateBD_AR(BD_AR instance);
     partial void DeleteBD_AR(BD_AR instance);
@@ -271,6 +280,30 @@ namespace wsEjemplo
 			}
 		}
 		
+		public System.Data.Linq.Table<C_CAUSAS_RECHAZO> C_CAUSAS_RECHAZO
+		{
+			get
+			{
+				return this.GetTable<C_CAUSAS_RECHAZO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<C_CAUSA_CANCELACION> C_CAUSA_CANCELACION
+		{
+			get
+			{
+				return this.GetTable<C_CAUSA_CANCELACION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BD_AR_CAUSAS_CANCELACION> BD_AR_CAUSAS_CANCELACION
+		{
+			get
+			{
+				return this.GetTable<BD_AR_CAUSAS_CANCELACION>();
+			}
+		}
+		
 		public System.Data.Linq.Table<BD_AR> BD_AR
 		{
 			get
@@ -312,6 +345,13 @@ namespace wsEjemplo
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fec_ini, fec_fin);
 			return ((ISingleResult<SP_GET_REPLICAS_ONBASEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GET_ODT_ONBASE")]
+		public ISingleResult<SP_GET_ODT_ONBASEResult> SP_GET_ODT_ONBASE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOAR", DbType="VarChar(255)")] string nOAR)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nOAR);
+			return ((ISingleResult<SP_GET_ODT_ONBASEResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -10845,6 +10885,528 @@ namespace wsEjemplo
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.C_CAUSAS_RECHAZO")]
+	public partial class C_CAUSAS_RECHAZO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_CAUSA_RECHAZO;
+		
+		private string _DESC_CAUSA_RECHAZO;
+		
+		private string _DESCRIPCION;
+		
+		private System.Nullable<int> _ID_CLIENTE;
+		
+		private string _STATUS;
+		
+		private System.Nullable<int> _ID_USUARIO_ALTA;
+		
+		private System.Nullable<System.DateTime> _FEC_ALTA;
+		
+		private string _status_reason_code;
+		
+		private System.Nullable<int> _ID_TRECHAZO;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_CAUSA_RECHAZOChanging(int value);
+    partial void OnID_CAUSA_RECHAZOChanged();
+    partial void OnDESC_CAUSA_RECHAZOChanging(string value);
+    partial void OnDESC_CAUSA_RECHAZOChanged();
+    partial void OnDESCRIPCIONChanging(string value);
+    partial void OnDESCRIPCIONChanged();
+    partial void OnID_CLIENTEChanging(System.Nullable<int> value);
+    partial void OnID_CLIENTEChanged();
+    partial void OnSTATUSChanging(string value);
+    partial void OnSTATUSChanged();
+    partial void OnID_USUARIO_ALTAChanging(System.Nullable<int> value);
+    partial void OnID_USUARIO_ALTAChanged();
+    partial void OnFEC_ALTAChanging(System.Nullable<System.DateTime> value);
+    partial void OnFEC_ALTAChanged();
+    partial void Onstatus_reason_codeChanging(string value);
+    partial void Onstatus_reason_codeChanged();
+    partial void OnID_TRECHAZOChanging(System.Nullable<int> value);
+    partial void OnID_TRECHAZOChanged();
+    #endregion
+		
+		public C_CAUSAS_RECHAZO()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CAUSA_RECHAZO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_CAUSA_RECHAZO
+		{
+			get
+			{
+				return this._ID_CAUSA_RECHAZO;
+			}
+			set
+			{
+				if ((this._ID_CAUSA_RECHAZO != value))
+				{
+					this.OnID_CAUSA_RECHAZOChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CAUSA_RECHAZO = value;
+					this.SendPropertyChanged("ID_CAUSA_RECHAZO");
+					this.OnID_CAUSA_RECHAZOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_CAUSA_RECHAZO", DbType="VarChar(MAX)")]
+		public string DESC_CAUSA_RECHAZO
+		{
+			get
+			{
+				return this._DESC_CAUSA_RECHAZO;
+			}
+			set
+			{
+				if ((this._DESC_CAUSA_RECHAZO != value))
+				{
+					this.OnDESC_CAUSA_RECHAZOChanging(value);
+					this.SendPropertyChanging();
+					this._DESC_CAUSA_RECHAZO = value;
+					this.SendPropertyChanged("DESC_CAUSA_RECHAZO");
+					this.OnDESC_CAUSA_RECHAZOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(MAX)")]
+		public string DESCRIPCION
+		{
+			get
+			{
+				return this._DESCRIPCION;
+			}
+			set
+			{
+				if ((this._DESCRIPCION != value))
+				{
+					this.OnDESCRIPCIONChanging(value);
+					this.SendPropertyChanging();
+					this._DESCRIPCION = value;
+					this.SendPropertyChanged("DESCRIPCION");
+					this.OnDESCRIPCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CLIENTE", DbType="Int")]
+		public System.Nullable<int> ID_CLIENTE
+		{
+			get
+			{
+				return this._ID_CLIENTE;
+			}
+			set
+			{
+				if ((this._ID_CLIENTE != value))
+				{
+					this.OnID_CLIENTEChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CLIENTE = value;
+					this.SendPropertyChanged("ID_CLIENTE");
+					this.OnID_CLIENTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(10)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this.OnSTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS = value;
+					this.SendPropertyChanged("STATUS");
+					this.OnSTATUSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_USUARIO_ALTA", DbType="Int")]
+		public System.Nullable<int> ID_USUARIO_ALTA
+		{
+			get
+			{
+				return this._ID_USUARIO_ALTA;
+			}
+			set
+			{
+				if ((this._ID_USUARIO_ALTA != value))
+				{
+					this.OnID_USUARIO_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._ID_USUARIO_ALTA = value;
+					this.SendPropertyChanged("ID_USUARIO_ALTA");
+					this.OnID_USUARIO_ALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FEC_ALTA
+		{
+			get
+			{
+				return this._FEC_ALTA;
+			}
+			set
+			{
+				if ((this._FEC_ALTA != value))
+				{
+					this.OnFEC_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._FEC_ALTA = value;
+					this.SendPropertyChanged("FEC_ALTA");
+					this.OnFEC_ALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_reason_code", DbType="VarChar(50)")]
+		public string status_reason_code
+		{
+			get
+			{
+				return this._status_reason_code;
+			}
+			set
+			{
+				if ((this._status_reason_code != value))
+				{
+					this.Onstatus_reason_codeChanging(value);
+					this.SendPropertyChanging();
+					this._status_reason_code = value;
+					this.SendPropertyChanged("status_reason_code");
+					this.Onstatus_reason_codeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TRECHAZO", DbType="Int")]
+		public System.Nullable<int> ID_TRECHAZO
+		{
+			get
+			{
+				return this._ID_TRECHAZO;
+			}
+			set
+			{
+				if ((this._ID_TRECHAZO != value))
+				{
+					this.OnID_TRECHAZOChanging(value);
+					this.SendPropertyChanging();
+					this._ID_TRECHAZO = value;
+					this.SendPropertyChanged("ID_TRECHAZO");
+					this.OnID_TRECHAZOChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.C_CAUSA_CANCELACION")]
+	public partial class C_CAUSA_CANCELACION : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_CAUSA_CANCELACION;
+		
+		private string _DESC_CAUSA_CANCELACION;
+		
+		private string _STATUS;
+		
+		private System.Nullable<int> _ID_CLIENTE;
+		
+		private System.Nullable<int> _ID_TIPO_CANCELADO;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_CAUSA_CANCELACIONChanging(int value);
+    partial void OnID_CAUSA_CANCELACIONChanged();
+    partial void OnDESC_CAUSA_CANCELACIONChanging(string value);
+    partial void OnDESC_CAUSA_CANCELACIONChanged();
+    partial void OnSTATUSChanging(string value);
+    partial void OnSTATUSChanged();
+    partial void OnID_CLIENTEChanging(System.Nullable<int> value);
+    partial void OnID_CLIENTEChanged();
+    partial void OnID_TIPO_CANCELADOChanging(System.Nullable<int> value);
+    partial void OnID_TIPO_CANCELADOChanged();
+    #endregion
+		
+		public C_CAUSA_CANCELACION()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CAUSA_CANCELACION", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_CAUSA_CANCELACION
+		{
+			get
+			{
+				return this._ID_CAUSA_CANCELACION;
+			}
+			set
+			{
+				if ((this._ID_CAUSA_CANCELACION != value))
+				{
+					this.OnID_CAUSA_CANCELACIONChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CAUSA_CANCELACION = value;
+					this.SendPropertyChanged("ID_CAUSA_CANCELACION");
+					this.OnID_CAUSA_CANCELACIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_CAUSA_CANCELACION", DbType="VarChar(255)")]
+		public string DESC_CAUSA_CANCELACION
+		{
+			get
+			{
+				return this._DESC_CAUSA_CANCELACION;
+			}
+			set
+			{
+				if ((this._DESC_CAUSA_CANCELACION != value))
+				{
+					this.OnDESC_CAUSA_CANCELACIONChanging(value);
+					this.SendPropertyChanging();
+					this._DESC_CAUSA_CANCELACION = value;
+					this.SendPropertyChanged("DESC_CAUSA_CANCELACION");
+					this.OnDESC_CAUSA_CANCELACIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(255)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this.OnSTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS = value;
+					this.SendPropertyChanged("STATUS");
+					this.OnSTATUSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CLIENTE", DbType="Int")]
+		public System.Nullable<int> ID_CLIENTE
+		{
+			get
+			{
+				return this._ID_CLIENTE;
+			}
+			set
+			{
+				if ((this._ID_CLIENTE != value))
+				{
+					this.OnID_CLIENTEChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CLIENTE = value;
+					this.SendPropertyChanged("ID_CLIENTE");
+					this.OnID_CLIENTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TIPO_CANCELADO", DbType="Int")]
+		public System.Nullable<int> ID_TIPO_CANCELADO
+		{
+			get
+			{
+				return this._ID_TIPO_CANCELADO;
+			}
+			set
+			{
+				if ((this._ID_TIPO_CANCELADO != value))
+				{
+					this.OnID_TIPO_CANCELADOChanging(value);
+					this.SendPropertyChanging();
+					this._ID_TIPO_CANCELADO = value;
+					this.SendPropertyChanged("ID_TIPO_CANCELADO");
+					this.OnID_TIPO_CANCELADOChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BD_AR_CAUSAS_CANCELACION")]
+	public partial class BD_AR_CAUSAS_CANCELACION : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_AR_CAUSA_CANCELACION;
+		
+		private System.Nullable<int> _ID_AR;
+		
+		private System.Nullable<int> _ID_CAUSA_CANCELACION;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_AR_CAUSA_CANCELACIONChanging(int value);
+    partial void OnID_AR_CAUSA_CANCELACIONChanged();
+    partial void OnID_ARChanging(System.Nullable<int> value);
+    partial void OnID_ARChanged();
+    partial void OnID_CAUSA_CANCELACIONChanging(System.Nullable<int> value);
+    partial void OnID_CAUSA_CANCELACIONChanged();
+    #endregion
+		
+		public BD_AR_CAUSAS_CANCELACION()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AR_CAUSA_CANCELACION", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_AR_CAUSA_CANCELACION
+		{
+			get
+			{
+				return this._ID_AR_CAUSA_CANCELACION;
+			}
+			set
+			{
+				if ((this._ID_AR_CAUSA_CANCELACION != value))
+				{
+					this.OnID_AR_CAUSA_CANCELACIONChanging(value);
+					this.SendPropertyChanging();
+					this._ID_AR_CAUSA_CANCELACION = value;
+					this.SendPropertyChanged("ID_AR_CAUSA_CANCELACION");
+					this.OnID_AR_CAUSA_CANCELACIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AR", DbType="Int")]
+		public System.Nullable<int> ID_AR
+		{
+			get
+			{
+				return this._ID_AR;
+			}
+			set
+			{
+				if ((this._ID_AR != value))
+				{
+					this.OnID_ARChanging(value);
+					this.SendPropertyChanging();
+					this._ID_AR = value;
+					this.SendPropertyChanged("ID_AR");
+					this.OnID_ARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CAUSA_CANCELACION", DbType="Int")]
+		public System.Nullable<int> ID_CAUSA_CANCELACION
+		{
+			get
+			{
+				return this._ID_CAUSA_CANCELACION;
+			}
+			set
+			{
+				if ((this._ID_CAUSA_CANCELACION != value))
+				{
+					this.OnID_CAUSA_CANCELACIONChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CAUSA_CANCELACION = value;
+					this.SendPropertyChanged("ID_CAUSA_CANCELACION");
+					this.OnID_CAUSA_CANCELACIONChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BD_AR")]
 	public partial class BD_AR : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -11161,7 +11723,7 @@ namespace wsEjemplo
 		
 		private System.Nullable<int> _ID_CALIFICA_INTENTO_4;
 		
-		private System.Nullable<int> _FOLIO_TELECARGA;
+		private System.Nullable<long> _FOLIO_TELECARGA;
 		
 		private System.Nullable<int> _ID_TIPO_EQUIPO;
 		
@@ -11507,7 +12069,7 @@ namespace wsEjemplo
     partial void OnID_CALIFICA_INTENTO_3Changed();
     partial void OnID_CALIFICA_INTENTO_4Changing(System.Nullable<int> value);
     partial void OnID_CALIFICA_INTENTO_4Changed();
-    partial void OnFOLIO_TELECARGAChanging(System.Nullable<int> value);
+    partial void OnFOLIO_TELECARGAChanging(System.Nullable<long> value);
     partial void OnFOLIO_TELECARGAChanged();
     partial void OnID_TIPO_EQUIPOChanging(System.Nullable<int> value);
     partial void OnID_TIPO_EQUIPOChanged();
@@ -14646,8 +15208,8 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType="Int")]
-		public System.Nullable<int> FOLIO_TELECARGA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType="BigInt")]
+		public System.Nullable<long> FOLIO_TELECARGA
 		{
 			get
 			{
@@ -15124,6 +15686,122 @@ namespace wsEjemplo
 				if ((this._MOTIVO != value))
 				{
 					this._MOTIVO = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GET_ODT_ONBASEResult
+	{
+		
+		private string _odt;
+		
+		private string _estatus;
+		
+		private string _conclusion;
+		
+		private string _fechaAlta;
+		
+		private string _fechaConcluido;
+		
+		private string _motivo;
+		
+		public SP_GET_ODT_ONBASEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_odt", DbType="VarChar(50)")]
+		public string odt
+		{
+			get
+			{
+				return this._odt;
+			}
+			set
+			{
+				if ((this._odt != value))
+				{
+					this._odt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estatus", DbType="VarChar(50)")]
+		public string estatus
+		{
+			get
+			{
+				return this._estatus;
+			}
+			set
+			{
+				if ((this._estatus != value))
+				{
+					this._estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_conclusion", DbType="VarChar(3000)")]
+		public string conclusion
+		{
+			get
+			{
+				return this._conclusion;
+			}
+			set
+			{
+				if ((this._conclusion != value))
+				{
+					this._conclusion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaAlta", DbType="NVarChar(4000)")]
+		public string fechaAlta
+		{
+			get
+			{
+				return this._fechaAlta;
+			}
+			set
+			{
+				if ((this._fechaAlta != value))
+				{
+					this._fechaAlta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaConcluido", DbType="NVarChar(4000)")]
+		public string fechaConcluido
+		{
+			get
+			{
+				return this._fechaConcluido;
+			}
+			set
+			{
+				if ((this._fechaConcluido != value))
+				{
+					this._fechaConcluido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_motivo", DbType="VarChar(MAX)")]
+		public string motivo
+		{
+			get
+			{
+				return this._motivo;
+			}
+			set
+			{
+				if ((this._motivo != value))
+				{
+					this._motivo = value;
 				}
 			}
 		}

@@ -121,6 +121,10 @@ namespace wsEjemplo.Helpers
             newODT.TELEFONO_COMERCIO = odt.Contacto2;
             newODT.TIPO_FALLA = idfalla;
             newODT.TIPO_SERVICIO = idservicio;
+            if(odt.Canal != "")
+            {
+                newODT.FOLIO_TAS = odt.Canal;
+            }
             if(odt.Proyecto.ToUpper().Equals("SI") || odt.Proyecto.ToUpper().Equals("SÍ"))
             {
                 newODT.ID_PROYECTO = 1;
