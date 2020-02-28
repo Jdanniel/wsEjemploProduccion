@@ -159,12 +159,6 @@ namespace wsEjemplo
                         insert.logws(odt.ArOdt, "ERROR", mensaje);
                         return mensaje;
                     }
-                    if (odt.Canal == "")
-                    {
-                        mensaje = "El campo canal no puede estar vacio";
-                        insert.logws(odt.ArOdt, "ERROR", mensaje);
-                        return mensaje;
-                    }
                     if (odt.EjecutivoKA == "")
                     {
                         mensaje = "El campo EjecutivoKA no puede estar vacio";
@@ -226,7 +220,7 @@ namespace wsEjemplo
                         return mensaje;
                     }
                     /*Se agrega campo 27/02/2020*/
-                    if (odt.TipoServicio == "BOARDING DIGITAL" && odt.SubtipoServicio == "CONTRATO RECUPERACIÓN DE FIRMA")
+                    if (odt.TipoServicio.Normalize(NormalizationForm.FormD) == "BOARDING DIGITAL" && odt.SubtipoServicio.Normalize(NormalizationForm.FormD) == "CONTRATO DE RECUPERACION DE FIRMA")
                     {
                         if (odt.Canal == "")
                         {
@@ -470,12 +464,6 @@ namespace wsEjemplo
                     insert.logws(request.PreOdt, "ERROR", mensaje);
                     return mensaje;
                 }*/
-                if (request.Canal == "")
-                {
-                    mensaje = "El campo de canal no puede estar vacio";
-                    insert.logws(request.PreOdt, "ERROR", mensaje);
-                    return mensaje;
-                }
                 if (request.EjecutivoKA == "")
                 {
                     mensaje = "El campo de EjecutivoKA no puede estar vacio";
