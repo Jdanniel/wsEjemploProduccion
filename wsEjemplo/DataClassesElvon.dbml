@@ -689,6 +689,15 @@
       <Column Name="MI_COMERCIO" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.C_CANALES" Member="C_CANALES">
+    <Type Name="C_CANALES">
+      <Column Name="ID_CANAL" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DESC_CANAL" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FEC_ALTA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_USUARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.SP_INGRESAR_ARCHIVO1" Method="SP_INGRESAR_ARCHIVO1">
     <Parameter Name="ID_CARGA" Parameter="iD_CARGA" Type="System.Int32" DbType="Int" />
     <Parameter Name="ID_USUARIO_ALTA" Parameter="iD_USUARIO_ALTA" Type="System.Int32" DbType="Int" />
