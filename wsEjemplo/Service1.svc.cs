@@ -238,6 +238,26 @@ namespace wsEjemplo
                         }
                         //Fin
                     }
+
+                    if (odt.TipoServicio.Normalize(NormalizationForm.FormD) == "INSTALACION DE BOARDING DIGITAL" && (odt.SubtipoServicio.Normalize(NormalizationForm.FormD) == "INSTALACION BD"))
+                    {
+                        if (odt.Canal == "")
+                        {
+                            mensaje = "El campo Canal no puede estar vacio";
+                            insert.logws(odt.ArOdt, "ERROR", mensaje);
+                            return mensaje;
+                        }
+                        //Se agrega nueva validacion 03/03/2020
+                        C_CANALES canal = contex_.C_CANALES.Where(x => x.DESC_CANAL == odt.Canal.TrimEnd()).FirstOrDefault();
+                        if (canal == null)
+                        {
+                            mensaje = "El campo Canal no es valido";
+                            insert.logws(odt.ArOdt, "ERROR", mensaje);
+                            return mensaje;
+                        }
+                        //Fin
+                    }
+
                     /*Fin*/
                     /*                if (odt.ModeloTPV == "")
                                     {
