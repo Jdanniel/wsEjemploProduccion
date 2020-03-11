@@ -22,7 +22,7 @@ namespace wsEjemplo
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ELAVON-TEST")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ELAVON")]
 	public partial class DataClassesElvonDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -102,7 +102,7 @@ namespace wsEjemplo
     #endregion
 		
 		public DataClassesElvonDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ELAVON_TESTConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ELAVONConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -15570,6 +15570,8 @@ namespace wsEjemplo
 		
 		private string _DESC_CANAL;
 		
+		private string _DESCRIPCION;
+		
 		private string _STATUS;
 		
 		private System.Nullable<System.DateTime> _FEC_ALTA;
@@ -15584,6 +15586,8 @@ namespace wsEjemplo
     partial void OnID_CANALChanged();
     partial void OnDESC_CANALChanging(string value);
     partial void OnDESC_CANALChanged();
+    partial void OnDESCRIPCIONChanging(string value);
+    partial void OnDESCRIPCIONChanged();
     partial void OnSTATUSChanging(string value);
     partial void OnSTATUSChanged();
     partial void OnFEC_ALTAChanging(System.Nullable<System.DateTime> value);
@@ -15633,6 +15637,26 @@ namespace wsEjemplo
 					this._DESC_CANAL = value;
 					this.SendPropertyChanged("DESC_CANAL");
 					this.OnDESC_CANALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(255)")]
+		public string DESCRIPCION
+		{
+			get
+			{
+				return this._DESCRIPCION;
+			}
+			set
+			{
+				if ((this._DESCRIPCION != value))
+				{
+					this.OnDESCRIPCIONChanging(value);
+					this.SendPropertyChanging();
+					this._DESCRIPCION = value;
+					this.SendPropertyChanged("DESCRIPCION");
+					this.OnDESCRIPCIONChanged();
 				}
 			}
 		}

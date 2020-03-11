@@ -14,10 +14,10 @@ namespace wsEjemplo
     [ServiceContract]
     public interface IService1
     {
-
+/*
         [OperationContract]
         string GetData(int value);
-
+*/
         [OperationContract]
         string addServicio(addODTRequest odt);
         

@@ -43,8 +43,8 @@ namespace wsEjemplo
                     Regex reg = new Regex("[^a-zA-Z0-9 ]");
                     string[] desc = odt.Producto.Split('-');
                     var idsegmento = (from aa in contex_.BD_NEGOCIOS where aa.NO_AFILIACION == odt.Afiliacion && aa.ID_CLIENTE == 4 select aa.ID_SEGMENTO).FirstOrDefault();
-                    var idservicio = (from a in contex_.C_SERVICIOS where a.DESC_SERVICIO == reg.Replace(odt.TipoServicio.Normalize(NormalizationForm.FormD), "") && a.ID_CLIENTE == 4 select a.ID_SERVICIO).FirstOrDefault();
-                    var idfalla = (from b in contex_.C_FALLAS where b.DESC_FALLA == reg.Replace(odt.SubtipoServicio.Normalize(NormalizationForm.FormD), "") && b.ID_CLIENTE == 4 select b.ID_FALLA).FirstOrDefault();
+                    var idservicio = (from a in contex_.C_SERVICIOS where a.DESC_SERVICIO == reg.Replace(odt.TipoServicio.Normalize(NormalizationForm.FormD), "") && a.ID_CLIENTE == 4 && a.STATUS == "ACTIVO" select a.ID_SERVICIO).FirstOrDefault();
+                    var idfalla = (from b in contex_.C_FALLAS where b.DESC_FALLA == reg.Replace(odt.SubtipoServicio.Normalize(NormalizationForm.FormD), "") && b.ID_CLIENTE == 4 && b.STATUS == "ACTIVO" select b.ID_FALLA).FirstOrDefault();
                     var idproveedor = (from c in contex_.C_PROVEEDORES_USUARIOS where c.DESC_PROVEEDOR_USUARIO == odt.Proveedor select c.ID_PROVEEDOR_USUARIO).FirstOrDefault();
                     var idarunico = (from d in contex_.BD_CARGAS join e in contex_.C_CLIENTES on d.ID_CLIENTE equals e.ID_CLIENTE where e.ID_CLIENTE == 4 select new { isarunico = e.IS_AR_UNICO == null ? 0 : e.IS_AR_UNICO }).FirstOrDefault();
                     var idproducto = (from e in contex_.C_PRODUCTOS_NEGOCIOS where e.DESC_PRODUCTO_NEGOCIO == odt.Producto select e.ID_PRODUCTO_NEGOCIO).SingleOrDefault();

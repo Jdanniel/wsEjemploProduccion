@@ -161,10 +161,10 @@
         <elementListCompartment Id="daa843e5-40eb-41ba-900c-3c7744d35891" absoluteBounds="2.7649999999999997, 0.96, 1.9700000000000002, 33.1329345703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8b2faa4f-f49c-4e34-ac5e-05a3eda37547" isExpanded="false" absoluteBounds="0.5, 3.75, 2, 0.45">
+    <classShape Id="960961e4-cfd9-4682-b5f6-fb849833928b" absoluteBounds="0.5, 3.75, 2, 1.9631982421875">
       <DataClassMoniker Name="/DataClassesElvonDataContext/C_CANALES" />
       <nestedChildShapes>
-        <elementListCompartment Id="31bd5e24-b5a7-407d-b361-67fc844139aa" absoluteBounds="0.51499999999999968, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f7be09c7-bbfc-4e0a-a686-a0e875c9ee09" absoluteBounds="0.51499999999999968, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
