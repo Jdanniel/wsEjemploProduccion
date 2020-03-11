@@ -93,12 +93,12 @@ namespace wsEjemplo
     partial void InsertBD_AR_CAUSAS_CANCELACION(BD_AR_CAUSAS_CANCELACION instance);
     partial void UpdateBD_AR_CAUSAS_CANCELACION(BD_AR_CAUSAS_CANCELACION instance);
     partial void DeleteBD_AR_CAUSAS_CANCELACION(BD_AR_CAUSAS_CANCELACION instance);
-    partial void InsertBD_AR(BD_AR instance);
-    partial void UpdateBD_AR(BD_AR instance);
-    partial void DeleteBD_AR(BD_AR instance);
     partial void InsertC_CANALES(C_CANALES instance);
     partial void UpdateC_CANALES(C_CANALES instance);
     partial void DeleteC_CANALES(C_CANALES instance);
+    partial void InsertBD_AR(BD_AR instance);
+    partial void UpdateBD_AR(BD_AR instance);
+    partial void DeleteBD_AR(BD_AR instance);
     #endregion
 		
 		public DataClassesElvonDataContext() : 
@@ -307,19 +307,19 @@ namespace wsEjemplo
 			}
 		}
 		
-		public System.Data.Linq.Table<BD_AR> BD_AR
-		{
-			get
-			{
-				return this.GetTable<BD_AR>();
-			}
-		}
-		
 		public System.Data.Linq.Table<C_CANALES> C_CANALES
 		{
 			get
 			{
 				return this.GetTable<C_CANALES>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BD_AR> BD_AR
+		{
+			get
+			{
+				return this.GetTable<BD_AR>();
 			}
 		}
 		
@@ -11418,6 +11418,188 @@ namespace wsEjemplo
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.C_CANALES")]
+	public partial class C_CANALES : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_CANAL;
+		
+		private string _DESC_CANAL;
+		
+		private string _DESCRIPCION;
+		
+		private string _STATUS;
+		
+		private System.Nullable<System.DateTime> _FEC_ALTA;
+		
+		private System.Nullable<int> _ID_USUARIO;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_CANALChanging(int value);
+    partial void OnID_CANALChanged();
+    partial void OnDESC_CANALChanging(string value);
+    partial void OnDESC_CANALChanged();
+    partial void OnDESCRIPCIONChanging(string value);
+    partial void OnDESCRIPCIONChanged();
+    partial void OnSTATUSChanging(string value);
+    partial void OnSTATUSChanged();
+    partial void OnFEC_ALTAChanging(System.Nullable<System.DateTime> value);
+    partial void OnFEC_ALTAChanged();
+    partial void OnID_USUARIOChanging(System.Nullable<int> value);
+    partial void OnID_USUARIOChanged();
+    #endregion
+		
+		public C_CANALES()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CANAL", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_CANAL
+		{
+			get
+			{
+				return this._ID_CANAL;
+			}
+			set
+			{
+				if ((this._ID_CANAL != value))
+				{
+					this.OnID_CANALChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CANAL = value;
+					this.SendPropertyChanged("ID_CANAL");
+					this.OnID_CANALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_CANAL", DbType="VarChar(255)")]
+		public string DESC_CANAL
+		{
+			get
+			{
+				return this._DESC_CANAL;
+			}
+			set
+			{
+				if ((this._DESC_CANAL != value))
+				{
+					this.OnDESC_CANALChanging(value);
+					this.SendPropertyChanging();
+					this._DESC_CANAL = value;
+					this.SendPropertyChanged("DESC_CANAL");
+					this.OnDESC_CANALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(255)")]
+		public string DESCRIPCION
+		{
+			get
+			{
+				return this._DESCRIPCION;
+			}
+			set
+			{
+				if ((this._DESCRIPCION != value))
+				{
+					this.OnDESCRIPCIONChanging(value);
+					this.SendPropertyChanging();
+					this._DESCRIPCION = value;
+					this.SendPropertyChanged("DESCRIPCION");
+					this.OnDESCRIPCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(50)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this.OnSTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS = value;
+					this.SendPropertyChanged("STATUS");
+					this.OnSTATUSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FEC_ALTA
+		{
+			get
+			{
+				return this._FEC_ALTA;
+			}
+			set
+			{
+				if ((this._FEC_ALTA != value))
+				{
+					this.OnFEC_ALTAChanging(value);
+					this.SendPropertyChanging();
+					this._FEC_ALTA = value;
+					this.SendPropertyChanged("FEC_ALTA");
+					this.OnFEC_ALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_USUARIO", DbType="Int")]
+		public System.Nullable<int> ID_USUARIO
+		{
+			get
+			{
+				return this._ID_USUARIO;
+			}
+			set
+			{
+				if ((this._ID_USUARIO != value))
+				{
+					this.OnID_USUARIOChanging(value);
+					this.SendPropertyChanging();
+					this._ID_USUARIO = value;
+					this.SendPropertyChanged("ID_USUARIO");
+					this.OnID_USUARIOChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BD_AR")]
 	public partial class BD_AR : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -11734,7 +11916,7 @@ namespace wsEjemplo
 		
 		private System.Nullable<int> _ID_CALIFICA_INTENTO_4;
 		
-		private System.Nullable<long> _FOLIO_TELECARGA;
+		private System.Nullable<int> _FOLIO_TELECARGA;
 		
 		private System.Nullable<int> _ID_TIPO_EQUIPO;
 		
@@ -12080,7 +12262,7 @@ namespace wsEjemplo
     partial void OnID_CALIFICA_INTENTO_3Changed();
     partial void OnID_CALIFICA_INTENTO_4Changing(System.Nullable<int> value);
     partial void OnID_CALIFICA_INTENTO_4Changed();
-    partial void OnFOLIO_TELECARGAChanging(System.Nullable<long> value);
+    partial void OnFOLIO_TELECARGAChanging(System.Nullable<int> value);
     partial void OnFOLIO_TELECARGAChanged();
     partial void OnID_TIPO_EQUIPOChanging(System.Nullable<int> value);
     partial void OnID_TIPO_EQUIPOChanged();
@@ -15219,8 +15401,8 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType="BigInt")]
-		public System.Nullable<long> FOLIO_TELECARGA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType="Int")]
+		public System.Nullable<int> FOLIO_TELECARGA
 		{
 			get
 			{
@@ -15535,188 +15717,6 @@ namespace wsEjemplo
 					this._MI_COMERCIO = value;
 					this.SendPropertyChanged("MI_COMERCIO");
 					this.OnMI_COMERCIOChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.C_CANALES")]
-	public partial class C_CANALES : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_CANAL;
-		
-		private string _DESC_CANAL;
-		
-		private string _DESCRIPCION;
-		
-		private string _STATUS;
-		
-		private System.Nullable<System.DateTime> _FEC_ALTA;
-		
-		private System.Nullable<int> _ID_USUARIO;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_CANALChanging(int value);
-    partial void OnID_CANALChanged();
-    partial void OnDESC_CANALChanging(string value);
-    partial void OnDESC_CANALChanged();
-    partial void OnDESCRIPCIONChanging(string value);
-    partial void OnDESCRIPCIONChanged();
-    partial void OnSTATUSChanging(string value);
-    partial void OnSTATUSChanged();
-    partial void OnFEC_ALTAChanging(System.Nullable<System.DateTime> value);
-    partial void OnFEC_ALTAChanged();
-    partial void OnID_USUARIOChanging(System.Nullable<int> value);
-    partial void OnID_USUARIOChanged();
-    #endregion
-		
-		public C_CANALES()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CANAL", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_CANAL
-		{
-			get
-			{
-				return this._ID_CANAL;
-			}
-			set
-			{
-				if ((this._ID_CANAL != value))
-				{
-					this.OnID_CANALChanging(value);
-					this.SendPropertyChanging();
-					this._ID_CANAL = value;
-					this.SendPropertyChanged("ID_CANAL");
-					this.OnID_CANALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESC_CANAL", DbType="VarChar(255)")]
-		public string DESC_CANAL
-		{
-			get
-			{
-				return this._DESC_CANAL;
-			}
-			set
-			{
-				if ((this._DESC_CANAL != value))
-				{
-					this.OnDESC_CANALChanging(value);
-					this.SendPropertyChanging();
-					this._DESC_CANAL = value;
-					this.SendPropertyChanged("DESC_CANAL");
-					this.OnDESC_CANALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(255)")]
-		public string DESCRIPCION
-		{
-			get
-			{
-				return this._DESCRIPCION;
-			}
-			set
-			{
-				if ((this._DESCRIPCION != value))
-				{
-					this.OnDESCRIPCIONChanging(value);
-					this.SendPropertyChanging();
-					this._DESCRIPCION = value;
-					this.SendPropertyChanged("DESCRIPCION");
-					this.OnDESCRIPCIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(50)")]
-		public string STATUS
-		{
-			get
-			{
-				return this._STATUS;
-			}
-			set
-			{
-				if ((this._STATUS != value))
-				{
-					this.OnSTATUSChanging(value);
-					this.SendPropertyChanging();
-					this._STATUS = value;
-					this.SendPropertyChanged("STATUS");
-					this.OnSTATUSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEC_ALTA", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FEC_ALTA
-		{
-			get
-			{
-				return this._FEC_ALTA;
-			}
-			set
-			{
-				if ((this._FEC_ALTA != value))
-				{
-					this.OnFEC_ALTAChanging(value);
-					this.SendPropertyChanging();
-					this._FEC_ALTA = value;
-					this.SendPropertyChanged("FEC_ALTA");
-					this.OnFEC_ALTAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_USUARIO", DbType="Int")]
-		public System.Nullable<int> ID_USUARIO
-		{
-			get
-			{
-				return this._ID_USUARIO;
-			}
-			set
-			{
-				if ((this._ID_USUARIO != value))
-				{
-					this.OnID_USUARIOChanging(value);
-					this.SendPropertyChanging();
-					this._ID_USUARIO = value;
-					this.SendPropertyChanged("ID_USUARIO");
-					this.OnID_USUARIOChanged();
 				}
 			}
 		}

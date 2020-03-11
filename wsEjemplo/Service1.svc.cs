@@ -220,7 +220,7 @@ namespace wsEjemplo
                         return mensaje;
                     }
                     /*Se agrega campo 27/02/2020*/
-                    if (odt.TipoServicio.Normalize(NormalizationForm.FormD) == "BOARDING DIGITAL" && (odt.SubtipoServicio.Normalize(NormalizationForm.FormD) == "CONTRATO DE RECUPERACION DE FIRMA" || odt.SubtipoServicio.Normalize(NormalizationForm.FormD) == "INSTALACION BD"))
+                    if (odt.TipoServicio.Normalize(NormalizationForm.FormD) == "BOARDING DIGITAL" && (odt.SubtipoServicio.Normalize(NormalizationForm.FormD) == "CONTRATO DE RECUPERACION DE FIRMA"))
                     {
                         if (odt.Canal == "")
                         {
@@ -314,29 +314,8 @@ namespace wsEjemplo
 
                             var idcarga = insert.carga(odt);
                             int idar = insert.ar(odt, idcarga, idservicio, idfalla, idproveedor, idsegmento, idproducto);
-                            //se descomenta por uso de campos 
-                           /* if (!odt.AfilAmex.Equals("") && !odt.IdAmex.Equals(""))
-                            {
-                                insert.terminalAmex(idar, odt.IdAmex, odt.AfilAmex);
-                            }*/
-                            //
-                            /*
-                            if (odt.AfilAmex.Length < 10 || odt.AfilAmex.Length > 10)
-                            {
-                                mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
-                                insert.logws(odt.ArOdt, "ERROR", mensaje);
-                                return mensaje;
-                            }
-                            if (odt.IdAmex.Length < 8 || odt.IdAmex.Length > 8)
-                            {
-                                mensaje = "El campo Afiliacion Amex debe contener 10 numeros con opcion de completar con 7 caracteres de texto";
-                                insert.logws(odt.ArOdt, "ERROR", mensaje);
-                                return mensaje;
-                            }*/
-
                             updates.carga(idcarga);
                             procedures.ingresarServicio(idcarga);
-                            //procedures.liberarCarga(idcarga);
                             updates.arStatus(idar, 32);
                             updates.arStatusText(idar, "Interfaz");
                             insert.bitacoraAr(idar, 1, 32, "Solicitud de servicio esperando confirmacion.");
@@ -356,7 +335,7 @@ namespace wsEjemplo
             }
             catch (Exception ex)
             {
-                mensaje = ex.ToString();
+                mensaje = ex.StackTrace;
                 val = "ERROR";
             }
             Inserts inserts = new Inserts();
@@ -649,7 +628,7 @@ namespace wsEjemplo
             }
             catch (Exception ex)
             {
-                mensaje = ex.ToString();
+                mensaje = ex.Message;
                 val = "ERROR CONFIRMACION";
             }
             Inserts inserts = new Inserts();
