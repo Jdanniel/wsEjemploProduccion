@@ -11916,7 +11916,7 @@ namespace wsEjemplo
 		
 		private System.Nullable<int> _ID_CALIFICA_INTENTO_4;
 		
-		private System.Nullable<int> _FOLIO_TELECARGA;
+		private string _FOLIO_TELECARGA;
 		
 		private System.Nullable<int> _ID_TIPO_EQUIPO;
 		
@@ -12262,7 +12262,7 @@ namespace wsEjemplo
     partial void OnID_CALIFICA_INTENTO_3Changed();
     partial void OnID_CALIFICA_INTENTO_4Changing(System.Nullable<int> value);
     partial void OnID_CALIFICA_INTENTO_4Changed();
-    partial void OnFOLIO_TELECARGAChanging(System.Nullable<int> value);
+    partial void OnFOLIO_TELECARGAChanging(string value);
     partial void OnFOLIO_TELECARGAChanged();
     partial void OnID_TIPO_EQUIPOChanging(System.Nullable<int> value);
     partial void OnID_TIPO_EQUIPOChanged();
@@ -15401,8 +15401,8 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType="Int")]
-		public System.Nullable<int> FOLIO_TELECARGA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType = "VarChar(50)")]
+		public string FOLIO_TELECARGA
 		{
 			get
 			{

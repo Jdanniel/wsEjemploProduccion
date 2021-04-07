@@ -85,7 +85,7 @@ namespace wsEjemplo.Helpers
             newODT.FEC_CONVENIO = DateTime.Now;
             //newODT.FEC_INICIO = Convert.ToDateTime(fechaenvio);
             newODT.FEC_INICIO = DateTime.Now;
-            newODT.FOLIO_TELECARGA = odt.FolioTelecarga == "" ? 0 : Convert.ToInt32(odt.FolioTelecarga);
+            newODT.FOLIO_TELECARGA = odt.FolioTelecarga;
             newODT.EQUIPO = odt.FolioTelecarga == "" ? null : odt.FolioTelecarga;
             newODT.ID_CARGA = idcarga;
             newODT.ID_CLIENTE = 4;
