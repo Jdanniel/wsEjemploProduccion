@@ -11668,7 +11668,7 @@ namespace wsEjemplo
 		
 		private System.Nullable<decimal> _PRECIO_EXITO;
 		
-		private System.Nullable<decimal> _PRECIO;
+		private string _PRECIO;
 		
 		private System.Nullable<int> _ID_NEGOCIO;
 		
@@ -11742,7 +11742,7 @@ namespace wsEjemplo
 		
 		private string _INTENSIDAD_SENIAL;
 		
-		private System.Nullable<int> _IS_SIM_REMPLAZADA;
+		private string _IS_SIM_REMPLAZADA;
 		
 		private string _FALLA_ENCONTRADA;
 		
@@ -11854,7 +11854,7 @@ namespace wsEjemplo
 		
 		private System.Nullable<int> _ID_ESPECIFICA_CAUSA_RECHAZO;
 		
-		private System.Nullable<int> _DURACION;
+		private string _DURACION;
 		
 		private System.Nullable<int> _TRASLADO;
 		
@@ -12014,7 +12014,7 @@ namespace wsEjemplo
     partial void OnHORAS_GARANTIAChanged();
     partial void OnPRECIO_EXITOChanging(System.Nullable<decimal> value);
     partial void OnPRECIO_EXITOChanged();
-    partial void OnPRECIOChanging(System.Nullable<decimal> value);
+    partial void OnPRECIOChanging(string value);
     partial void OnPRECIOChanged();
     partial void OnID_NEGOCIOChanging(System.Nullable<int> value);
     partial void OnID_NEGOCIOChanged();
@@ -12088,7 +12088,7 @@ namespace wsEjemplo
     partial void OnOTORGANTE_VOBO_TERCEROSChanged();
     partial void OnINTENSIDAD_SENIALChanging(string value);
     partial void OnINTENSIDAD_SENIALChanged();
-    partial void OnIS_SIM_REMPLAZADAChanging(System.Nullable<int> value);
+    partial void OnIS_SIM_REMPLAZADAChanging(string value);
     partial void OnIS_SIM_REMPLAZADAChanged();
     partial void OnFALLA_ENCONTRADAChanging(string value);
     partial void OnFALLA_ENCONTRADAChanged();
@@ -12200,7 +12200,7 @@ namespace wsEjemplo
     partial void OnFOLIO_TIRChanged();
     partial void OnID_ESPECIFICA_CAUSA_RECHAZOChanging(System.Nullable<int> value);
     partial void OnID_ESPECIFICA_CAUSA_RECHAZOChanged();
-    partial void OnDURACIONChanging(System.Nullable<int> value);
+    partial void OnDURACIONChanging(string value);
     partial void OnDURACIONChanged();
     partial void OnTRASLADOChanging(System.Nullable<int> value);
     partial void OnTRASLADOChanged();
@@ -12921,8 +12921,8 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRECIO", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> PRECIO
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRECIO", DbType="VarChar(50)")]
+		public string PRECIO
 		{
 			get
 			{
@@ -13661,8 +13661,8 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_SIM_REMPLAZADA", DbType="Int")]
-		public System.Nullable<int> IS_SIM_REMPLAZADA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_SIM_REMPLAZADA", DbType="VarChar(255)")]
+		public string IS_SIM_REMPLAZADA
 		{
 			get
 			{
@@ -14601,7 +14601,7 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAJA", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAJA", DbType="VarChar(10)")]
 		public string CAJA
 		{
 			get
@@ -14781,8 +14781,8 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DURACION", DbType="Int")]
-		public System.Nullable<int> DURACION
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DURACION", DbType="VarChar(255)")]
+		public string DURACION
 		{
 			get
 			{
@@ -14921,7 +14921,7 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_SIM", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_SIM", DbType="VarChar(300)")]
 		public string NO_SIM
 		{
 			get
@@ -15401,7 +15401,7 @@ namespace wsEjemplo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType = "VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOLIO_TELECARGA", DbType="VarChar(50)")]
 		public string FOLIO_TELECARGA
 		{
 			get

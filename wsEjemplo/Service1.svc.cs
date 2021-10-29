@@ -335,7 +335,7 @@ namespace wsEjemplo
             }
             catch (Exception ex)
             {
-                mensaje = ex.StackTrace;
+                mensaje = ex.StackTrace +" "+ ex.Message;
                 val = "ERROR";
             }
             Inserts inserts = new Inserts();

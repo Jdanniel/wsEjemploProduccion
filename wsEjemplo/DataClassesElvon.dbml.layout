@@ -56,14 +56,14 @@
         <elementListCompartment Id="361a7fd5-6a4a-4baa-8df5-77c95520bf82" absoluteBounds="4.89, 1.585, 1.9700000000000002, 8.1337483723958321" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.53125 : 0.95); (6.53125 : 1.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.53125 : 0.95); (6.53125 : 1.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesElvonDataContext/BD_CARGAS/BD_CARGAS_BD_NEGOCIOS" />
       <nodes>
         <classShapeMoniker Id="4d06d8ec-fe17-4bd8-9e19-2ea38fd5cb3b" />
         <classShapeMoniker Id="425eb4bc-594a-4b77-b40a-5479a59583fc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.640625 : 0.95); (5.640625 : 1.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.640625 : 0.95); (5.640625 : 1.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesElvonDataContext/BD_CARGAS/BD_CARGAS_BD_NEGOCIOS1" />
       <nodes>
         <classShapeMoniker Id="4d06d8ec-fe17-4bd8-9e19-2ea38fd5cb3b" />
@@ -106,7 +106,7 @@
         <elementListCompartment Id="5e08a377-3769-4843-9b57-936b04bcc77f" absoluteBounds="7.1400000000000006, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.125 : 1.35); (6.875 : 1.35)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.125 : 1.35); (6.875 : 1.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesElvonDataContext/SEPOMEX_ESTADOS/SEPOMEX_ESTADOS_BD_NEGOCIOS" />
       <nodes>
         <classShapeMoniker Id="6d108459-5e2e-4189-9388-ff0ef7432d28" />
@@ -161,10 +161,10 @@
         <elementListCompartment Id="f7be09c7-bbfc-4e0a-a686-a0e875c9ee09" absoluteBounds="0.51499999999999968, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9dc4fbf1-77dd-4bf0-a1a3-9ea23c3ad066" isExpanded="false" absoluteBounds="2.75, 0.5, 2, 0.45">
+    <classShape Id="ee8c3c80-829c-4ed2-9e76-423df96a00c3" isExpanded="false" absoluteBounds="2.75, 0.5, 2, 0.45">
       <DataClassMoniker Name="/DataClassesElvonDataContext/BD_AR" />
       <nestedChildShapes>
-        <elementListCompartment Id="28e10608-0f50-4e0e-a18d-174675adcb63" absoluteBounds="2.7649999999999997, 0.96, 1.9700000000000002, 33.1329345703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3a685939-12ab-48ba-8c72-a718bb75e5e4" absoluteBounds="2.7649999999999997, 0.96, 1.9700000000000002, 33.1329345703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

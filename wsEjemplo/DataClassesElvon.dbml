@@ -557,7 +557,7 @@
       <Column Name="ID_FALLA" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="HORAS_GARANTIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PRECIO_EXITO" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="PRECIO" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PRECIO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ID_NEGOCIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_ESTADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_REGION" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -594,7 +594,7 @@
       <Column Name="OTORGANTE_VOBO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="OTORGANTE_VOBO_TERCEROS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="INTENSIDAD_SENIAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="IS_SIM_REMPLAZADA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IS_SIM_REMPLAZADA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="FALLA_ENCONTRADA" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="OTORGANTE_VOBO_CLIENTE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="MOTIVO_COBRO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -641,7 +641,7 @@
       <Column Name="ID_RESPONSABLE_CANCELACION_PROGRAMADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="INSUMOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="RESPONSABLE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CAJA" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CAJA" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="ID_ESPECIF_TIPO_FALLA" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="VOLTAJE_NEUTRO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
@@ -650,14 +650,14 @@
       <Column Name="FOLIO_VALIDACION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="FOLIO_TIR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ID_ESPECIFICA_CAUSA_RECHAZO" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DURACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DURACION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="TRASLADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_STATUS_VALIDACION_PREFACTURACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_DESCRIPCION_TRABAJO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_STATUS_REASON_CODES" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="due_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="CADENA_CIERRE" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="NO_SIM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NO_SIM" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
       <Column Name="CLAVE_RECHAZO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="IS_INTERFAZ_BANCOMER" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_CONCEPTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -681,7 +681,7 @@
       <Column Name="ID_CALIFICA_INTENTO_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_CALIFICA_INTENTO_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_CALIFICA_INTENTO_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FOLIO_TELECARGA" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FOLIO_TELECARGA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ID_TIPO_EQUIPO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CORREO_EJECUTIVO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="TELEFONO_COMERCIO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
