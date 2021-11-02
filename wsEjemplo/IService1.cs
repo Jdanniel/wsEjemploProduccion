@@ -23,10 +23,9 @@ namespace wsEjemplo
         
         [OperationContract]
         string confirmarOdt(confirmarODTRequest request);
-/*      
+/*
         [OperationContract]
-        List<SP_GET_ODT_ONBASEResult> getODT(string odt
-*/
+        List<SP_GET_ODT_ONBASEResult> getODT(string odt);*/
 /*
         [OperationContract]
         List<SP_GET_REPLICAS_ONBASEResult> ODTReplica(getOdtReplicaRequest odt);
